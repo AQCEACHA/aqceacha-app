@@ -87,7 +87,7 @@ export const Carousel = () => {
           height: 1,
         }}
         contentContainerStyle={{
-          marginLeft: -7,
+          /*desbugar as dimensões*/
         }}
         pagingEnabled
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
@@ -113,7 +113,8 @@ export const Carousel = () => {
         )}
         style={{
           alignSelf: 'center',
-          bottom: 240
+          top: 200,
+          position: 'absolute'
         }}
         scrollEnabled={false}
         horizontal

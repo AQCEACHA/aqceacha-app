@@ -1,8 +1,10 @@
 import { StyleSheet, SafeAreaView, StatusBar, View, TextInput, Text } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
-import Home from "./src/pages/Home";
-import { Carousel } from "./src/pages/Carousel";
+import Home from "./src/components/Home";
+import { Carousel } from "./src/components/Carousel";
+import Slider from './src/components/Slider';
 import { BounceOutLeft } from "react-native-reanimated";
+
 
 export default function App() {
   return (
@@ -11,7 +13,7 @@ export default function App() {
       <Home />
       <View style={styles.search}>
         <Feather name="search" size={25} color="#10228A" style={styles.iconsearch}/>
-      <TextInput placeholder="O que você está procurando?" style={styles.textinput}>
+      <TextInput placeholder="O que você está procurando?">
       </TextInput>
       </View>
 
@@ -20,12 +22,7 @@ export default function App() {
       </View>
 
       <View style={styles.cat}>
-        <Text>Categorias</Text>
-        <View style={styles.icons}>
-        <Feather name="camera" size={25} color="#10228A" /> <Text>Fotógrafo</Text>
-        <Feather name="cpu" size={25} color="#10228A" /> <Text>T.I</Text>
-        <Feather name="tool" size={25} color="#10228A"/> <Text>Mecânico</Text>
-        </View>
+        <Slider />
       </View>
 
     </SafeAreaView>
@@ -56,15 +53,8 @@ const styles = StyleSheet.create({
     marginRight: 15,
     alignSelf: 'center'
   },
-  textinput: {
-    alignSelf: 'center'
-  },
   cat: {
-    
-    
-  },
-  icons: {
-   flexDirection: 'row',
-
-  },
+    position: "absolute",
+    top: 380
+  }
 });
