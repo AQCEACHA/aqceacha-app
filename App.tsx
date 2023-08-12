@@ -2,8 +2,7 @@ import { StyleSheet, SafeAreaView, StatusBar, View, TextInput, Text } from "reac
 import Feather from "@expo/vector-icons/Feather";
 import Home from "./src/components/Home";
 import { Carousel } from "./src/components/Carousel";
-import Slider from './src/components/Slider';
-import { BounceOutLeft } from "react-native-reanimated";
+import { Slider } from './src/components/Slider';
 
 
 export default function App() {
@@ -19,9 +18,12 @@ export default function App() {
 
       <View style={styles.carousel}>
         <Carousel />
-      </View>
+  </View>
 
-      <View style={styles.cat}>
+
+      <Text style={styles.categorias}>Categorias</Text>
+
+      <View style={styles.slider}>
         <Slider />
       </View>
 
@@ -35,8 +37,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#eeeeee",
   },
   carousel: {
+    flex: 1,
     alignItems: 'center',
     paddingTop: 5,
+  },
+    slider: {
+      flex:2,
+    alignItems: 'center',
+    top: 40,
+
+    /*width: 'auto',
+    padding: 50,
+    top: 390,
+    position: 'absolute'
+    */
   },
   search: {
     flexDirection: 'row',
@@ -53,8 +67,11 @@ const styles = StyleSheet.create({
     marginRight: 15,
     alignSelf: 'center'
   },
-  cat: {
-    position: "absolute",
+  categorias: {
+    fontSize: 20,
+    position: 'absolute',
+    alignSelf: 'center',
     top: 380
-  }
+  },
+
 });
