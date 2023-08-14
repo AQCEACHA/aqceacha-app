@@ -6,6 +6,9 @@ import Animated, {
   FadeOutRight,
 } from 'react-native-reanimated';
 
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+
+
 const DATA = [
   {
     image:

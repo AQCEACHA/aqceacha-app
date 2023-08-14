@@ -3,7 +3,7 @@ import Feather from "@expo/vector-icons/Feather";
 import Home from "./src/components/Home";
 import { Carousel } from "./src/components/Carousel";
 import { Slider } from './src/components/Slider';
-
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 export default function App() {
   return (
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     slider: {
       flex:2,
     alignItems: 'center',
-    top: 40,
+    top: vw(40),
 
     /*width: 'auto',
     padding: 50,
