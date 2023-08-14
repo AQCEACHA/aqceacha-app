@@ -6,6 +6,7 @@ import Animated, {
   FadeInLeft,
   FadeOutRight,
 } from 'react-native-reanimated';
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 const DATA = [
   {
@@ -76,10 +77,10 @@ export const Slider = () => {
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: Dimensions.get('screen').width * 0.15,
+              width: vw(Dimensions.get('screen').width * 0.035),
               alignItems: 'center',
-              height: 35,
-              marginHorizontal: 40,
+              height: vw(35),
+              marginHorizontal: vw(10),
             }}
           >
             <Feather

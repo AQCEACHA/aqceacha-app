@@ -1,6 +1,9 @@
 import React from "react";
 import Feather from "@expo/vector-icons/Feather";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+
+
 export default function Home() {
   return (
 
@@ -23,19 +26,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
 
     alignItems: 'center',
-    height: 56,
+    height: vw(13),
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
-      height: 4,
+      width: vw(0),
+      height: vw(4),
     },
-    shadowOpacity: 0.30,
-    shadowRadius: 4.65,
+    shadowOpacity: vw(0.30),
+    shadowRadius: vw(4.65),
 
-    elevation: 4,
+    elevation: vw(2),
   },
   icontoolbar:{
-    marginRight: 15,
-    marginLeft: 15
+    marginRight: vw(5),
+    marginLeft: vw(5)
   }
 });

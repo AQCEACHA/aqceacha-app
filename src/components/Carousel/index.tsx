@@ -65,11 +65,11 @@ export const Carousel = () => {
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: Dimensions.get('screen').width * 0.8,
+              width: vw(Dimensions.get('screen').width * 0.2),
               alignItems: 'center',
-              height: 180,
-              borderRadius: 30,
-              marginHorizontal: 40,
+              height: vw(45),
+              borderRadius: vw(10),
+              marginHorizontal: vw(10.5),
             }}
           >
             <Image

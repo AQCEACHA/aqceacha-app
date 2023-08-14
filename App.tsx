@@ -27,6 +27,11 @@ export default function App() {
         <Slider />
       </View>
 
+
+        <Text style={styles.empresas}>Empresas</Text>
+
+        <View style={styles.images}></View>
+
     </SafeAreaView>
   );
 }
@@ -37,14 +42,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#eeeeee",
   },
   carousel: {
-    flex: 1,
     alignItems: 'center',
-    paddingTop: 5,
+    top: vw(7),
+
   },
     slider: {
-      flex:2,
+    position: 'absolute',
     alignItems: 'center',
-    top: vw(40),
+    top: vw(110),
 
     /*width: 'auto',
     padding: 50,
@@ -54,24 +59,31 @@ const styles = StyleSheet.create({
   },
   search: {
     flexDirection: 'row',
-    marginTop: 24,
-    marginBottom: 20,
+    marginTop: vw(7),
     backgroundColor: 'white',
     alignSelf: 'center',
-    height: 40,
-    width: 312,
-    borderRadius: 25,
+    height: vw(10),
+    width: vw(80),
+    borderRadius: vw(25),
   },
   iconsearch: {
-    marginLeft: 12,
-    marginRight: 15,
+    marginLeft: vw(4),
+    marginRight: vw(8),
     alignSelf: 'center'
   },
   categorias: {
-    fontSize: 20,
+    fontSize: vw(6),
     position: 'absolute',
-    alignSelf: 'center',
-    top: 380
+    top: vw(95)
   },
+  empresas: {
+    fontSize: vw(6),
+    position: 'absolute',
+    flex: 4,
+    top: vw(130)
+  },
+  images: {
+
+  }
 
 });
