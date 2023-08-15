@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
   carousel: {
     alignItems: 'center',
     top: vw(7),
+    height: vw(100),
 
   },
     slider: {
@@ -72,15 +73,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   categorias: {
-    fontSize: vw(6),
+    fontSize: vw(5),
     position: 'absolute',
     top: vw(95)
   },
   empresas: {
-    fontSize: vw(6),
+    fontSize: vw(5),
     position: 'absolute',
     flex: 4,
-    top: vw(130)
+    top: vw(126)
   },
   images: {
 

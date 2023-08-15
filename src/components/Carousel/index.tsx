@@ -24,105 +24,106 @@ const DATA = [
   },
 ];
 
-export const Carousel = () => {
-  const [activeBanner, setActiveBanner] = useState<number>(0);
-  const FlatlistRef = useRef<FlatList>(null);
 
-  const onViewableItemsChanged = ({ viewableItems }: any) => {
-    if (viewableItems[0] !== undefined) {
-      setActiveBanner(viewableItems[0]?.index);
-    }
-  };
-
-  const viewabilityConfigCallbackPairs = useRef([
-    {
-      viewabilityConfig: {
-        itemVisiblePercentThreshold: 80,
+  export const Carousel = () => {
+    const [activeBanner, setActiveBanner] = useState<number>(0);
+    const FlatlistRef = useRef<FlatList>(null);
+  
+    const onViewableItemsChanged = ({ viewableItems }: any) => {
+      if (viewableItems[0] !== undefined) {
+        setActiveBanner(viewableItems[0]?.index);
+      }
+    };
+  
+    const viewabilityConfigCallbackPairs = useRef([
+      {
+        viewabilityConfig: {
+          itemVisiblePercentThreshold: 80,
+        },
+        onViewableItemsChanged,
       },
-      onViewableItemsChanged,
-    },
-  ]);
-
-  useEffect(() => {
-    if (activeBanner === DATA.length - 1) {
-      return;
-    }
-    const timeId = setTimeout(() => {
-      FlatlistRef.current?.scrollToIndex({
-        index: activeBanner + 1,
-        animated: true,
-      });
-      setActiveBanner((old) => old + 1);
-    }, 3000);
-    return () => clearTimeout(timeId);
-  }, [activeBanner]);
-
-  return (
-    <View style={{ alignItems: 'center' }}>
-      <FlatList
-        ref={FlatlistRef}
-        data={DATA}
-        renderItem={({ item, index }) => (
-          <View
-            style={{
-              width: vw(Dimensions.get('screen').width * 0.2),
-              alignItems: 'center',
-              height: vw(45),
-              borderRadius: vw(10),
-              marginHorizontal: vw(10.5),
-            }}
-          >
-            <Image
-              source={{
-                uri: item.image,
-              }}
+    ]);
+  
+    useEffect(() => {
+      if (activeBanner === DATA.length - 1) {
+        return;
+      }
+      const timeId = setTimeout(() => {
+        FlatlistRef.current?.scrollToIndex({
+          index: activeBanner + 1,
+          animated: true,
+        });
+        setActiveBanner((old) => old + 1);
+      }, 3000);
+      return () => clearTimeout(timeId);
+    }, [activeBanner]);
+  
+    return (
+      <View style={{ alignItems: 'center' }}>
+        <FlatList
+          ref={FlatlistRef}
+          data={DATA}
+          renderItem={({ item, index }) => (
+            <View
               style={{
-                width: '100%',
-                height: '100%',
-                alignSelf: 'center',
+                width: Dimensions.get('screen').width * 0.8,
+                alignItems: 'center',
+                height: 200,
                 borderRadius: 30,
+                marginHorizontal: 42,
               }}
-              resizeMode='contain'
+            >
+              <Image
+                source={{
+                  uri: item.image,
+                }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  alignSelf: 'center',
+                  borderRadius: 30,
+                }}
+                resizeMode='contain'
+              />
+            </View>
+          )}
+          style={{
+            paddingTop: 2,
+            height: 1,
+          }}
+          contentContainerStyle={{
+            marginLeft: 0,
+          }}
+          pagingEnabled
+          viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+          horizontal
+          keyExtractor={(item, index) => String(index)}
+          showsHorizontalScrollIndicator={false}
+        />
+        <FlatList
+          data={DATA}
+          renderItem={({ item, index }) => (
+            <Animated.View
+              layout={Layout}
+              entering={FadeInLeft}
+              exiting={FadeOutRight}
+              style={{
+                width: activeBanner === index ? 12 : 8,
+                height: 8,
+                borderRadius: 4,
+                backgroundColor: activeBanner === index ? 'black' : 'gray',
+                marginHorizontal: 2,
+              }}
             />
-          </View>
-        )}
-        style={{
-          height: 1,
-        }}
-        contentContainerStyle={{
-          /*desbugar as dimensões*/
-        }}
-        pagingEnabled
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
-        horizontal
-        keyExtractor={(item, index) => String(index)}
-        showsHorizontalScrollIndicator={false}
-      />
-      <FlatList
-        data={DATA}
-        renderItem={({ item, index }) => (
-          <Animated.View
-            layout={Layout}
-            entering={FadeInLeft}
-            exiting={FadeOutRight}
-            style={{
-              width: activeBanner === index ? 12 : 8,
-              height: 8,
-              borderRadius: 4,
-              backgroundColor: activeBanner === index ? 'black' : 'gray',
-              marginHorizontal: 2,
-            }}
-          />
-        )}
-        style={{
-          alignSelf: 'center',
-          top: 200,
-          position: 'absolute'
-        }}
-        scrollEnabled={false}
-        horizontal
-        keyExtractor={(item, index) => String(index)}
-      />
-    </View>
-  );
-};
+          )}
+          style={{
+            alignSelf: 'center',
+            bottom: -16
+          }}
+          scrollEnabled={false}
+          horizontal
+          keyExtractor={(item, index) => String(index)}
+        />
+      </View>
+    );
+  };

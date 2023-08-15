@@ -77,10 +77,10 @@ export const Slider = () => {
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: vw(Dimensions.get('screen').width * 0.035),
+              width: vw(Dimensions.get('screen').width * 0.040),
               alignItems: 'center',
-              height: vw(35),
-              marginHorizontal: vw(10),
+              height: vw(15),
+              marginHorizontal: vw(8),
             }}
           >
             <Feather
