@@ -1,37 +1,31 @@
-import { useState, useEffect, useRef } from 'react';
-import { View, FlatList, Image, Dimensions } from 'react-native';
+import { useState, useEffect, useRef } from "react";
+import { View, FlatList, Image, Dimensions } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import Animated, {
   Layout,
   FadeInLeft,
   FadeOutRight,
-} from 'react-native-reanimated';
-import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+} from "react-native-reanimated";
+import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
 const DATA = [
   {
-    image: 'camera'
-
+    image: "camera",
   },
   {
-    image:
-      'cpu',
+    image: "cpu",
   },
   {
-    image:
-      'tool',
+    image: "tool",
   },
   {
-    image: 'briefcase'
-
+    image: "briefcase",
   },
   {
-    image:
-      'clipboard',
+    image: "clipboard",
   },
   {
-    image:
-      'plus',
+    image: "plus",
   },
 ];
 
@@ -70,24 +64,20 @@ export const Slider = () => {
   */
 
   return (
-    <View style={{ alignItems: 'center' }}>
+    <View style={{ alignItems: "center" }}>
       <FlatList
         ref={FlatlistRef}
         data={DATA}
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: vw(Dimensions.get('screen').width * 0.040),
-              alignItems: 'center',
+              width: vw(Dimensions.get("screen").width * 0.04),
+              alignItems: "center",
               height: vw(15),
               marginHorizontal: vw(8),
             }}
           >
-            <Feather
-              name={item.image}
-              size={35}
-              color="#10228A"
-            />
+            <Feather name={item.image} size={35} color="#10228A" />
           </View>
         )}
         pagingEnabled
