@@ -63,11 +63,10 @@ export const Carousel = () => {
         renderItem={({ item, index }) => (
           <View
             style={{
-              width: Dimensions.get("screen").width * 0.8,
+              width: vw(Dimensions.get("screen").width * 0.2),
               alignItems: "center",
-              height: 200,
-              borderRadius: 30,
-              marginHorizontal: 42,
+              height: vw(45),
+              marginHorizontal: vw(10.5),
             }}
           >
             <Image
@@ -78,18 +77,18 @@ export const Carousel = () => {
                 width: "100%",
                 height: "100%",
                 alignSelf: "center",
-                borderRadius: 30,
+                borderRadius: vw(8),
               }}
               resizeMode="contain"
             />
           </View>
         )}
         style={{
-          paddingTop: 2,
-          height: 1,
+          paddingTop: vw(2),
+          height: vw(1),
         }}
         contentContainerStyle={{
-          marginLeft: 0,
+          marginLeft: vw(0),
         }}
         pagingEnabled
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
@@ -105,17 +104,17 @@ export const Carousel = () => {
             entering={FadeInLeft}
             exiting={FadeOutRight}
             style={{
-              width: activeBanner === index ? 12 : 8,
-              height: 8,
-              borderRadius: 4,
+              width: vw(activeBanner === index ? 2 : 2),
+              height: vw(2),
+              borderRadius: vw(4),
               backgroundColor: activeBanner === index ? "black" : "gray",
-              marginHorizontal: 2,
+              marginHorizontal: vw(0.5),
             }}
           />
         )}
         style={{
           alignSelf: "center",
-          bottom: -16,
+          bottom: vw(-4),
         }}
         scrollEnabled={false}
         horizontal

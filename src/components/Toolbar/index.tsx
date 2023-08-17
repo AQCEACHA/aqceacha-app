@@ -1,12 +1,11 @@
 import React from "react";
 import Feather from "@expo/vector-icons/Feather";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 
-export default function Home() {
+export default function Toolbar() {
   return (
-
       <View style={styles.toolbar}>
         <TouchableOpacity>
           <Feather name="menu" size={30} color="#10228A" style={styles.icontoolbar} />
@@ -15,7 +14,6 @@ export default function Home() {
         <Feather name="bell" size={30} color="#BBB6B6" style={styles.icontoolbar}/>
         </TouchableOpacity>
       </View>
-
   );
 }
 
