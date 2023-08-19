@@ -1,26 +1,38 @@
 import { useState, useRef } from "react";
-import { View, FlatList, Dimensions } from "react-native";
+import {
+  View,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
 const DATA = [
   {
     image: "camera",
+    name: "Fotógrafo",
   },
   {
     image: "cpu",
+    name: "T.I.F",
   },
   {
     image: "tool",
+    name: "Mecânico",
   },
   {
     image: "briefcase",
+    name: "Advogado",
   },
   {
     image: "clipboard",
+    name: "Professor",
   },
   {
     image: "plus",
+    name: "Enfermeiro",
   },
 ];
 
@@ -51,13 +63,25 @@ export const Slider = () => {
         renderItem={({ item }) => (
           <View
             style={{
-              width: vw(Dimensions.get("screen").width * 0.04),
+              width: vw(Dimensions.get("screen").width * 0.06),
               alignItems: "center",
               height: vw(15),
-              marginHorizontal: vw(8),
+              marginHorizontal: vw(3.8),
             }}
           >
-            <Feather name={item.image} size={35} color="#10228A" />
+            <TouchableOpacity>
+              <Feather
+                name={item.image}
+                size={35}
+                color="#10228A"
+                style={{ alignSelf: "center" }}
+              />
+              <Text
+                style={{ fontFamily: "Inter_400Regular", alignSelf: "center" }}
+              >
+                {item.name}
+              </Text>
+            </TouchableOpacity>
           </View>
         )}
         pagingEnabled

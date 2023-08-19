@@ -65,8 +65,8 @@ export const Carousel = () => {
             style={{
               width: vw(Dimensions.get("screen").width * 0.2),
               alignItems: "center",
-              height: vw(45),
-              marginHorizontal: vw(10.5),
+              height: vw(49),
+              marginHorizontal: vw(6.5),
             }}
           >
             <Image
@@ -83,13 +83,6 @@ export const Carousel = () => {
             />
           </View>
         )}
-        style={{
-          paddingTop: vw(2),
-          height: vw(1),
-        }}
-        contentContainerStyle={{
-          marginLeft: vw(0),
-        }}
         pagingEnabled
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
