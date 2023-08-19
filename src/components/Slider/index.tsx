@@ -16,7 +16,7 @@ const DATA = [
   },
   {
     image: "cpu",
-    name: "T.I.F",
+    name: "T.I.",
   },
   {
     image: "tool",

@@ -26,22 +26,22 @@ export const styles = StyleSheet.create({
   categorias: {
     fontFamily: "Inter_500Medium",
     fontStyle: "italic",
-    marginLeft: vw(2),
+    marginLeft: vw(4),
     fontSize: vw(5),
     marginTop: vw(8),
   },
   slider: {
-    marginTop: vw(8),
+    marginTop: vw(4),
   },
   empresas: {
     fontFamily: "Inter_500Medium",
     fontStyle: "italic",
-    marginLeft: vw(2),
+    marginLeft: vw(4),
     fontSize: vw(5),
-    marginTop: vw(4),
+    marginTop: vw(8),
   },
   images: {
-    marginTop: vw(8),
+    marginTop: vw(4),
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
