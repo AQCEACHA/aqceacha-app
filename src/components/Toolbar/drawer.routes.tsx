@@ -1,5 +1,6 @@
 import { createDrawerNavigator }  from '@react-navigation/drawer';
-import Home from '../pages/Home';
+import  Feather from '@expo/vector-icons/Feather';
+import Toolbar from './index';
 
 const Drawer = createDrawerNavigator();
 
@@ -8,8 +9,11 @@ export default function DrawerRoutes(){
         <Drawer.Navigator>
             <Drawer.Screen
             name="home"
-            component={Home}
-       
+            component={Toolbar}
+            options={{
+              drawerIcon:() =>  <Feather name='home'/>,
+              drawerLabel: 'inicio'
+            }}
                 />
         </Drawer.Navigator>
     )

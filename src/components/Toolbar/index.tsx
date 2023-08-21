@@ -3,29 +3,17 @@ import Feather from "@expo/vector-icons/Feather";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
+import { NavigationContainer } from "@react-navigation/native";
+import DrawerRoutes from "./drawer.routes";
+
 export default function Toolbar() {
   return (
-    <View style={styles.toolbar}>
-      <TouchableOpacity>
-        <Feather
-          name="menu"
-          size={30}
-          color="#10228A"
-          style={styles.icontoolbar}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Feather
-          name="bell"
-          size={30}
-          color="#BBB6B6"
-          style={styles.icontoolbar}
-        />
-      </TouchableOpacity>
-    </View>
+    <NavigationContainer>
+        <DrawerRoutes></DrawerRoutes>
+    </NavigationContainer>
   );
 }
-
+/*
 const styles = StyleSheet.create({
   toolbar: {
     backgroundColor: "white",
@@ -48,4 +36,4 @@ const styles = StyleSheet.create({
     marginRight: vw(5),
     marginLeft: vw(5),
   },
-});
+});*/
