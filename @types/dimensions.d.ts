@@ -1,1 +1,1 @@
-declare module 'react-native-expo-viewport-units';
+declare module "react-native-expo-viewport-units";
