@@ -7,13 +7,14 @@ import {
 } from "react-native";
 
 import  Home  from "./src/pages/Home";
+import Toolbar from "./src/components/Toolbar";
 
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar />
-      <Home />
+      <Toolbar />
     </SafeAreaView>
   );
 }

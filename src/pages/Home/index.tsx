@@ -9,12 +9,12 @@ import {
   StyleSheet,
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
-import Toolbar from "../../components/Toolbar";
 import { Carousel } from "../../components/Carousel";
 import { Slider } from "../../components/Slider";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import imageproto from "../../../assets/imageproto.png";
 import negocioimage from "../../../assets/negocioimage.jpg";
+import Toolbar from "../../components/Toolbar";
 
 import { styles } from "./styles";
 
@@ -38,8 +38,6 @@ export default function Home() {
 
   return (
     <>
-      <Toolbar />
-
       {/*Começa scroll do home*/}
       <ScrollView>
         {/*Barra de Pesquisa*/}
