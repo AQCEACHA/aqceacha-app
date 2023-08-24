@@ -108,6 +108,8 @@ export default function Home() {
         <TouchableOpacity style={styles.cadastrar}>
           <Text style={styles.cadastrartext}>Cadastrar</Text>
         </TouchableOpacity>
+
+
       </ScrollView>
       {/*Fim da scroll home*/}
     </>

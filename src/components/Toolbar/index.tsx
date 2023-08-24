@@ -1,6 +1,6 @@
 import React from "react";
 import Feather from "@expo/vector-icons/Feather";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet, Text } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import { NavigationContainer } from "@react-navigation/native";
 import DrawerRoutes from "./drawer.routes";

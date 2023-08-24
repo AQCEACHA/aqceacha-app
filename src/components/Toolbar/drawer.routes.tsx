@@ -1,10 +1,14 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Feather } from "@expo/vector-icons";
-import { TouchableOpacity, StyleSheet, View } from "react-native";
+import { Octicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { TouchableOpacity, StyleSheet, View, Text } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
 import Home from "../../pages/Home";
 import Config from "../../pages/Home/Screens/config";
+import Pedidos from "../../pages/Home/Screens/pedidos";
+import Telefone from "../../pages/Home/Screens/telefone";
 
 const Drawer = createDrawerNavigator();
 
@@ -27,6 +31,7 @@ export default function DrawerRoutes() {
           },
         }}
       >
+
         <Drawer.Screen
           name="Home"
           component={Home}
@@ -38,17 +43,47 @@ export default function DrawerRoutes() {
           }}
         />
         <Drawer.Screen
+          name="Pedidos"
+          component={Pedidos}
+          options={{
+            drawerIcon: ({ color, size }) => (
+              <Octicons name="checklist" color={color} size={size} />
+            ),
+            drawerLabel: "Pedidos",
+          }}
+        />
+        <Drawer.Screen
+          name="Telefone"
+          component={Telefone}
+          options={{
+            drawerIcon: ({ color, size }) => (
+              <Feather name="phone" color={color} size={size} />
+            ),
+            drawerLabel: "Telefone",
+          }}
+        />
+        <Drawer.Screen
           name="Config"
           component={Config}
           options={{
             drawerIcon: ({ color, size }) => (
               <Feather name="settings" color={color} size={size} />
             ),
-            drawerLabel: "Settings",
+            drawerLabel: "Configurações",
+          }}
+        />
+                <Drawer.Screen
+          name="Contato"
+          component={Config}
+          options={{
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="chatbubbles-outline" color={color} size={size} />
+            ),
+            drawerLabel: "Entre em Contato",
           }}
         />
       </Drawer.Navigator>
-      <TouchableOpacity style={styles.bell} >
+      <TouchableOpacity style={styles.bell}>
         <Feather
           name="bell"
           size={30}
@@ -56,21 +91,21 @@ export default function DrawerRoutes() {
           style={styles.icontoolbar}
         />
       </TouchableOpacity>
-      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-    toolbar: {
-        flex: 1,
-    },
+  toolbar: {
+    flex: 1,
+  },
   bell: {
-    position: 'absolute',
-    alignSelf: 'flex-end',
+    position: "absolute",
+    alignSelf: "flex-end",
   },
   icontoolbar: {
     marginRight: vw(5),
     marginLeft: vw(5),
-    marginTop: vw(3)
+    marginTop: vw(3),
   },
 });
