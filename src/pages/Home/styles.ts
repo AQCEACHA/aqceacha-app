@@ -88,4 +88,9 @@ export const styles = StyleSheet.create({
     color: "white",
     fontSize: vw(4),
   },
+  modal: {
+    marginLeft: vw(80),
+    marginTop:vw(180),
+    position: 'absolute'
+  },
 });

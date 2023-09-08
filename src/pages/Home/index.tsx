@@ -18,26 +18,19 @@ import Toolbar from "../../components/Toolbar";
 
 import { styles } from "./styles";
 
-import {
-  useFonts,
-  Inter_400Regular,
-  Inter_600SemiBold,
-  Inter_500Medium,
-} from "@expo-google-fonts/inter";
+import OpenModal from "../../components/Modal";
+import Second from "../../components/Second";
+
 
 export default function Home() {
-  const [fontLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_600SemiBold,
-    Inter_500Medium,
-  });
-
-  if (!fontLoaded) {
-    return null;
-  }
 
   return (
+
+    
     <>
+
+    <Second/>
+
       {/*Começa scroll do home*/}
       <ScrollView>
         {/*Barra de Pesquisa*/}
@@ -112,6 +105,10 @@ export default function Home() {
 
       </ScrollView>
       {/*Fim da scroll home*/}
+    <View style={styles.modal}>
+      <OpenModal/>
+      </View>
+
     </>
   );
 }

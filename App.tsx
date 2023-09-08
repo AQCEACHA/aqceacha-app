@@ -9,12 +9,28 @@ import {
 import  Home  from "./src/pages/Home";
 import Toolbar from "./src/components/Toolbar";
 
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_500Medium,
+} from "@expo-google-fonts/inter";
+
 
 export default function App() {
+  const [fontLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_600SemiBold,
+    Inter_500Medium,
+  });
+
+  if (!fontLoaded) {
+    return null;
+  }
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar />
-      <Toolbar />
+      <Home/>
     </SafeAreaView>
   );
 }
