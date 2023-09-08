@@ -14,11 +14,12 @@ import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/outro.png";
 
 import { styles } from "./styles";
+import StackRoutes from "./stack.routes";
 
 export default function Second() {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.modal}>
+    <View>
       <Modal
         animationType="slide"
         transparent={true}
@@ -28,13 +29,8 @@ export default function Second() {
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={styles.modal}>
+        <View>
           <View style={styles.modalView}>
-            <View style={styles.topo}>
-              <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
-                <Feather name="chevron-left" size={35} color={"#BBB6B6"} />
-              </TouchableOpacity>
-            </View>
             <View style={styles.information}>
               <Image source={modalimg} style={styles.modalimg} />
               <View style={styles.textinfo}>
@@ -112,6 +108,16 @@ export default function Second() {
             </View>
           </View>
         </View>
+        <TouchableOpacity
+          onPress={() => setModalVisible(!modalVisible)}
+          style={{
+            backgroundColor: "transparent",
+            alignSelf: "flex-end",
+            width: 92,
+            height: "100%",
+            position: "absolute",
+          }}
+        ></TouchableOpacity>
       </Modal>
       <View style={styles.toolbar}>
         <TouchableOpacity onPress={() => setModalVisible(true)}>

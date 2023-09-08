@@ -21,7 +21,11 @@ import { styles } from "./styles";
 import OpenModal from "../../components/Modal";
 import Second from "../../components/Second";
 
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Config from "./Screens/config";
 
+const Stack = createNativeStackNavigator();
 export default function Home() {
 
   return (
@@ -108,6 +112,8 @@ export default function Home() {
     <View style={styles.modal}>
       <OpenModal/>
       </View>
+
+      
 
     </>
   );
