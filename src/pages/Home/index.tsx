@@ -19,11 +19,8 @@ import Toolbar from "../../components/Toolbar";
 import { styles } from "./styles";
 
 import OpenModal from "../../components/Modal";
-import Second from "../../components/Second";
 
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Config from "./Screens/config";
 
 const Stack = createNativeStackNavigator();
 export default function Home() {
@@ -33,7 +30,7 @@ export default function Home() {
     
     <>
 
-    <Second/>
+    <Toolbar/>
 
       {/*Começa scroll do home*/}
       <ScrollView>

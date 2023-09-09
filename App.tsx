@@ -6,8 +6,6 @@ import {
   StatusBar,
 } from "react-native";
 
-import  Home  from "./src/pages/Home";
-import Toolbar from "./src/components/Toolbar";
 
 import {
   useFonts,
@@ -15,6 +13,8 @@ import {
   Inter_600SemiBold,
   Inter_500Medium,
 } from "@expo-google-fonts/inter";
+
+import {Routes} from './src/routes'
 
 
 export default function App() {
@@ -30,7 +30,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar />
-      <Home/>
+      <Routes/>
     </SafeAreaView>
   );
 }
