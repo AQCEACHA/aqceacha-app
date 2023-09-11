@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  TouchableWithoutFeedback
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/outro.png";
@@ -24,7 +25,7 @@ export default function Toolbar() {
   return (
     <View>
       <Modal
-        animationType="slide"
+        animationType="none"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -118,7 +119,8 @@ export default function Toolbar() {
         <TouchableOpacity
           onPress={() => setModalVisible(!modalVisible)}
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: "#000000",
+            opacity: 0.5,
             alignSelf: "flex-end",
             width: 92,
             height: "100%",
