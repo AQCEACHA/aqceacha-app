@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Alert,
   Modal,
@@ -19,9 +19,20 @@ import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Toolbar() {
-  const { navigate } = useNavigation();
+  const { navigate, addListener } = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = addListener("focus", () => {
+      // Redefina o estado do modal quando a tela estiver em foco
+      setModalVisible(false);
+    });
+
+    return unsubscribe;
+  }, [addListener]);
+
+
   return (
     <View>
       <Modal
