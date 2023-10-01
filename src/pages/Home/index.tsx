@@ -20,17 +20,17 @@ import { styles } from "./styles";
 
 import OpenModal from "../../components/Modal";
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 export default function Home() {
+  const { navigate } = useNavigation();
 
   return (
-
-    
     <>
-
-    <Toolbar/>
+      <Toolbar />
 
       {/*Começa scroll do home*/}
       <ScrollView>
@@ -66,32 +66,52 @@ export default function Home() {
 
         <View style={styles.images}>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Vendedor");
+              }}
+            >
               <Image source={imageproto} />
             </TouchableOpacity>
             <Text style={styles.text}>Empresa Nome</Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Vendedor");
+              }}
+            >
               <Image source={imageproto} />
             </TouchableOpacity>
             <Text style={styles.text}>Empresa Nome</Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Vendedor");
+              }}
+            >
               <Image source={imageproto} />
             </TouchableOpacity>
             <Text style={styles.text}>Empresa Nome</Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Vendedor");
+              }}
+            >
               <Image source={imageproto} />
             </TouchableOpacity>
             <Text style={styles.text}>Empresa Nome</Text>
           </View>
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigate("Mais");
+          }}
+        >
           <Text style={styles.vermais}>Ver Mais...</Text>
         </TouchableOpacity>
 
@@ -102,16 +122,11 @@ export default function Home() {
         <TouchableOpacity style={styles.cadastrar}>
           <Text style={styles.cadastrartext}>Cadastrar</Text>
         </TouchableOpacity>
-
-
       </ScrollView>
       {/*Fim da scroll home*/}
-    <View style={styles.modal}>
-      <OpenModal/>
+      <View style={styles.modal}>
+        <OpenModal />
       </View>
-
-      
-
     </>
   );
 }
