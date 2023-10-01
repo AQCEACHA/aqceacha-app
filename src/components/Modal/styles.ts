@@ -4,10 +4,12 @@ export const styles = StyleSheet.create({
     modal: {
         flex: 1,
         justifyContent: "flex-end",
+        
       },
       modalView: {
         backgroundColor: "white",
-        borderRadius: 30,
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
         paddingTop: 25,
         shadowColor: "#FAFAFA",
         maxHeight: 400,
@@ -18,6 +20,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
+        zIndex: 1
       },
       topo: {
         flexDirection: "row",

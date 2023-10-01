@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/outro.png";
@@ -17,6 +17,8 @@ import modalimg from "../../../assets/outro.png";
 import { styles } from "./styles";
 
 import { useNavigation } from "@react-navigation/native";
+
+import OpenTelefone from "../Telefone";
 
 export default function Toolbar() {
   const { navigate, addListener } = useNavigation();
@@ -31,7 +33,6 @@ export default function Toolbar() {
 
     return unsubscribe;
   }, [addListener]);
-
 
   return (
     <View>
@@ -57,7 +58,11 @@ export default function Toolbar() {
             </View>
             <View>
               <View style={styles.conteudo}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigate("Local");
+                  }}
+                >
                   <View style={styles.cidade}>
                     <Feather name="map-pin" size={25} color="white" />
                     <Text
@@ -72,29 +77,9 @@ export default function Toolbar() {
                   </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                  <View style={styles.itens}>
-                    <Feather
-                      name="file-text"
-                      size={30}
-                      color="#10228A"
-                      style={styles.icontoolbar}
-                    />
-                    <Text style={styles.textitens}>Pedidos</Text>
-                  </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity>
-                  <View style={styles.itens}>
-                    <Feather
-                      name="phone"
-                      size={30}
-                      color="#10228A"
-                      style={styles.icontoolbar}
-                    />
-                    <Text style={styles.textitens}>Telefone</Text>
-                  </View>
-                </TouchableOpacity>
+                <View>
+                  <OpenTelefone/>
+                </View>
 
                 <TouchableOpacity
                   onPress={() => {
@@ -133,7 +118,7 @@ export default function Toolbar() {
             backgroundColor: "#000000",
             opacity: 0.5,
             alignSelf: "flex-end",
-            width: 92,
+            width: '100%',
             height: "100%",
             position: "absolute",
           }}

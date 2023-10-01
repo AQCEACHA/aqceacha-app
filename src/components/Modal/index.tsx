@@ -66,7 +66,19 @@ export default function OpenModal() {
             </ScrollView>
           </View>
         </View>
+        <TouchableOpacity
+          onPress={() => setModalVisible(!modalVisible)}
+          style={{
+            backgroundColor: "#000000",
+            opacity: 0.5,
+            alignSelf: "flex-end",
+            width: '100%',
+            height: "100%",
+            position: "absolute",
+          }}
+        ></TouchableOpacity>
       </Modal>
+      
       <TouchableOpacity
         style={styles.heart}
         onPress={() => setModalVisible(true)}

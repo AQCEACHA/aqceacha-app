@@ -84,7 +84,7 @@ export const Slider = () => {
             </TouchableOpacity>
           </View>
         )}
-        pagingEnabled
+      
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
         keyExtractor={(index) => String(index)}

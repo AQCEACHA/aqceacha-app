@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        
+        zIndex: 1
       },
       topo: {
         flexDirection: "row",
