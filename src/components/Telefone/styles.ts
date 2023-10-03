@@ -70,5 +70,9 @@ export const styles = StyleSheet.create({
         padding: 8,
         marginHorizontal: vw(8),
         marginTop: 26
+    },
+    image: {
+      height: vw(8),
+      width: vw(8)
     }
 });

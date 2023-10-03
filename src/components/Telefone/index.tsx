@@ -6,11 +6,14 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
-  TextInput
+  TextInput,
+  Image
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 
 import { styles } from "./styles";
+
+import brasil from "../../../assets/brasil.png";
 
 export default function OpenTelefone() {
     const [number, onChangeNumber] = React.useState("(14)99804-0306");
@@ -37,7 +40,7 @@ export default function OpenTelefone() {
             </View>
             <View style={styles.conteudo}>
             <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 8 }}>
-          <Feather name="flag" size={30} color="#10228A" />
+          <Image source={brasil} style={styles.image}/>
           <TextInput
             style={styles.input}
             onChangeText={onChangeNumber}

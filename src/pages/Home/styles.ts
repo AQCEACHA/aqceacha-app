@@ -58,6 +58,7 @@ export const styles = StyleSheet.create({
     marginTop: vw(1),
     marginRight: vw(2),
     fontFamily: "Inter_400Regular",
+    color: '#1429A6'
   },
   negociotext: {
     fontFamily: "Inter_500Medium",
