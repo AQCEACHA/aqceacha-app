@@ -4,8 +4,6 @@ import user from "../../../../assets/userimg.jpg";
 
 import { styles } from "./vendedor";
 
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-
 import imageproto from "../../../../assets/imageproto.png";
 
 import example from '../../../../assets/example.jpg';
