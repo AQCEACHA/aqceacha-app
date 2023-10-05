@@ -45,18 +45,21 @@ export const Carousel = () => {
     if (activeBanner === DATA.length - 1) {
       return;
     }
+
+    // assim que o time chegar no limite zera o timeout
+
     const timeId = setTimeout(() => {
       FlatlistRef.current?.scrollToIndex({
         index: activeBanner + 1,
         animated: true,
       });
       setActiveBanner((old) => old + 1);
-    }, 3000);
+    }, 5000);
     return () => clearTimeout(timeId);
   }, [activeBanner]);
 
   return (
-    <View style={{ alignItems: "center" }}>
+    <View>
       <FlatList
         ref={FlatlistRef}
         data={DATA}
@@ -64,9 +67,8 @@ export const Carousel = () => {
           <View
             style={{
               width: vw(Dimensions.get("screen").width * 0.2),
-              alignItems: "center",
               height: vw(49),
-              marginHorizontal: vw(6.5),
+              marginHorizontal: vw(10.5)
             }}
           >
             <Image
@@ -76,7 +78,6 @@ export const Carousel = () => {
               style={{
                 width: "100%",
                 height: "100%",
-                alignSelf: "center",
                 borderRadius: vw(8),
               }}
               resizeMode="contain"

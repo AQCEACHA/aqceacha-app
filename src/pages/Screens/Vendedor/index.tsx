@@ -30,7 +30,7 @@ export default function Vendedor() {
         <View style={styles.row}>
           <Infos/>
           <Contatar/>
-          {/*
+{/*           
           <TouchableOpacity style={styles.info}>
             <Text style={{ fontFamily: "Inter_600SemiBold" }}>Infos</Text>
           </TouchableOpacity>

@@ -51,11 +51,11 @@ export const styles = StyleSheet.create({
         borderBottomColor: '#BBB6B6',
         borderBottomWidth: 1,
         paddingBottom: 8,
-        paddingTop: 8,
+        paddingTop: 8
       },
       text:{
         fontFamily: 'Inter_400Regular',
         alignSelf: 'center',
-        marginLeft: 100
+        marginLeft: 100,
       },
 });
