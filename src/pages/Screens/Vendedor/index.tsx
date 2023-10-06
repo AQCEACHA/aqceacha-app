@@ -30,7 +30,7 @@ export default function Vendedor() {
         <View style={styles.row}>
           <Infos/>
           <Contatar/>
-{/*           
+{/*
           <TouchableOpacity style={styles.info}>
             <Text style={{ fontFamily: "Inter_600SemiBold" }}>Infos</Text>
           </TouchableOpacity>
@@ -49,28 +49,28 @@ export default function Vendedor() {
           <Text style={styles.vermais}>Ver Mais...</Text>
         </TouchableOpacity>
       </View>
-      <FlatList 
+      <FlatList
               data={DATA}
       renderItem={({ item }) => (
         <View style={styles.servicos}>
           <View style={styles.item}>
             <View style={styles.textitem}>
-              <Text style={{fontFamily: 'Inter_400Regular'}}>{item.servico}</Text>
-              <Text style={{fontFamily: 'Inter_400Regular', color: '#14A686'}}>{item.preco}</Text>
+              <Text style={{fontFamily: 'IRegular'}}>{item.servico}</Text>
+              <Text style={{fontFamily: 'IRegular', color: '#14A686'}}>{item.preco}</Text>
             </View>
             <Image source={example} style={styles.imgserv}/>
           </View>
           <View style={styles.item}>
             <View style={styles.textitem}>
-              <Text style={{fontFamily: 'Inter_400Regular'}}>{item.servico}</Text>
-              <Text style={{fontFamily: 'Inter_400Regular', color: '#14A686'}}>{item.preco}</Text>
+              <Text style={{fontFamily: 'IRegular'}}>{item.servico}</Text>
+              <Text style={{fontFamily: 'IRegular', color: '#14A686'}}>{item.preco}</Text>
             </View>
             <Image source={example} style={styles.imgserv}/>
           </View>
           <View style={styles.item}>
             <View style={styles.textitem}>
-              <Text style={{fontFamily: 'Inter_400Regular'}}>{item.servico}</Text>
-              <Text style={{fontFamily: 'Inter_400Regular', color: '#14A686'}}>{item.preco}</Text>
+              <Text style={{fontFamily: 'IRegular'}}>{item.servico}</Text>
+              <Text style={{fontFamily: 'IRegular', color: '#14A686'}}>{item.preco}</Text>
             </View>
             <Image source={example} style={styles.imgserv}/>
           </View>

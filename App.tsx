@@ -19,9 +19,9 @@ import {Routes} from './src/routes'
 
 export default function App() {
   const [fontLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_600SemiBold,
-    Inter_500Medium,
+    'IRegular': Inter_400Regular,
+    'ISemi': Inter_600SemiBold,
+    'IMedium': Inter_500Medium,
   });
 
   if (!fontLoaded) {

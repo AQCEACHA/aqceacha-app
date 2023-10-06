@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: 'center'
-        
+
       },
       modalView: {
         backgroundColor: "white",
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
       modalText: {
         alignSelf: "center",
         fontSize: 20,
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'ISemi',
       },
       conteudo: {
         marginTop: 16,
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
       },
       text: {
-        fontFamily: "Inter_400Regular",
+        fontFamily: "IRegular",
         marginBottom: 6,
         marginTop: 6,
         fontSize: 15,

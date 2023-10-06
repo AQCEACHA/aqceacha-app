@@ -70,7 +70,7 @@ export default function OpenModal() {
         style={styles.contatar}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={{ fontFamily: "Inter_600SemiBold", fontSize: 16 }}>
+        <Text style={{ fontFamily: "ISemi", fontSize: 16 }}>
           Contatar
         </Text>
       </TouchableOpacity>

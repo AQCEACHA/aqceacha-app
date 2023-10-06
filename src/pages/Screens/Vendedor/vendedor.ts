@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     borderRadius: 100,
   },
   name: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
     alignSelf: "center",
     marginLeft: vw(4),
     fontSize: 18
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginTop: vw(1),
     marginRight: vw(2),
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
     color: '#1429A6'
   },
   servicos:{

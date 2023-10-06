@@ -17,14 +17,14 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
   },
   searchtext: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
     width: vw(66),
   },
   carousel: {
     marginTop: vw(8),
   },
   categorias: {
-    fontFamily: "Inter_500Medium",
+    fontFamily: "IMedium",
     fontStyle: "italic",
     marginLeft: vw(4),
     fontSize: vw(5),
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     marginTop: vw(4),
   },
   empresas: {
-    fontFamily: "Inter_500Medium",
+    fontFamily: "IMedium",
     fontStyle: "italic",
     marginLeft: vw(4),
     fontSize: vw(5),
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
     marginTop: vw(2),
     marginBottom: vw(2),
     alignSelf: "center",
@@ -57,11 +57,11 @@ export const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginTop: vw(1),
     marginRight: vw(2),
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
     color: '#1429A6'
   },
   negociotext: {
-    fontFamily: "Inter_500Medium",
+    fontFamily: "IMedium",
     fontStyle: "italic",
     marginLeft: vw(2),
     marginTop: vw(6),
@@ -85,7 +85,7 @@ export const styles = StyleSheet.create({
     marginBottom: vw(3),
   },
   cadastrartext: {
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "ISemi",
     color: "white",
     fontSize: vw(4),
   },

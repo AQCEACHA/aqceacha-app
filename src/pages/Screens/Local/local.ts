@@ -17,7 +17,7 @@ search: {
     alignSelf: "center",
   },
   searchtext: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
     width: vw(66),
   },
 });

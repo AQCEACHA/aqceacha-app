@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         alignSelf: "center",
         fontSize: 20,
         marginLeft: 130,
-        fontFamily: 'Inter_600SemiBold'
+        fontFamily: 'ISemi'
       },
       conteudo: {
         marginTop: 16,
@@ -49,15 +49,15 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: vw(5),
-        
+
       },
       textitens:{
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'ISemi',
         color: '#525252',
         fontSize: vw(4),
       },
       text: {
-        fontFamily: "Inter_400Regular",
+        fontFamily: "IRegular",
         marginBottom: 6,
         marginTop: 6,
         fontSize: 15,
@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "white",
         flexDirection: "row",
         justifyContent: "space-between",
-    
+
         alignItems: "center",
         height: vw(13),
         shadowColor: "#000",
@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
         },
         shadowOpacity: vw(0.3),
         shadowRadius: vw(4.65),
-    
+
         elevation: vw(2),
       },
       icontoolbar: {
@@ -97,6 +97,6 @@ export const styles = StyleSheet.create({
         marginBottom: vw(4),
         flexDirection: 'row',
         alignItems: 'center',
-        
+
       }
 });

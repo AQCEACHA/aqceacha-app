@@ -51,7 +51,7 @@ export default function OpenTelefone() {
 
           </View>
           <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={styles.confirmar}>
-                <Text style={{fontFamily: 'Inter_600SemiBold', color: 'white'}}>Confirmar</Text>
+                <Text style={{fontFamily: 'ISemi', color: 'white'}}>Confirmar</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -67,7 +67,7 @@ export default function OpenTelefone() {
           }}
         ></TouchableOpacity>
       </Modal>
-      
+
       <TouchableOpacity
         onPress={() => setModalVisible(true)}
       >

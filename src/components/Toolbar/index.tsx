@@ -50,8 +50,8 @@ export default function Toolbar() {
             <View style={styles.information}>
               <Image source={modalimg} style={styles.modalimg} />
               <View style={styles.textinfo}>
-                <Text style={{ fontFamily: "Inter_600SemiBold" }}>Nome</Text>
-                <Text style={{ fontFamily: "Inter_400Regular" }}>
+                <Text style={{ fontFamily: "ISemi" }}>Nome</Text>
+                <Text style={{ fontFamily: "IRegular" }}>
                   email@gmail.com
                 </Text>
               </View>
@@ -68,7 +68,7 @@ export default function Toolbar() {
                     <Text
                       style={{
                         color: "white",
-                        fontFamily: "Inter_600SemiBold",
+                        fontFamily: "ISemi",
                         marginLeft: 10,
                       }}
                     >

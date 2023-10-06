@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
     modal: {
         flex: 1,
         justifyContent: "flex-end",
-        
+
       },
       modalView: {
         backgroundColor: "white",
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
       modalText: {
         alignSelf: "center",
         fontSize: 20,
-        fontFamily: 'Inter_600SemiBold'
+        fontFamily: 'ISemi'
       },
       conteudo: {
         marginTop: 16,
@@ -47,14 +47,14 @@ export const styles = StyleSheet.create({
         marginLeft: 8
       },
       item: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         borderBottomColor: '#BBB6B6',
         borderBottomWidth: 1,
         paddingBottom: 8,
         paddingTop: 8
       },
       text:{
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'IRegular',
         alignSelf: 'center',
         marginLeft: 100,
       },

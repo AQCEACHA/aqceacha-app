@@ -18,11 +18,11 @@ export const styles = StyleSheet.create({
   },
   nome: {
     fontSize: 22,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "ISemi",
   },
   email: {
     color: "#525252",
-    fontFamily: "Inter_400Regular",
+    fontFamily: "IRegular",
   },
   contentinfo: {
     backgroundColor: "#FDFDFD",
@@ -36,12 +36,12 @@ export const styles = StyleSheet.create({
   },
   tema: {
     fontSize: 20,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "ISemi",
     marginRight: 140,
   },
   conta: {
     fontSize: 20,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "ISemi",
     marginEnd: 150,
   },
   itens: {
@@ -58,6 +58,6 @@ export const styles = StyleSheet.create({
     marginLeft: 16,
     marginTop: 250,
     marginRight: 270
-     
+
   },
 });

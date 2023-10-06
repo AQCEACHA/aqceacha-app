@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: 'center'
-        
+
       },
       modalView: {
         height: vw(60),
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
         marginLeft: vw(6),
         alignSelf: "center",
         fontSize: 20,
-        fontFamily: 'Inter_600SemiBold'
+        fontFamily: 'ISemi'
       },
       conteudo: {
         flexDirection: "row",
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
         marginBottom: vw(5),
       },
       textitens:{
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'ISemi',
         color: '#525252',
         fontSize: vw(4),
       },
@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
         width: 200,
         margin: 12,
         padding: 10,
-        borderBottomWidth: 1,  
+        borderBottomWidth: 1,
     },
     confirmar: {
         backgroundColor: '#1429A6',

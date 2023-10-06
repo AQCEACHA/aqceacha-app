@@ -77,14 +77,14 @@ export const Slider = () => {
                 style={{ alignSelf: "center" }}
               />
               <Text
-                style={{ fontFamily: "Inter_400Regular", alignSelf: "center" }}
+                style={{ fontFamily: "IRegular", alignSelf: "center" }}
               >
                 {item.name}
               </Text>
             </TouchableOpacity>
           </View>
         )}
-      
+
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
         keyExtractor={(index) => String(index)}

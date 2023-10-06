@@ -82,7 +82,7 @@ export default function Config() {
           color="#E03D3D"
           style={styles.iconconfig}
         />
-        <Text style={{ color: "#E03D3D", fontFamily: "Inter_500Medium" }}>
+        <Text style={{ color: "#E03D3D", fontFamily: "IMedium" }}>
           Sair da Conta
         </Text>
       </TouchableOpacity>
