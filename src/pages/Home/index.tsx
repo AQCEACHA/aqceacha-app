@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   View,
   TextInput,
@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import { Carousel } from "../../components/Carousel";
@@ -24,8 +25,28 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
+import axios from "axios";
+
+import {dadosApi} from '../../api';
+
 const Stack = createNativeStackNavigator();
 export default function Home() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const buscarDados = async () => {
+      try {
+        const apiData = await dadosApi(); // Chama a função do serviço de API
+        setData(apiData);
+      } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+      }
+    };
+
+    buscarDados();
+  }, []);
+
   const { navigate } = useNavigation();
 
   return (
@@ -34,6 +55,7 @@ export default function Home() {
 
       {/*Começa scroll do home*/}
       <ScrollView>
+        <Text>{data}</Text>
         {/*Barra de Pesquisa*/}
         <View style={styles.search}>
           <Feather

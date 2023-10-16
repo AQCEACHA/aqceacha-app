@@ -6,6 +6,9 @@ import {
   StatusBar,
 } from "react-native";
 
+import {Routes} from './src/routes';
+
+/*Fontes*/
 
 import {
   useFonts,
@@ -13,8 +16,6 @@ import {
   Inter_600SemiBold,
   Inter_500Medium,
 } from "@expo-google-fonts/inter";
-
-import {Routes} from './src/routes'
 
 
 export default function App() {
@@ -27,6 +28,9 @@ export default function App() {
   if (!fontLoaded) {
     return null;
   }
+
+  /* App */
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar />

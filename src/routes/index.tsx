@@ -14,6 +14,10 @@ declare global {
     interface RootParamList{
       Home: undefined;
       Config: undefined;
+      Conta: undefined;
+      Local: undefined;
+      Mais: undefined;
+      Vendedor: undefined;
     }
   }
 }
