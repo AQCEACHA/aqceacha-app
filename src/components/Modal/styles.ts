@@ -51,6 +51,7 @@ export const styles = StyleSheet.create({
       heart: {
         backgroundColor: "#1429A6",
         padding: 15,
+        marginTop: -25,
         borderRadius: 50,
       },
       modalimg: {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { View, FlatList, Image, Dimensions } from "react-native";
+import { View, FlatList, Image, Dimensions, Text } from "react-native";
 import Animated, {
   Layout,
   FadeInLeft,
@@ -42,18 +42,16 @@ export const Carousel = () => {
   ]);
 
   useEffect(() => {
-    if (activeBanner === DATA.length - 1) {
-      return;
-    }
-
-    // assim que o time chegar no limite zera o timeout
-
     const timeId = setTimeout(() => {
+      let index = activeBanner + 1;
+      if (index == DATA.length) {
+        index = 0
+      }
       FlatlistRef.current?.scrollToIndex({
-        index: activeBanner + 1,
+        index: index,
         animated: true,
       });
-      setActiveBanner((old) => old + 1);
+      setActiveBanner(index);
     }, 5000);
     return () => clearTimeout(timeId);
   }, [activeBanner]);
@@ -68,7 +66,7 @@ export const Carousel = () => {
             style={{
               width: vw(Dimensions.get("screen").width * 0.2),
               height: vw(49),
-              marginHorizontal: vw(10.5)
+              marginHorizontal: vw(10.5),
             }}
           >
             <Image

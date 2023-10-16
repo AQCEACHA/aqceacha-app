@@ -38,17 +38,34 @@ export default function OpenModal() {
             <ScrollView>
               <View style={styles.conteudo}>
                 <View style={styles.item}>
-              <FontAwesome name="whatsapp" size={35} color={"#1429A6"} style={{marginLeft:20}} />
-              <Text style={styles.text}>(14)99804-0306</Text>
-              </View>
-              <View style={styles.item}>
-              <FontAwesome name="envelope"  size={35} color={"#1429A6"} style={{marginLeft:20}} />
-              <Text style={styles.text}>email@gmail.com</Text>
-              </View>
-              <View style={styles.item}>
-              <FontAwesome name="linkedin" size={35} color={"#1429A6"} style={{marginLeft:20}}/>
-              <Text style={styles.text}>vitorlopes</Text>
-              </View>
+                  <FontAwesome
+                    name="whatsapp"
+                    size={35}
+                    color={"#1429A6"}
+                    style={{ marginLeft: 20 }}
+                  />
+                  <View style={styles.textos}>
+                  <Text style={styles.text}>(14)99804-0306</Text>
+                  </View>
+                </View>
+                <View style={styles.item}>
+                  <FontAwesome
+                    name="envelope"
+                    size={35}
+                    color={"#1429A6"}
+                    style={{ marginLeft: 20 }}
+                  />
+                  <Text style={styles.text}>email@gmail.com</Text>
+                </View>
+                <View style={styles.item}>
+                  <FontAwesome
+                    name="linkedin"
+                    size={35}
+                    color={"#1429A6"}
+                    style={{ marginLeft: 20 }}
+                  />
+                  <Text style={styles.text}>vitorlopes</Text>
+                </View>
               </View>
             </ScrollView>
           </View>
@@ -70,9 +87,7 @@ export default function OpenModal() {
         style={styles.contatar}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={{ fontFamily: "ISemi", fontSize: 16 }}>
-          Contatar
-        </Text>
+        <Text style={{ fontFamily: "ISemi", fontSize: 17.5 }}>Contatar</Text>
       </TouchableOpacity>
     </View>
   );

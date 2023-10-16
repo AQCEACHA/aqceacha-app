@@ -63,7 +63,7 @@ export default function OpenModal() {
         style={styles.info}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={{ fontFamily: "ISemi" }}>Infos</Text>
+        <Text style={{ fontFamily: "ISemi", fontSize: 17.5 }}>Infos</Text>
       </TouchableOpacity>
     </View>
   );
