@@ -11,6 +11,10 @@ import example from '../../../../assets/example.jpg';
 import Contatar from '../../../components/Contatar';
 import Infos from '../../../components/Infos';
 
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { useNavigation } from "@react-navigation/native";
+
 
 const DATA = [
   {
@@ -19,7 +23,13 @@ const DATA = [
   },
 ];
 
+const Stack = createNativeStackNavigator();
+
+
 export default function Vendedor() {
+
+  const { navigate } = useNavigation();
+
   return (
     <>
       <View style={styles.maincontent}>
@@ -45,7 +55,9 @@ export default function Vendedor() {
           <Image source={imageproto} />
           <Image source={imageproto} />
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+              navigate("ImgMais");
+            }}>
           <Text style={styles.vermais}>Ver Mais...</Text>
         </TouchableOpacity>
       </View>

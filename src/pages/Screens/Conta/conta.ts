@@ -5,7 +5,12 @@ export const styles = StyleSheet.create({
   contentuser: {
     alignItems: "center",
     marginTop: vw(8),
-    marginBottom: vw(4),
+    marginBottom: vw(8),
+  },
+  maincontent:{
+    backgroundColor: 'white',
+    marginHorizontal: vw(2),
+    borderRadius: 10
   },
   imguser: {
     width: vw(50),
@@ -23,7 +28,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    width: 360,
+    width: 310,
     margin: 12,
     padding: 10,
     borderBottomWidth: 1,

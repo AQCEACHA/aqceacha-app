@@ -6,6 +6,7 @@ import Conta from '../pages/Screens/Conta';
 import Local from '../pages/Screens/Local';
 import Mais from '../pages/Screens/Mais';
 import Vendedor from '../pages/Screens/Vendedor';
+import ImgMais from '../pages/Screens/ImgMais';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ declare global {
       Local: undefined;
       Mais: undefined;
       Vendedor: undefined;
+      ImgMais: undefined;
     }
   }
 }
@@ -32,6 +34,8 @@ export const Routes = () => {
       <Stack.Screen name="Local" component={Local} options={{title: 'Localização'}}/>
       <Stack.Screen name="Mais" component={Mais} options={{title: 'Empresas'}}/>
       <Stack.Screen name="Vendedor" component={Vendedor} options={{title: ''}}/>
+      <Stack.Screen name="ImgMais" component={ImgMais} options={{title: 'Mais'}}/>
+
 
     </Stack.Navigator>
     </NavigationContainer>

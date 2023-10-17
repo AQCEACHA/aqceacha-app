@@ -13,7 +13,7 @@ import Feather from "@expo/vector-icons/Feather";
 import { Carousel } from "../../components/Carousel";
 import { Slider } from "../../components/Slider";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
-import imageproto from "../../../assets/imageproto.png";
+import Empresas from "../../components/Empresas";
 import negocioimage from "../../../assets/negocioimage.jpg";
 import Toolbar from "../../components/Toolbar";
 
@@ -97,46 +97,7 @@ export default function Home() {
         <Text style={styles.empresas}>Empresas</Text>
 
         <View style={styles.images}>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                navigate("Vendedor");
-              }}
-            >
-              <Image source={imageproto} />
-            </TouchableOpacity>
-            <Text style={styles.text}></Text>
-          </View>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                navigate("Vendedor");
-              }}
-            >
-              <Image source={imageproto} />
-            </TouchableOpacity>
-            <Text style={styles.text}></Text>
-          </View>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                navigate("Vendedor");
-              }}
-            >
-              <Image source={imageproto} />
-            </TouchableOpacity>
-            <Text style={styles.text}>Empresa Nome</Text>
-          </View>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                navigate("Vendedor");
-              }}
-            >
-              <Image source={imageproto} />
-            </TouchableOpacity>
-            <Text style={styles.text}>Empresa Nome</Text>
-          </View>
+          <Empresas/>
         </View>
 
         <TouchableOpacity

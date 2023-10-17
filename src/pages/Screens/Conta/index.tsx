@@ -21,7 +21,7 @@ export default function Conta() {
       <TouchableOpacity style={styles.edit}>
         <Feather name="edit-2" size={30} color="#10228A" />
         </TouchableOpacity>
-      <View>
+      <View style={styles.maincontent}>
         <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 8 }}>
           <Feather name="user" size={30} color="#10228A" />
           <TextInput
