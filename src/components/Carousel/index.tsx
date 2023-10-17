@@ -65,7 +65,7 @@ export const Carousel = () => {
           <View
             style={{
               width: vw(Dimensions.get("screen").width * 0.2),
-              height: vw(49),
+              height: vw(46),
               marginHorizontal: vw(10.5),
             }}
           >

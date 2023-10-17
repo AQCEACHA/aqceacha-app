@@ -18,14 +18,14 @@ export const styles = StyleSheet.create({
     borderColor: '#10228A',
     padding: 8,
     position: 'absolute',
-    marginTop: 220,
-    marginLeft: 260
+    marginTop: 190,
+    marginLeft: 240
   },
   input: {
     height: 40,
     width: 360,
     margin: 12,
     padding: 10,
-    borderBottomWidth: 1,  
+    borderBottomWidth: 1,
 },
 });

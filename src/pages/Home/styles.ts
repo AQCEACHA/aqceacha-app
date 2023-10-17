@@ -4,7 +4,7 @@ import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 export const styles = StyleSheet.create({
   search: {
     flexDirection: "row",
-    marginTop: vw(3),
+    marginTop: vw(8),
     backgroundColor: "white",
     alignSelf: "center",
     height: vw(10),

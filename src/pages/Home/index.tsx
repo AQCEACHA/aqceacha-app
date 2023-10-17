@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-  
+
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import { Carousel } from "../../components/Carousel";
@@ -25,27 +25,38 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import axios from "axios";
+import { useGetData } from '../../services/hooks';
 
-import {dadosApi} from '../../api';
 
 const Stack = createNativeStackNavigator();
+
+
 export default function Home() {
 
-  const [data, setData] = useState([]);
+  const { getVendedor, getRamo, getServico, getCidade } = useGetData()
+  const [vendedor, setVendedor] = useState([])
+  const [ramo, setRamo] = useState([])
+  const [servico, setServico] = useState([])
+  const [cidade, setCidade] = useState([])
+
+  const callGetData = async () => {
+    const vendedorResponse = await getVendedor()
+    const ramoResponse = await getRamo()
+    const servicoResponse = await getServico()
+    const cidadeResponse = await getCidade()
+
+    if (!vendedorResponse.error && !ramoResponse.error && !servicoResponse.error && !cidadeResponse.error) {
+      setVendedor(vendedorResponse)
+      setRamo(ramoResponse)
+      setServico(servicoResponse)
+      setCidade(cidadeResponse)
+    }
+  }
 
   useEffect(() => {
-    const buscarDados = async () => {
-      try {
-        const apiData = await dadosApi(); // Chama a função do serviço de API
-        setData(apiData);
-      } catch (error) {
-        console.error('Erro ao buscar dados da API:', error);
-      }
-    };
-
-    buscarDados();
-  }, []);
+    callGetData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const { navigate } = useNavigation();
 
@@ -55,7 +66,6 @@ export default function Home() {
 
       {/*Começa scroll do home*/}
       <ScrollView>
-        <Text>{data}</Text>
         {/*Barra de Pesquisa*/}
         <View style={styles.search}>
           <Feather
@@ -95,7 +105,7 @@ export default function Home() {
             >
               <Image source={imageproto} />
             </TouchableOpacity>
-            <Text style={styles.text}>Empresa Nome</Text>
+            <Text style={styles.text}></Text>
           </View>
           <View>
             <TouchableOpacity
