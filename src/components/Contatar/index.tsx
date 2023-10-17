@@ -44,9 +44,7 @@ export default function OpenModal() {
                     color={"#1429A6"}
                     style={{ marginLeft: 20 }}
                   />
-                  <View style={styles.textos}>
                   <Text style={styles.text}>(14)99804-0306</Text>
-                  </View>
                 </View>
                 <View style={styles.item}>
                   <FontAwesome

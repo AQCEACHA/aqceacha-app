@@ -115,7 +115,7 @@ export default function Home() {
             >
               <Image source={imageproto} />
             </TouchableOpacity>
-            <Text style={styles.text}>Empresa Nome</Text>
+            <Text style={styles.text}></Text>
           </View>
           <View>
             <TouchableOpacity
@@ -163,6 +163,3 @@ export default function Home() {
   );
 }
 
-{
-  /*Estilização*/
-}

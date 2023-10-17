@@ -35,8 +35,8 @@ export const styles = StyleSheet.create({
     fontFamily: 'ISemi'
   },
   conteudo: {
-    marginTop: 16,
-    marginBottom: 16,
+    marginTop: 8,
+    marginBottom: 8,
     flexDirection: "column",
   },
   contatar: {
@@ -50,7 +50,6 @@ export const styles = StyleSheet.create({
   },
   item: {
     display: "flex",
-    justifyContent: "space-between",
     flexDirection: 'row',
     borderBottomColor: '#BBB6B6',
     borderBottomWidth: 1,
@@ -61,11 +60,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'IRegular',
     fontSize: 18,
     alignSelf: 'center',
-    marginRight: 10
+    marginLeft: 80
   },
-  textos: {
-    display: "flex",
-    justifyContent: "space-around",
-
-  }
 });
