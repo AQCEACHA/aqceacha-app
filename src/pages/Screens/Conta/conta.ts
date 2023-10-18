@@ -10,7 +10,9 @@ export const styles = StyleSheet.create({
   maincontent:{
     backgroundColor: 'white',
     marginHorizontal: vw(2),
-    borderRadius: 10
+    borderRadius: 10,
+    paddingVertical: vw(2),
+    paddingHorizontal: vw(2)
   },
   imguser: {
     width: vw(50),
@@ -28,9 +30,19 @@ export const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    width: 310,
+    width: 320,
     margin: 12,
     padding: 10,
     borderBottomWidth: 1,
 },
+salvar:{
+  justifyContent: 'center',
+  alignItems: 'center',
+  alignSelf: 'center',
+  marginTop: vw(8),
+  backgroundColor: '#1429A6',
+  borderRadius: 10,
+  width: vw(40),
+  height: vw(10)
+}
 });

@@ -67,6 +67,10 @@ export default function Conta() {
           />
         </View>
       </View>
+
+      <TouchableOpacity style={styles.salvar}>
+        <Text style={{fontFamily: 'ISemi', color:'white'}}>Salvar</Text>
+      </TouchableOpacity>
     </>
   );
 }

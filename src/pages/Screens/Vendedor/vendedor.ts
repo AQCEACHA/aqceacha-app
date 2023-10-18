@@ -64,5 +64,5 @@ export const styles = StyleSheet.create({
       width: vw(26),
       alignSelf: 'flex-end',
       marginLeft: vw(8)
-    }
+    },
 });
