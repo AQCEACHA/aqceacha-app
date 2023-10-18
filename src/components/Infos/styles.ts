@@ -35,11 +35,9 @@ export const styles = StyleSheet.create({
     fontFamily: 'ISemi',
   },
   conteudo: {
-    marginTop: 16,
-    flexDirection: "row",
-    flexWrap: "wrap",
+    flexDirection: "column",
     justifyContent: "space-evenly",
-    alignItems: "center",
+    paddingHorizontal: 60
   },
   text: {
     fontFamily: "IRegular",
@@ -56,7 +54,7 @@ export const styles = StyleSheet.create({
   info: {
     borderColor: "#BBB6B6",
     borderWidth: 1,
-    borderRadius: 30,
+    borderRadius: 10,
     paddingHorizontal: 10,
     alignItems: 'center',
     marginRight: 65,

@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
+
 
 export const styles = StyleSheet.create({
   modal: {
@@ -35,8 +37,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'ISemi'
   },
   conteudo: {
-    marginTop: 8,
-    marginBottom: 8,
     flexDirection: "column",
   },
   contatar: {

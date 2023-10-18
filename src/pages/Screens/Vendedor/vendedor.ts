@@ -4,9 +4,10 @@ import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 export const styles = StyleSheet.create({
   maincontent: {
     marginHorizontal: vw(8),
+    marginBottom: vw(8),
   },
   contentven: {
-    alignItems: "flex-start",
+    alignItems: 'center',
     marginTop: vw(8),
     marginBottom: vw(4),
     flexDirection: "row",
@@ -15,12 +16,6 @@ export const styles = StyleSheet.create({
     width: vw(25),
     height: vw(25),
     borderRadius: 100,
-  },
-  name: {
-    fontFamily: "IRegular",
-    alignSelf: "center",
-    marginLeft: vw(4),
-    fontSize: 18
   },
   row: {
     flexDirection: "row",
@@ -43,26 +38,33 @@ export const styles = StyleSheet.create({
     color: '#1429A6'
   },
   servicos:{
-    marginTop: vw(8),
-    borderBottomColor: '#BBB6B6',
-    borderBottomWidth: 0.5,
+    borderTopWidth: 0.8,
+    borderTopColor: '#BBB6B6',
   },
   item:{
-    borderTopColor: '#BBB6B6',
-    borderTopWidth: 0.5,
-    paddingTop: 20,
-    paddingBottom: 20,
+    borderBottomWidth: 0.8,
+    borderBottomColor: '#BBB6B6',
     flexDirection: 'row',
-    alignContent: 'center'
+    paddingVertical: vw(3),
     },
     textitem:{
       alignSelf: 'center',
       marginLeft: vw(4),
+      width: vw(40)
     },
     imgserv: {
       height: vw(20),
       width: vw(26),
-      alignSelf: 'flex-end',
-      marginLeft: vw(8)
+      borderRadius: 10,
+      marginLeft: vw(16)
     },
+    img:{
+      width:vw(38),
+      height: vw(40),
+      borderRadius: 10,
+    },
+    profile:{
+      alignItems: 'flex-start',
+      marginLeft: vw(8)
+    }
 });

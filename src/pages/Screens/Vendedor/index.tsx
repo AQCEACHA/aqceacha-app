@@ -7,13 +7,12 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import user from "../../../../assets/userimg.jpg";
+import user from "../../../../assets/testimage.png";
 
 import { styles } from "./vendedor";
 
-import imageproto from "../../../../assets/imageproto.png";
-
-import example from "../../../../assets/example.jpg";
+import pic1 from "../../../../assets/teste/pic1.png";
+import pic2 from "../../../../assets/teste/pic2.png";
 
 import Contatar from "../../../components/Contatar";
 import Infos from "../../../components/Infos";
@@ -22,12 +21,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import Feather from "@expo/vector-icons/Feather";
+import prop from "../../../../assets/teste/prop.png";
 
 const DATA = [
   {
-    servico: "Manuntenção de Computadores",
-    preco: "R$ 60,00",
+    servico: "Ensaio de Fotos",
+    preco: "R$ 80,00",
+    img: prop,
+  },
+  {
+    servico: "Gravação de Vídeo",
+    preco: "R$ 120,00",
+    img: prop,
   },
 ];
 
@@ -41,7 +46,13 @@ export default function Vendedor() {
       <View style={styles.maincontent}>
         <View style={styles.contentven}>
           <Image source={user} style={styles.imgven} />
-          <Text style={styles.name}>Vitor Lopes Nunes</Text>
+          <View style={styles.profile}>
+            <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
+              Cameraman
+            </Text>
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>Fotografo</Text>
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#B1AEAE' }}>Victor Carbelotti</Text>
+          </View>
         </View>
         <View style={styles.row}>
           <Infos />
@@ -55,11 +66,11 @@ export default function Vendedor() {
           </TouchableOpacity>
           */}
         </View>
-        <Text style={styles.desc}>Descrição Vai Aqui</Text>
+        <Text style={styles.desc}>Alguma das minhas fotografias abaixo</Text>
 
         <View style={styles.images}>
-          <Image source={imageproto} />
-          <Image source={imageproto} />
+          <Image source={pic1} style={styles.img} />
+          <Image source={pic2} style={styles.img} />
         </View>
         <TouchableOpacity
           onPress={() => {
@@ -69,10 +80,10 @@ export default function Vendedor() {
           <Text style={styles.vermais}>Ver Mais...</Text>
         </TouchableOpacity>
       </View>
-      <FlatList
-        data={DATA}
-        renderItem={({ item }) => (
-          <View style={styles.servicos}>
+      <View style={styles.servicos}>
+        <FlatList
+          data={DATA}
+          renderItem={({ item }) => (
             <View style={styles.item}>
               <View style={styles.textitem}>
                 <Text style={{ fontFamily: "IRegular" }}>{item.servico}</Text>
@@ -80,30 +91,12 @@ export default function Vendedor() {
                   {item.preco}
                 </Text>
               </View>
-              <Image source={example} style={styles.imgserv} />
+              <Image source={item.img} style={styles.imgserv} />
             </View>
-            <View style={styles.item}>
-              <View style={styles.textitem}>
-                <Text style={{ fontFamily: "IRegular" }}>{item.servico}</Text>
-                <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>
-                  {item.preco}
-                </Text>
-              </View>
-              <Image source={example} style={styles.imgserv} />
-            </View>
-            <View style={styles.item}>
-              <View style={styles.textitem}>
-                <Text style={{ fontFamily: "IRegular" }}>{item.servico}</Text>
-                <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>
-                  {item.preco}
-                </Text>
-              </View>
-              <Image source={example} style={styles.imgserv} />
-            </View>
-          </View>
-        )}
-        showsHorizontalScrollIndicator={false}
-      />
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
     </>
   );
 }

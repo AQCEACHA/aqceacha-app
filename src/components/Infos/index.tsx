@@ -35,12 +35,15 @@ export default function OpenModal() {
             </View>
             <View>
               <View style={styles.conteudo}>
-                <Text>Qualquer coisa pq sou preguiçoso</Text>
-                <Text>Qualquer coisa pq sou preguiçoso</Text>
+                <View style={{flexDirection: 'column', marginBottom: 20, alignItems: 'center'}}>
+                <Text style={{fontFamily: 'IRegular'}}>Das 10hrs ás 19hrs</Text>
+                <Text style={{fontFamily: 'IRegular'}}>Segunda a Sábado</Text>
+                </View>
 
-                <Text>Qualquer coisa pq sou preguiçoso</Text>
-
-                <Text>Qualquer coisa pq sou preguiçoso</Text>
+                <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                <Text style={{fontFamily: 'IRegular'}}>Vai até você!</Text>
+                <Text style={{fontFamily: 'IRegular'}}>Lençóis Paulista - SP</Text>
+                </View>
 
               </View>
             </View>

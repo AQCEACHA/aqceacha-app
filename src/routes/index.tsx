@@ -68,6 +68,23 @@ const CustomHeader = ({ navigation }: { navigation: any }) => {
   };
 };
 
+const CustomName = ({ navigation }: { navigation: any }) => {
+  return{
+    headerTitle: "Mais Fotos",
+    headerLeft: () => (
+      <Feather
+      style={{marginRight: vw(4)}}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+  };
+};
+
 const CustomMain = ({ navigation }: { navigation: any }) => {
   return{
     headerLeft: () => (
@@ -96,32 +113,32 @@ export const Routes = () => {
         <Stack.Screen
           name="Config"
           component={Config}
-          options={({ route, navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomMain({ navigation })}
         />
         <Stack.Screen
           name="Conta"
           component={Conta}
-          options={({ route, navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomMain({ navigation })}
         />
         <Stack.Screen
           name="Local"
           component={Local}
-          options={({ route, navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomMain({ navigation })}
         />
         <Stack.Screen
           name="Mais"
           component={Mais}
-          options={({ route, navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomMain({ navigation })}
         />
         <Stack.Screen
           name="Vendedor"
           component={Vendedor}
-          options={({ route, navigation }) => CustomHeader({ navigation })}
+          options={({ navigation }) => CustomHeader({ navigation })}
         />
         <Stack.Screen
           name="ImgMais"
           component={ImgMais}
-          options={({ route, navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomName({ navigation })}
         />
       </Stack.Navigator>
     </NavigationContainer>

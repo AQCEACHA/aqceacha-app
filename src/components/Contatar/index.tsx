@@ -53,7 +53,7 @@ export default function OpenModal() {
                     color={"#1429A6"}
                     style={{ marginLeft: 20 }}
                   />
-                  <Text style={styles.text}>email@gmail.com</Text>
+                  <Text style={styles.text}>mattosv016@gmail.com</Text>
                 </View>
                 <View style={styles.item}>
                   <FontAwesome
@@ -62,7 +62,7 @@ export default function OpenModal() {
                     color={"#1429A6"}
                     style={{ marginLeft: 20 }}
                   />
-                  <Text style={styles.text}>vitorlopes</Text>
+                  <Text style={styles.text}>Victor Carbelotti</Text>
                 </View>
               </View>
             </ScrollView>

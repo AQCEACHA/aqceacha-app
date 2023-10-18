@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   TextInput,
@@ -7,14 +7,13 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import { Carousel } from "../../components/Carousel";
 import { Slider } from "../../components/Slider";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import Empresas from "../../components/Empresas";
-import negocioimage from "../../../assets/negocioimage.jpg";
+import negocioimage from "../../../assets/negocioimage.png";
 import Toolbar from "../../components/Toolbar";
 
 import { styles } from "./styles";
@@ -25,38 +24,40 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import { useGetData } from '../../services/hooks';
-
+import { useGetData } from "../../services/hooks";
 
 const Stack = createNativeStackNavigator();
 
-
 export default function Home() {
-
-  const { getVendedor, getRamo, getServico, getCidade } = useGetData()
-  const [vendedor, setVendedor] = useState([])
-  const [ramo, setRamo] = useState([])
-  const [servico, setServico] = useState([])
-  const [cidade, setCidade] = useState([])
+  const { getVendedor, getRamo, getServico, getCidade } = useGetData();
+  const [vendedor, setVendedor] = useState([]);
+  const [ramo, setRamo] = useState([]);
+  const [servico, setServico] = useState([]);
+  const [cidade, setCidade] = useState([]);
 
   const callGetData = async () => {
-    const vendedorResponse = await getVendedor()
-    const ramoResponse = await getRamo()
-    const servicoResponse = await getServico()
-    const cidadeResponse = await getCidade()
+    const vendedorResponse = await getVendedor();
+    const ramoResponse = await getRamo();
+    const servicoResponse = await getServico();
+    const cidadeResponse = await getCidade();
 
-    if (!vendedorResponse.error && !ramoResponse.error && !servicoResponse.error && !cidadeResponse.error) {
-      setVendedor(vendedorResponse)
-      setRamo(ramoResponse)
-      setServico(servicoResponse)
-      setCidade(cidadeResponse)
+    if (
+      !vendedorResponse.error &&
+      !ramoResponse.error &&
+      !servicoResponse.error &&
+      !cidadeResponse.error
+    ) {
+      setVendedor(vendedorResponse);
+      setRamo(ramoResponse);
+      setServico(servicoResponse);
+      setCidade(cidadeResponse);
     }
-  }
+  };
 
   useEffect(() => {
-    callGetData()
+    callGetData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const { navigate } = useNavigation();
 
@@ -97,7 +98,7 @@ export default function Home() {
         <Text style={styles.empresas}>Empresas</Text>
 
         <View style={styles.images}>
-          <Empresas/>
+          <Empresas />
         </View>
 
         <TouchableOpacity
@@ -110,7 +111,11 @@ export default function Home() {
 
         <Text style={styles.negociotext}>Tem seu próprio negócio?</Text>
 
-        <Image source={negocioimage} style={styles.negocioimg} />
+        <Image
+          source={negocioimage}
+          style={styles.negocioimg}
+          resizeMode="contain"
+        />
 
         <TouchableOpacity style={styles.cadastrar}>
           <Text style={styles.cadastrartext}>Cadastrar</Text>
@@ -123,4 +128,3 @@ export default function Home() {
     </>
   );
 }
-
