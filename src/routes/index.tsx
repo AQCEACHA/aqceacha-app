@@ -9,7 +9,7 @@ import Conta from "../pages/Screens/Conta";
 import Local from "../pages/Screens/Local";
 import Mais from "../pages/Screens/Mais";
 import Vendedor from "../pages/Screens/Vendedor";
-import ImgMais from "../pages/Screens/ImgMais";
+import ImgMais from "../pages/Screens/imgMais";
 
 import Feather from "@expo/vector-icons/Feather";
 
