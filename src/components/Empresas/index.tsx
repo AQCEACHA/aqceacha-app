@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
@@ -7,36 +7,32 @@ import imageproto from "../../../assets/imageproto.png";
 
 import test from '../../../assets/testimage.png';
 
-
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-
-const DATA = [
-  {
-    empresa: "Cameraman",
-    image: test,
-  },
-  {
-    empresa: "Empresa Nome",
-    image: imageproto,
-  },
-  {
-    empresa: "Empresa Nome",
-    image: imageproto,
-  },
-    {
-    empresa: "Empresa Nome",
-    image: imageproto,
-  },
-];
+import {getData} from '../../services/hooks';
 
 const Stack = createNativeStackNavigator();
 
 
 export default function Empresas() {
+
+  const {getVendedorTodos} = getData();
+  const [vendedor,setVendedor] = useState([])
+
+  const callGetData = async () => {
+    const vendedorResponse = await getVendedorTodos()
+
+    if(!vendedorResponse.error){
+      setVendedor(vendedorResponse)
+    }
+  }
+
+  useEffect( () => {
+    callGetData()
+  }, [])
+  console.log(vendedor)
 
   const { navigate } = useNavigation();
 
@@ -44,7 +40,7 @@ export default function Empresas() {
 
   return (
     <FlatList
-      data={DATA}
+      data={vendedor}
       numColumns={numColumns} // Mostrar 2 itens por linha
       renderItem={({ item }) => (
         <TouchableOpacity
@@ -53,8 +49,8 @@ export default function Empresas() {
             navigate("Vendedor");
           }}
         >
-          <Image source={item.image} resizeMode="contain" style={styles.img} />
-          <Text style={styles.text}>{item.empresa}</Text>
+
+          <Text style={styles.text}>{vendedor}</Text>
         </TouchableOpacity>
       )}
       showsHorizontalScrollIndicator={false}

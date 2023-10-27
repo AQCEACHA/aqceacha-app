@@ -1,9 +1,19 @@
 import  api  from '../api'
 
-export const useGetData = () => {
+export const getData = () => {
   const getVendedor = async () => {
     try {
       const response = await api.get('/vendedor')
+      return response.data
+    } catch (error) {
+      console.log({ error })
+      return { error }
+    }
+  }
+
+  const getVendedorTodos = async () => {
+    try {
+      const response = await api.get('/vendedor/todos')
       return response.data
     } catch (error) {
       console.log({ error })
@@ -21,6 +31,16 @@ export const useGetData = () => {
     }
   }
 
+  const getRamoTodos = async () => {
+    try {
+      const response = await api.get('/ramoatv/todos')
+      return response.data
+    } catch (error) {
+      console.log({ error })
+      return { error }
+    }
+  }
+
   const getServico = async () => {
     try {
       const response = await api.get('/servico')
@@ -31,9 +51,29 @@ export const useGetData = () => {
     }
   }
 
+  const getServicoTodos = async () => {
+    try {
+      const response = await api.get('/servico/todos')
+      return response.data
+    } catch (error) {
+      console.log({ error })
+      return { error }
+    }
+  }
+
   const getCidade = async () => {
     try {
-      const response = await api.get('/cidade')
+      const response = await api.get('/cidade/todos')
+      return response.data
+    } catch (error) {
+      console.log({ error })
+      return { error }
+    }
+  }
+
+  const getCidadeTodos = async () => {
+    try {
+      const response = await api.get('/cidade/todos')
       return response.data
     } catch (error) {
       console.log({ error })
@@ -56,8 +96,12 @@ export const useGetData = () => {
 
   return {
     getVendedor,
+    getVendedorTodos,
     getRamo,
+    getRamoTodos,
     getServico,
-    getCidade
+    getServicoTodos,
+    getCidade,
+    getCidadeTodos
   }
 }

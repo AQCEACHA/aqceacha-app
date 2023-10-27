@@ -24,12 +24,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import { useGetData } from "../../services/hooks";
+import { getData } from "../../services/hooks";
 
 const Stack = createNativeStackNavigator();
 
 export default function Home() {
-  const { getVendedor, getRamo, getServico, getCidade } = useGetData();
+  const { getVendedor, getRamo, getServico, getCidade } = getData();
   const [vendedor, setVendedor] = useState([]);
   const [ramo, setRamo] = useState([]);
   const [servico, setServico] = useState([]);

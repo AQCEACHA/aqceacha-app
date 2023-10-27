@@ -1,1 +1,1 @@
-export * from './useData'
+export * from './getData'
