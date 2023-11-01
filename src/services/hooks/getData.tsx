@@ -1,12 +1,13 @@
+import axios from 'axios'
 import  api  from '../api'
 
 export const getData = () => {
   const getVendedor = async () => {
     try {
-      const response = await api.get('/vendedor')
+      const response = await axios.get('http://localhost:8080/vendedor')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste")
       return { error }
     }
   }
@@ -16,7 +17,7 @@ export const getData = () => {
       const response = await api.get('/vendedor/todos')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste2")
       return { error }
     }
   }
@@ -26,17 +27,17 @@ export const getData = () => {
       const response = await api.get('/ramoatv')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste3")
       return { error }
     }
-  }
+  } 
 
   const getRamoTodos = async () => {
     try {
       const response = await api.get('/ramoatv/todos')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste4")
       return { error }
     }
   }
@@ -46,7 +47,7 @@ export const getData = () => {
       const response = await api.get('/servico')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste5")
       return { error }
     }
   }
@@ -56,7 +57,7 @@ export const getData = () => {
       const response = await api.get('/servico/todos')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste6")
       return { error }
     }
   }
@@ -66,7 +67,7 @@ export const getData = () => {
       const response = await api.get('/cidade/todos')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste7")
       return { error }
     }
   }
@@ -76,7 +77,7 @@ export const getData = () => {
       const response = await api.get('/cidade/todos')
       return response.data
     } catch (error) {
-      console.log({ error })
+      console.log({ error }, "teste8")
       return { error }
     }
   }

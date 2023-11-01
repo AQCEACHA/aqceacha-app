@@ -57,7 +57,9 @@ export default function Home() {
   useEffect(() => {
     callGetData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
+
+  console.log(vendedor)
 
   const { navigate } = useNavigation();
 
