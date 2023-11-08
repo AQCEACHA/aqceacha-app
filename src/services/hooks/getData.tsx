@@ -4,7 +4,7 @@ import  api  from '../api'
 export const getData = () => {
   const getVendedor = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/vendedor')
+      const response = await axios.get('/vendedor')
       return response.data
     } catch (error) {
       console.log({ error }, "teste")
@@ -30,7 +30,7 @@ export const getData = () => {
       console.log({ error }, "teste3")
       return { error }
     }
-  } 
+  }
 
   const getRamoTodos = async () => {
     try {
@@ -64,7 +64,7 @@ export const getData = () => {
 
   const getCidade = async () => {
     try {
-      const response = await api.get('/cidade/todos')
+      const response = await api.get('/cidade')
       return response.data
     } catch (error) {
       console.log({ error }, "teste7")
