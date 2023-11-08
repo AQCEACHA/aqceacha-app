@@ -1,7 +1,10 @@
 import axios from 'axios'
 import  api  from '../api'
 
+/*https://pt.stackoverflow.com/questions/434021/possible-unhandled-promise-rejection-react-native-hooks*/
+
 export const getData = () => {
+  /*
   const getVendedor = async () => {
     try {
       const response = await axios.get('/vendedor')
@@ -11,16 +14,20 @@ export const getData = () => {
       return { error }
     }
   }
+  */
 
   const getVendedorTodos = async () => {
     try {
-      const response = await api.get('/vendedor/todos')
+      const response = await api.get('/vendedor/todos');
+      console.log(response.data);
       return response.data
     } catch (error) {
       console.log({ error }, "teste2")
       return { error }
     }
   }
+
+  /*
 
   const getRamo = async () => {
     try {
@@ -96,13 +103,15 @@ export const getData = () => {
   */
 
   return {
-    getVendedor,
     getVendedorTodos,
+    /*
     getRamo,
+        getVendedor,
     getRamoTodos,
     getServico,
     getServicoTodos,
     getCidade,
     getCidadeTodos
+    */
   }
 }
