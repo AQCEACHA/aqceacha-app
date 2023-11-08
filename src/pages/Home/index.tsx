@@ -24,42 +24,42 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import { getData } from "../../services/hooks";
+//import { getData } from "../../services/hooks";
 
 const Stack = createNativeStackNavigator();
 
 export default function Home() {
-  const { getVendedor, getRamo, getServico, getCidade } = getData();
-  const [vendedor, setVendedor] = useState([]);
-  const [ramo, setRamo] = useState([]);
-  const [servico, setServico] = useState([]);
-  const [cidade, setCidade] = useState([]);
+  // const { getVendedor, getRamo, getServico, getCidade } = getData();
+  // const [vendedor, setVendedor] = useState([]);
+  // const [ramo, setRamo] = useState([]);
+  // const [servico, setServico] = useState([]);
+  // const [cidade, setCidade] = useState([]);
 
-  const callGetData = async () => {
-    const vendedorResponse = await getVendedor();
-    const ramoResponse = await getRamo();
-    const servicoResponse = await getServico();
-    const cidadeResponse = await getCidade();
+  // const callGetData = async () => {
+  //   const vendedorResponse = await getVendedor();
+  //   const ramoResponse = await getRamo();
+  //   const servicoResponse = await getServico();
+  //   const cidadeResponse = await getCidade();
 
-    if (
-      !vendedorResponse.error &&
-      !ramoResponse.error &&
-      !servicoResponse.error &&
-      !cidadeResponse.error
-    ) {
-      setVendedor(vendedorResponse);
-      setRamo(ramoResponse);
-      setServico(servicoResponse);
-      setCidade(cidadeResponse);
-    }
-  };
+  //   if (
+  //     !vendedorResponse.error &&
+  //     !ramoResponse.error &&
+  //     !servicoResponse.error &&
+  //     !cidadeResponse.error
+  //   ) {
+  //     setVendedor(vendedorResponse);
+  //     setRamo(ramoResponse);
+  //     setServico(servicoResponse);
+  //     setCidade(cidadeResponse);
+  //   }
+  // };
 
-  useEffect(() => {
-    callGetData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // useEffect(() => {
+  //   callGetData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
 
-  console.log(vendedor)
+  // console.log(vendedor)
 
   const { navigate } = useNavigation();
 

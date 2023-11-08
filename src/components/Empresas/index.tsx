@@ -11,34 +11,35 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import {getData} from '../../services/hooks';
+//import {getData} from '../../services/hooks';
 
 const Stack = createNativeStackNavigator();
 
 
 export default function Empresas() {
 
-  const {getVendedorTodos} = getData();
-  const [vendedor,setVendedor] = useState([])
+  // const {getVendedorTodos} = getData();
+  // const [vendedor,setVendedor] = useState([])
 
-  const callGetData = async () => {
-    const vendedorResponse = await getVendedorTodos()
+  // const callGetData = async () => {
+  //   const vendedorResponse = await getVendedorTodos()
 
-    if(!vendedorResponse.error){
-      setVendedor(vendedorResponse)
-    }
-  }
+  //   if(!vendedorResponse.error){
+  //     setVendedor(vendedorResponse)
+  //   }
+  // }
 
-  useEffect( () => {
-    callGetData()
-  }, [])
-  console.log(vendedor)
+  // useEffect( () => {
+  //   callGetData()
+  // }, [])
+  // console.log(vendedor)
 
   const { navigate } = useNavigation();
 
   const numColumns = 2;
 
   return (
+    /*
     <FlatList
       data={vendedor}
       numColumns={numColumns} // Mostrar 2 itens por linha
@@ -55,6 +56,8 @@ export default function Empresas() {
       )}
       showsHorizontalScrollIndicator={false}
     />
+    */
+   <Text>Oi</Text>
 
 
   );
