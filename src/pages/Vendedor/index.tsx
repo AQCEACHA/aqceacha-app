@@ -7,21 +7,21 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import user from "../../../../assets/testimage.png";
+import user from "../../../assets/testimage.png";
 
 import { styles } from "./vendedor";
 
-import pic1 from "../../../../assets/teste/pic1.png";
-import pic2 from "../../../../assets/teste/pic2.png";
+import pic1 from "../../../assets/teste/pic1.png";
+import pic2 from "../../../assets/teste/pic2.png";
 
-import Contatar from "../../../components/Contatar";
-import Infos from "../../../components/Infos";
+import Contatar from "../../components/Contatar";
+import Infos from "../../components/Infos";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import prop from "../../../../assets/teste/prop.png";
+import prop from "../../../assets/teste/prop.png";
 
 const DATA = [
   {

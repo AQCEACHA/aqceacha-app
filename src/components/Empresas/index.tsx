@@ -1,47 +1,47 @@
-import React, {useEffect, useState} from "react";
-import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
-
-import { styles } from "./styles";
+import { FlatList, TouchableOpacity, Image, Text} from "react-native";
 
 import imageproto from "../../../assets/imageproto.png";
 
 import test from '../../../assets/testimage.png';
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
 import { useNavigation } from "@react-navigation/native";
 
-//import {getData} from '../../services/hooks';
+import {styles} from './styles';
+import useCustomFetch from '../../services/hooks/useFetch';
 
-const Stack = createNativeStackNavigator();
-
+const DATA = [
+  {
+    empresa: "Cameraman",
+    image: test,
+  },
+  {
+    empresa: "Empresa Nome",
+    image: imageproto,
+  },
+  {
+    empresa: "Empresa Nome",
+    image: imageproto,
+  },
+    {
+    empresa: "Empresa Nome",
+    image: imageproto,
+  },
+];
 
 export default function Empresas() {
 
-  // const {getVendedorTodos} = getData();
-  // const [vendedor,setVendedor] = useState([])
-
-  // const callGetData = async () => {
-  //   const vendedorResponse = await getVendedorTodos()
-
-  //   if(!vendedorResponse.error){
-  //     setVendedor(vendedorResponse)
-  //   }
-  // }
-
-  // useEffect( () => {
-  //   callGetData()
-  // }, [])
-  // console.log(vendedor)
+  const {data} = useCustomFetch('http://10.68.21.126:8080/vendedor/todos')
 
   const { navigate } = useNavigation();
+
+  console.log(data)
 
   const numColumns = 2;
 
   return (
-    /*
     <FlatList
-      data={vendedor}
+      data={data}
       numColumns={numColumns} // Mostrar 2 itens por linha
       renderItem={({ item }) => (
         <TouchableOpacity
@@ -50,15 +50,11 @@ export default function Empresas() {
             navigate("Vendedor");
           }}
         >
-
-          <Text style={styles.text}>{vendedor}</Text>
-        </TouchableOpacity>
+          <Image source={{uri: item.imgven}} resizeMode="contain" style={styles.img} />
+          <Text style={styles.text}>{item.nomeven}</Text>
+          </TouchableOpacity>
       )}
       showsHorizontalScrollIndicator={false}
     />
-    */
-   <Text>Oi</Text>
-
-
-  );
-}
+    );
+        }

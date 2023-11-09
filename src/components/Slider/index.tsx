@@ -66,7 +66,7 @@ export const Slider = () => {
               width: vw(Dimensions.get("screen").width * 0.06),
               alignItems: "center",
               height: vw(15),
-              marginHorizontal: vw(3.8),
+              marginHorizontal: vw(2),
             }}
           >
             <TouchableOpacity>

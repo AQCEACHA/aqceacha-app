@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  Image
+  Image,
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 
@@ -16,7 +16,7 @@ import { styles } from "./styles";
 import brasil from "../../../assets/brasil.png";
 
 export default function OpenTelefone() {
-    const [number, onChangeNumber] = React.useState("(14)99804-0306");
+  const [number, onChangeNumber] = React.useState("(14)99804-0306");
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -29,8 +29,7 @@ export default function OpenTelefone() {
           setModalVisible(!modalVisible);
         }}
       >
-
-<View style={styles.modal}>
+        <View style={styles.modal}>
           <View style={styles.modalView}>
             <View style={styles.topo}>
               <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
@@ -39,49 +38,56 @@ export default function OpenTelefone() {
               <Text style={styles.modalText}>Verificar Telefone</Text>
             </View>
             <View style={styles.conteudo}>
-            <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 8 }}>
-          <Image source={brasil} style={styles.image}/>
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeNumber}
-            keyboardType="numeric"
-            value={number}
-          />
-        </View>
-
-          </View>
-          <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={styles.confirmar}>
-                <Text style={{fontFamily: 'ISemi', color: 'white'}}>Confirmar</Text>
-              </TouchableOpacity>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  marginLeft: 8,
+                }}
+              >
+                <Image source={brasil} style={styles.image} />
+                <TextInput
+                  style={styles.input}
+                  onChangeText={onChangeNumber}
+                  keyboardType="numeric"
+                  value={number}
+                />
+              </View>
             </View>
+            <TouchableOpacity
+              onPress={() => setModalVisible(!modalVisible)}
+              style={styles.confirmar}
+            >
+              <Text style={{ fontFamily: "ISemi", color: "white" }}>
+                Confirmar
+              </Text>
+            </TouchableOpacity>
           </View>
+        </View>
         <TouchableOpacity
           onPress={() => setModalVisible(!modalVisible)}
           style={{
             backgroundColor: "#000000",
             opacity: 0.5,
             alignSelf: "flex-end",
-            width: '100%',
+            width: "100%",
             height: "100%",
             position: "absolute",
           }}
         ></TouchableOpacity>
       </Modal>
 
-      <TouchableOpacity
-        onPress={() => setModalVisible(true)}
-      >
-                  <View style={styles.itens}>
-                    <Feather
-                      name="phone"
-                      size={30}
-                      color="#10228A"
-                      style={styles.icontoolbar}
-                    />
-                    <Text style={styles.textitens}>Telefone</Text>
-                  </View>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <View style={styles.itens}>
+          <Feather
+            name="phone"
+            size={30}
+            color="#10228A"
+            style={styles.icontoolbar}
+          />
+          <Text style={styles.textitens}>Telefone</Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
 }
-

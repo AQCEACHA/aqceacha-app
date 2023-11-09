@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, Image, TextInput, TouchableOpacity } from "react-native";
-import user from "../../../../assets/userimg.jpg";
+import user from "../../../assets/userimg.jpg";
 
 import { styles } from "./conta";
 

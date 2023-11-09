@@ -3,13 +3,15 @@ import { View, Text, TouchableOpacity } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Config from "../pages/Screens/Config";
+import Config from "../pages/Config";
 import Home from "../pages/Home";
-import Conta from "../pages/Screens/Conta";
-import Local from "../pages/Screens/Local";
-import Mais from "../pages/Screens/Mais";
-import Vendedor from "../pages/Screens/Vendedor";
-import ImgMais from "../pages/Screens/imgMais";
+import Conta from "../pages/Conta";
+import Local from "../pages/Local";
+import Mais from "../pages/Mais";
+import Vendedor from "../pages/Vendedor";
+import ImgMais from "../pages/imgMais";
+import Search from "../pages/Search/index";
+import Notification from "../pages/Notification";
 
 import Feather from "@expo/vector-icons/Feather";
 
@@ -28,6 +30,8 @@ declare global {
       Mais: undefined;
       Vendedor: undefined;
       ImgMais: undefined;
+      Search: undefined;
+      Notification: undefined;
     }
   }
 }
@@ -69,11 +73,11 @@ const CustomHeader = ({ navigation }: { navigation: any }) => {
 };
 
 const CustomName = ({ navigation }: { navigation: any }) => {
-  return{
+  return {
     headerTitle: "Mais Fotos",
     headerLeft: () => (
       <Feather
-      style={{marginRight: vw(4)}}
+        style={{ marginRight: vw(4) }}
         name="chevron-left"
         size={34}
         color="#1429A6"
@@ -86,10 +90,61 @@ const CustomName = ({ navigation }: { navigation: any }) => {
 };
 
 const CustomMain = ({ navigation }: { navigation: any }) => {
-  return{
+  return {
     headerLeft: () => (
       <Feather
-      style={{marginRight: vw(4)}}
+        style={{ marginRight: vw(4) }}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+  };
+};
+
+const CustomLocal = ({ navigation }: { navigation: any }) => {
+  return {
+    headerTitle: "Localização",
+    headerLeft: () => (
+      <Feather
+        style={{ marginRight: vw(4) }}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+  };
+};
+
+const CustomSearch = ({ navigation }: { navigation: any }) => {
+  return {
+    headerTitle: "Pesquisar",
+    headerLeft: () => (
+      <Feather
+        style={{ marginRight: vw(4) }}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+  };
+};
+
+const CustomBell = ({ navigation }: { navigation: any }) => {
+  return {
+    headerTitle: "Notificações",
+    headerLeft: () => (
+      <Feather
+        style={{ marginRight: vw(4) }}
         name="chevron-left"
         size={34}
         color="#1429A6"
@@ -123,7 +178,7 @@ export const Routes = () => {
         <Stack.Screen
           name="Local"
           component={Local}
-          options={({ navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomLocal({ navigation })}
         />
         <Stack.Screen
           name="Mais"
@@ -140,6 +195,16 @@ export const Routes = () => {
           component={ImgMais}
           options={({ navigation }) => CustomName({ navigation })}
         />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={({ navigation }) => CustomSearch({ navigation })}
+        />
+        <Stack.Screen
+          name="Notification"
+          component={Notification}
+          options={({ navigation }) => CustomBell({ navigation })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -149,7 +214,7 @@ export const styles = StyleSheet.create({
   icon: {
     alignSelf: "flex-end",
     flexDirection: "row",
-    alignItems: 'center'
+    alignItems: "center",
   },
   star: {
     alignItems: "center",

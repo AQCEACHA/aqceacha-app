@@ -7,6 +7,8 @@ export const styles = StyleSheet.create({
     marginTop: vw(8),
     backgroundColor: "white",
     alignSelf: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     height: vw(10),
     width: vw(80),
     borderRadius: vw(25),
@@ -19,6 +21,7 @@ export const styles = StyleSheet.create({
   searchtext: {
     fontFamily: "IRegular",
     width: vw(66),
+    color: '#BBB6B6'
   },
   carousel: {
     marginTop: vw(8),

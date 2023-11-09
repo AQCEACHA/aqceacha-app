@@ -2,14 +2,10 @@ import React, { useState, useEffect } from "react";
 import {
   Alert,
   Modal,
-  StyleSheet,
   Text,
-  Pressable,
   View,
   TouchableOpacity,
   Image,
-  ScrollView,
-  TouchableWithoutFeedback,
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/outro.png";
@@ -133,7 +129,9 @@ export default function Toolbar() {
             style={styles.icontoolbar}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            navigate("Notification");
+          }}>
           <Feather
             name="bell"
             size={30}

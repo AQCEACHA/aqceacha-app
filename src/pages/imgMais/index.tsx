@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 
-import { styles } from "./mais";
+import { styles } from "./imgmais";
 
 import imageproto from "../../../assets/imageproto.png";
 
-import pic1 from '../../../../assets/teste/pic1.png';
-import pic2 from '../../../../assets/teste/pic2.png';
-import pic3 from '../../../../assets/teste/pic3.png';
-import pic4 from '../../../../assets/teste/pic4.png';
+import pic1 from '../../../assets/teste/pic1.png';
+import pic2 from '../../../assets/teste/pic2.png';
+import pic3 from '../../../assets/teste/pic3.png';
+import pic4 from '../../../assets/teste/pic4.png';
 
 
 

@@ -3,7 +3,7 @@ import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 
 import { styles } from "./mais";
 
-import imageproto from "../../../../assets/imageproto.png";
+import imageproto from "../../../assets/imageproto.png";
 
 import Feather from "@expo/vector-icons/Feather";
 

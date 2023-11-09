@@ -29,18 +29,19 @@ export const styles = StyleSheet.create({
       topo: {
         flexDirection: "row",
         borderBottomColor: 'black',
-        paddingBottom: 26,
+        paddingBottom: 18,
       },
       modalText: {
         marginLeft: vw(6),
         alignSelf: "center",
         fontSize: 20,
-        fontFamily: 'ISemi'
+        fontFamily: 'ISemi',
+        color: '#565656'
       },
       conteudo: {
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'space-around'
       },
       itens:{
         flexDirection: 'row',
@@ -58,7 +59,7 @@ export const styles = StyleSheet.create({
       },
       input: {
         height: 40,
-        width: 200,
+        width: 120,
         margin: 12,
         padding: 10,
         borderBottomWidth: 1,

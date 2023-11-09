@@ -8,6 +8,8 @@ import {
 
 import {Routes} from './src/routes';
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
 /*Fontes*/
 
 import {
@@ -30,12 +32,14 @@ export default function App() {
   }
 
   /* App */
-
+  const queryClient = new QueryClient()
   return (
+    <QueryClientProvider client={queryClient}>
     <SafeAreaView style={styles.container}>
       <StatusBar />
       <Routes/>
     </SafeAreaView>
+    </QueryClientProvider>
   );
 }
 

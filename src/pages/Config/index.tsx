@@ -8,7 +8,7 @@ import {
   Switch,
 } from "react-native";
 
-import user from "../../../../assets/userimg.jpg";
+import user from "../../../assets/userimg.jpg";
 
 import { styles } from "./config";
 

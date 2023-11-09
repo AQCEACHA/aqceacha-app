@@ -16,7 +16,7 @@ import Empresas from "../../components/Empresas";
 import negocioimage from "../../../assets/negocioimage.png";
 import Toolbar from "../../components/Toolbar";
 
-import { styles } from "./styles";
+import { styles } from "./home";
 
 import OpenModal from "../../components/Modal";
 
@@ -24,43 +24,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-//import { getData } from "../../services/hooks";
-
 const Stack = createNativeStackNavigator();
 
 export default function Home() {
-  // const { getVendedor, getRamo, getServico, getCidade } = getData();
-  // const [vendedor, setVendedor] = useState([]);
-  // const [ramo, setRamo] = useState([]);
-  // const [servico, setServico] = useState([]);
-  // const [cidade, setCidade] = useState([]);
-
-  // const callGetData = async () => {
-  //   const vendedorResponse = await getVendedor();
-  //   const ramoResponse = await getRamo();
-  //   const servicoResponse = await getServico();
-  //   const cidadeResponse = await getCidade();
-
-  //   if (
-  //     !vendedorResponse.error &&
-  //     !ramoResponse.error &&
-  //     !servicoResponse.error &&
-  //     !cidadeResponse.error
-  //   ) {
-  //     setVendedor(vendedorResponse);
-  //     setRamo(ramoResponse);
-  //     setServico(servicoResponse);
-  //     setCidade(cidadeResponse);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   callGetData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-
-  // console.log(vendedor)
-
   const { navigate } = useNavigation();
 
   return (
@@ -70,18 +36,20 @@ export default function Home() {
       {/*Começa scroll do home*/}
       <ScrollView>
         {/*Barra de Pesquisa*/}
-        <View style={styles.search}>
+        <TouchableOpacity
+          onPress={() => {
+            navigate("Search");
+          }}
+          style={styles.search}
+        >
           <Feather
             name="search"
             size={25}
             color="#10228A"
             style={styles.iconsearch}
           />
-          <TextInput
-            placeholder="O que você está procurando?"
-            style={styles.searchtext}
-          ></TextInput>
-        </View>
+          <Text style={styles.searchtext}>O que você está procurando?</Text>
+        </TouchableOpacity>
 
         {/*Carousel*/}
         <View style={styles.carousel}>
