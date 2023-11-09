@@ -10,25 +10,6 @@ import { useNavigation } from "@react-navigation/native";
 import {styles} from './styles';
 import useCustomFetch from '../../services/hooks/useFetch';
 
-const DATA = [
-  {
-    empresa: "Cameraman",
-    image: test,
-  },
-  {
-    empresa: "Empresa Nome",
-    image: imageproto,
-  },
-  {
-    empresa: "Empresa Nome",
-    image: imageproto,
-  },
-    {
-    empresa: "Empresa Nome",
-    image: imageproto,
-  },
-];
-
 export default function Empresas() {
 
   const {data} = useCustomFetch('http://10.68.21.126:8080/vendedor/todos')
