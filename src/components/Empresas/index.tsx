@@ -1,18 +1,15 @@
 import { FlatList, TouchableOpacity, Image, Text} from "react-native";
 
-import imageproto from "../../../assets/imageproto.png";
-
-import test from '../../../assets/testimage.png';
-
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 
 import {styles} from './styles';
 import useCustomFetch from '../../services/hooks/useFetch';
 
+import baseUrl from '@env';
+
 export default function Empresas() {
 
-  const {data} = useCustomFetch('http://10.68.21.126:8080/vendedor/todos')
+  const data = useCustomFetch(baseUrl + '/vendedor/todos')
 
   const { navigate } = useNavigation();
 
