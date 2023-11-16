@@ -5,6 +5,8 @@ export const styles = StyleSheet.create({
   images: {
     marginTop: vw(4),
     flexDirection: "column",
+    width:vw(38),
+    height: vw(40),
   },
   empresa: {
     flexDirection: "row",

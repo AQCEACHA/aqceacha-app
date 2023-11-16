@@ -5,17 +5,20 @@ import { useNavigation } from "@react-navigation/native";
 import {styles} from './styles';
 import useCustomFetch from '../../services/hooks/useFetch';
 
-import baseUrl from '@env';
+import {BASE_URL} from "@env";
+
 
 export default function Empresas() {
 
-  const data = useCustomFetch(baseUrl + '/vendedor/todos')
+  const {data} = useCustomFetch(BASE_URL + '/vendedor/todos')
 
   const { navigate } = useNavigation();
 
   console.log(data)
 
   const numColumns = 2;
+
+
 
   return (
     <FlatList
@@ -29,9 +32,10 @@ export default function Empresas() {
           }}
         >
           <Image source={{uri: item.imgven}} resizeMode="contain" style={styles.img} />
-          <Text style={styles.text}>{item.nomeven}</Text>
+          <Text style={styles.text}>{item.apelidoven}</Text>
           </TouchableOpacity>
       )}
+      keyExtractor={(item) => item.idven}
       showsHorizontalScrollIndicator={false}
     />
     );
