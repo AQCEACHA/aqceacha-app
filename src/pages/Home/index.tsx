@@ -87,7 +87,12 @@ export default function Home() {
           resizeMode="contain"
         />
 
-        <TouchableOpacity style={styles.cadastrar}>
+        <TouchableOpacity
+          style={styles.cadastrar}
+          onPress={() => {
+            navigate("Cadastro");
+          }}
+        >
           <Text style={styles.cadastrartext}>Cadastrar</Text>
         </TouchableOpacity>
       </ScrollView>

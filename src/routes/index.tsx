@@ -17,6 +17,8 @@ import Feather from "@expo/vector-icons/Feather";
 
 import { StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
+import Cadastro from "../pages/ClienteScreens/Cadastro/index";
+import CadastroCli from "../pages/ClienteScreens/Cadastro/index";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +34,8 @@ declare global {
       ImgMais: undefined;
       Search: undefined;
       Notification: undefined;
+      LoginCli: undefined;
+      Cadastro: undefined;
     }
   }
 }
@@ -159,7 +163,7 @@ const CustomBell = ({ navigation }: { navigation: any }) => {
 export const Routes = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator  initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
@@ -204,6 +208,11 @@ export const Routes = () => {
           name="Notification"
           component={Notification}
           options={({ navigation }) => CustomBell({ navigation })}
+        />
+        <Stack.Screen
+          name="Cadastro"
+          component={CadastroCli}
+          options={({ navigation }) => CustomMain({ navigation })}
         />
       </Stack.Navigator>
     </NavigationContainer>
