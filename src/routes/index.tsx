@@ -17,8 +17,9 @@ import Feather from "@expo/vector-icons/Feather";
 
 import { StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
-import Cadastro from "../pages/ClienteScreens/Cadastro/index";
 import CadastroCli from "../pages/ClienteScreens/Cadastro/index";
+import Inicio from "../pages/Inicio";
+import LoginCli from "../pages/ClienteScreens/Login";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,8 +35,9 @@ declare global {
       ImgMais: undefined;
       Search: undefined;
       Notification: undefined;
-      LoginCli: undefined;
-      Cadastro: undefined;
+      LoginCli: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
+      CadastroCli: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
+      Inicio: undefined;
     }
   }
 }
@@ -73,6 +75,12 @@ const CustomHeader = ({ navigation }: { navigation: any }) => {
         }}
       />
     ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
   };
 };
 
@@ -90,6 +98,12 @@ const CustomName = ({ navigation }: { navigation: any }) => {
         }}
       />
     ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
   };
 };
 
@@ -106,6 +120,12 @@ const CustomMain = ({ navigation }: { navigation: any }) => {
         }}
       />
     ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
   };
 };
 
@@ -123,6 +143,12 @@ const CustomLocal = ({ navigation }: { navigation: any }) => {
         }}
       />
     ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
   };
 };
 
@@ -140,6 +166,12 @@ const CustomSearch = ({ navigation }: { navigation: any }) => {
         }}
       />
     ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
   };
 };
 
@@ -160,10 +192,42 @@ const CustomBell = ({ navigation }: { navigation: any }) => {
   };
 };
 
+
+const CustomArrow = ({ navigation }: { navigation: any }) => {
+  return {
+    headerTitle: "",
+    headerLeft: () => (
+      <Feather
+        style={{ marginRight: vw(4) }}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
+  };
+};
+
+const CustomInit = ({ navigation }: { navigation: any }) => {
+  return {
+    headerTitle: '',
+    headerShown: false,
+    headerTransparent: true
+  };
+};
+
 export const Routes = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator  initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Inicio">
         <Stack.Screen
           name="Home"
           component={Home}
@@ -210,9 +274,19 @@ export const Routes = () => {
           options={({ navigation }) => CustomBell({ navigation })}
         />
         <Stack.Screen
-          name="Cadastro"
+          name="CadastroCli"
           component={CadastroCli}
           options={({ navigation }) => CustomMain({ navigation })}
+        />
+        <Stack.Screen
+          name="LoginCli"
+          component={LoginCli}
+          options={({ navigation }) => CustomArrow({ navigation })}
+        />
+        <Stack.Screen
+          name="Inicio"
+          component={Inicio}
+          options={({ navigation }) => CustomInit({ navigation })}
         />
       </Stack.Navigator>
     </NavigationContainer>

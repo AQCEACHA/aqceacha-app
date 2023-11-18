@@ -90,7 +90,7 @@ export default function Home() {
         <TouchableOpacity
           style={styles.cadastrar}
           onPress={() => {
-            navigate("Cadastro");
+            navigate("CadastroVen");
           }}
         >
           <Text style={styles.cadastrartext}>Cadastrar</Text>

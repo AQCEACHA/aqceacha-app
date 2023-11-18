@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   titulo: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'ISemi',
     marginBottom: 20,
   },
   input: {
@@ -18,7 +18,8 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   botoesContainer: {
-    alignSelf: 'flex-end'
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   botao:{
     justifyContent: "center",
@@ -27,30 +28,32 @@ export const styles = StyleSheet.create({
     height: vw(10),
     width: vw(36),
     backgroundColor: "#1429A6",
-    marginBottom: vw(3),
   },
   botaoText:{
     fontFamily: "ISemi",
     color: "white",
-    fontSize: vw(6),
+    fontSize: vw(4),
   },
   barra:{
+    position: 'absolute',
     maxWidth: '100%',
   },
-  progress:{
+  progressContainer: {
+    marginBottom: 20,
+  },
+  progress: {
     height: 7,
     borderRadius: 4,
     width: '100%',
-    position: 'relative',
-    borderColor: '#BBB6B6'
+    backgroundColor: '#BBB6B6',
   },
-  progress_in:{
-    position: 'absolute',
-    left: 0,
-    top: 0,
+  progressInner: {
     height: '100%',
     borderRadius: 4,
-    color: '#1429A6',
-  }
+    backgroundColor: '#1429A6',
+  },
+  inputError: {
+    borderColor: 'red',
+  },
 //           exp://10.68.21.126:8081
 });
