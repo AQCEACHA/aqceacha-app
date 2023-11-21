@@ -9,34 +9,43 @@ import {
 import Feather from "@expo/vector-icons/Feather";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
-const DATA = [
-  {
-    image: "camera",
-    name: "Fotógrafo",
-  },
-  {
-    image: "cpu",
-    name: "T.I.",
-  },
-  {
-    image: "tool",
-    name: "Mecânico",
-  },
-  {
-    image: "briefcase",
-    name: "Advogado",
-  },
-  {
-    image: "clipboard",
-    name: "Professor",
-  },
-  {
-    image: "plus",
-    name: "Enfermeiro",
-  },
-];
+import useCustomFetch from '../../services/hooks/useFetch';
+
+import {BASE_URL} from "@env";
+
+// const DATA = [
+//   {
+//     image: "camera",
+//     name: "Fotógrafo",
+//   },
+//   {
+//     image: "cpu",
+//     name: "T.I.",
+//   },
+//   {
+//     image: "tool",
+//     name: "Mecânico",
+//   },
+//   {
+//     image: "briefcase",
+//     name: "Advogado",
+//   },
+//   {
+//     image: "clipboard",
+//     name: "Professor",
+//   },
+//   {
+//     image: "plus",
+//     name: "Enfermeiro",
+//   },
+// ];
 
 export const Slider = () => {
+
+  const {data} = useCustomFetch(BASE_URL + '/ramoatv/todos')
+
+  console.log(data)
+
   const [activeBanner, setActiveBanner] = useState<number>(0);
   const FlatlistRef = useRef<FlatList>(null);
 
@@ -59,7 +68,7 @@ export const Slider = () => {
     <View style={{ alignItems: "center" }}>
       <FlatList
         ref={FlatlistRef}
-        data={DATA}
+        data={data}
         renderItem={({ item }) => (
           <View
             style={{
@@ -71,7 +80,7 @@ export const Slider = () => {
           >
             <TouchableOpacity>
               <Feather
-                name={item.image}
+                name={item.iconramo}
                 size={35}
                 color="#10228A"
                 style={{ alignSelf: "center" }}
@@ -79,7 +88,7 @@ export const Slider = () => {
               <Text
                 style={{ fontFamily: "IRegular", alignSelf: "center" }}
               >
-                {item.name}
+                {item.ramo}
               </Text>
             </TouchableOpacity>
           </View>

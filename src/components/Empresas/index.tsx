@@ -19,7 +19,6 @@ export default function Empresas() {
   const numColumns = 2;
 
 
-
   return (
     <FlatList
       data={data}
