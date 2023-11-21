@@ -23,6 +23,8 @@ export default function Mais() {
 
   const { navigate } = useNavigation();
 
+  console.log(data)
+
   return (
     <FlatList
       data={data}
@@ -35,7 +37,7 @@ export default function Mais() {
                     navigate("Vendedor");
                   }}
                 >
-                  <Image source={{uri: item.imgven}} />
+                  <Image source={{uri: item.imgven}} style={styles.img}/>
                 </TouchableOpacity>
               </View>
               <View style={styles.info}>

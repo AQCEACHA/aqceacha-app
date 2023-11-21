@@ -4,6 +4,7 @@ import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 export const styles = StyleSheet.create({
   images: {
     marginTop: vw(4),
+    marginBottom: vw(8),
     flexDirection: "column",
     width:vw(38),
     height: vw(40),
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
     fontFamily: "IRegular",
     marginTop: vw(2),
     marginBottom: vw(2),
-    alignSelf: "center",
+    alignSelf: "flex-start",
     fontSize: 18,
   },
   info: {
@@ -36,5 +37,10 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     marginRight: vw(4)
+  },
+  img:{
+    width:vw(38),
+    height: vw(40),
+    borderRadius: 10,
   }
 });

@@ -30,7 +30,7 @@ export default function Empresas() {
             navigate("Vendedor");
           }}
         >
-          <Image source={{uri: item.imgven}} resizeMode="contain" style={styles.img} />
+          <Image source={{uri: item.imgven}} style={styles.img} />
           <Text style={styles.text}>{item.apelidoven}</Text>
           </TouchableOpacity>
       )}
