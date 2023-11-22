@@ -77,7 +77,9 @@ export default function Local() {
     false,
   ]);
 
-  const {data}: any = useCustomFetch(BASE_URL + "/cidade?uf=AC");
+  const {data}: any = useCustomFetch(BASE_URL + "/cidade?uf=SP");
+  console.log(data)
+
   return (
     <>
       <View style={styles.search}>
