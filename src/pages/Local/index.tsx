@@ -77,8 +77,7 @@ export default function Local() {
     false,
   ]);
 
-  const { data } = useCustomFetch(BASE_URL + "/cidade?uf=AC");
-
+  const {data}: any = useCustomFetch(BASE_URL + "/cidade?uf=AC");
   return (
     <>
       <View style={styles.search}>
@@ -114,9 +113,9 @@ export default function Local() {
               }}
             >
               <FlatList
-                data={data}
+                data={data.content}
                 renderItem={({ item }) => (
-                  <Text>{item.cidade}</Text>
+                  <Text>{item.nomecidade}</Text>
                 )}
                 keyExtractor={(item) => item.id}
               />
