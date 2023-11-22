@@ -20,6 +20,8 @@ import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import CadastroCli from "../pages/ClienteScreens/Cadastro/index";
 import Inicio from "../pages/Inicio";
 import LoginCli from "../pages/ClienteScreens/Login";
+import CadastroVen from "../pages/EmpresaScreens/Cadastro/index";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +39,7 @@ declare global {
       Notification: undefined;
       LoginCli: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
       CadastroCli: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
+      CadastroVen: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
       Inicio: undefined;
     }
   }
@@ -276,6 +279,11 @@ export const Routes = () => {
         <Stack.Screen
           name="CadastroCli"
           component={CadastroCli}
+          options={({ navigation }) => CustomMain({ navigation })}
+        />
+        <Stack.Screen
+          name="CadastroVen"
+          component={CadastroVen}
           options={({ navigation }) => CustomMain({ navigation })}
         />
         <Stack.Screen

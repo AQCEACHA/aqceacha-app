@@ -1,5 +1,3 @@
-// Apenas adicionei os campos que faltavam,a estrutura foi copiada do cliente mas ainda não modifiquei
-
 import React, { useState } from "react";
 import {
   View,
@@ -60,7 +58,7 @@ const MinLengthInput: React.FC<MinLengthInputProps> = ({
   );
 };
 
-const CadastroEmpresa: React.FC = () => {
+const CadastroVen: React.FC = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
 
@@ -72,13 +70,9 @@ const CadastroEmpresa: React.FC = () => {
 
 
   const [cpf, setCpf] = useState("");
-  const [dataNasc, setDataNasc] = useState("")
-  const [telefone, setTelefone] = useState("")
+  const [cnpj, setCnpj] = useState("");
 
-
-
-  const [cnpj, setCnpj] = useState("")
-  const [nomeEmpresa, setNomeEmpresa] = useState("")
+  const [nomeEmpresa, setNomeEmpresa] = useState("");
 
   const [cep, setCep] = useState("");
   const [estado, setEstado] = useState("");
@@ -90,15 +84,15 @@ const CadastroEmpresa: React.FC = () => {
   const [etapa, setEtapa] = useState(1);
 
 
-  const avancarEtapa = () => {
-    if (etapa < 3) {
-      setEtapa(etapa + 1);
+  const avancarEtapa = (numeroEtapas: number) => {
+    if (etapa < 5) {
+      setEtapa(etapa + numeroEtapas);
     }
   };
 
-  const retrocederEtapa = () => {
+  const retrocederEtapa = (numeroEtapasRetroceder: number) => {
     if (etapa > 1) {
-      setEtapa(etapa - 1);
+      setEtapa(etapa - numeroEtapasRetroceder);
     }
   };
 
@@ -172,7 +166,36 @@ const CadastroEmpresa: React.FC = () => {
         </>
       )}
 
+
       {etapa === 2 && (
+        <>
+          <View>
+            <TouchableOpacity onPress={() => avancarEtapa(1)}><Text>CPF</Text></TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity  onPress={() => avancarEtapa(2)}><Text>CNPJ</Text></TouchableOpacity>
+          </View>
+        </>
+      )}
+      {etapa === 3 && (
+        <>
+          <View>
+            <TouchableOpacity><Text>CPF</Text></TouchableOpacity>
+          </View>
+
+        </>
+      )}
+      {etapa === 4 && (
+        <>
+
+          <View>
+            <TouchableOpacity><Text>CNPJ</Text></TouchableOpacity>
+          </View>
+        </>
+      )}
+
+
+      {etapa === 5 && (
         <View>
           <TextInput
             placeholder="CEP"
@@ -223,13 +246,13 @@ const CadastroEmpresa: React.FC = () => {
       )}
 
       <View style={styles.botoesContainer}>
-        {etapa > 1 && (
-          <TouchableOpacity onPress={retrocederEtapa} style={styles.botao}>
+        {etapa > 1 && etapa != 2 &&(
+          <TouchableOpacity onPress={() => retrocederEtapa(etapa == 4 ? 2 : 1)} style={styles.botao}>
             <Text style={styles.botaoText}>Voltar</Text>
           </TouchableOpacity>
         )}
-        {etapa < 2 ? (
-          <TouchableOpacity onPress={avancarEtapa} style={styles.botao}>
+        {etapa != 2 &&(etapa < 5 ? (
+          <TouchableOpacity onPress={() => avancarEtapa(etapa == 3 ? 2 : 1)} style={styles.botao}>
             <Text style={styles.botaoText}>Avançar</Text>
           </TouchableOpacity>
         ) : (
@@ -239,12 +262,10 @@ const CadastroEmpresa: React.FC = () => {
           >
             <Text style={styles.botaoText}>Concluir</Text>
           </TouchableOpacity>
-        )}
+        ))}
       </View>
     </View>
   );
 };
 
-
-
-export default CadastroEmpresa;
+export default CadastroVen;

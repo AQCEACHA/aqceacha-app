@@ -62,7 +62,7 @@ export default function Inicio() {
         </Text>
         <TouchableOpacity
           onPress={() => {
-            navigate("CadastroEmpresa"); // arrumar a rota
+            navigate("CadastroVen"); // arrumar a rota
           }}
         >
           <Text style={{ fontFamily: "ISemi", color: "#1429A6", fontSize: 16 }}>
