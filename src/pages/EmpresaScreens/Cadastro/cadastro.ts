@@ -68,11 +68,9 @@ export const styles = StyleSheet.create({
   cpfcnpj2: {
     fontFamily: "ISemi",
     fontSize: vw(4.5),
-    color: "#c1c1c1"
+    color: "#c0c0c0"
   }
 
-
-  // teste
 
 //           exp://10.68.21.126:8081
 });

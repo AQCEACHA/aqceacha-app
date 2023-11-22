@@ -26,11 +26,11 @@ export default function Inicio() {
       </View>
 
       <View style={styles.content}>
-        <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
+        <Text style={{ fontFamily: "IRegular", fontSize: 24 }}>
           Bem-Vindo(a)
         </Text>
         <Text
-          style={{ fontFamily: "IRegular", color: "#525252", fontSize: 16 }}
+          style={{ fontFamily: "IRegular", color: "#525252", fontSize: 20 }}
         >
           O que você procura, AqCeAcha
         </Text>
@@ -57,7 +57,7 @@ export default function Inicio() {
       </View>
 
       <View style={styles.negocio}>
-        <Text style={{ fontFamily: "IRegular", fontSize: 16 }}>
+        <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
           Tem seu próprio negócio?
         </Text>
         <TouchableOpacity
@@ -65,7 +65,7 @@ export default function Inicio() {
             navigate("CadastroVen"); // arrumar a rota
           }}
         >
-          <Text style={{ fontFamily: "ISemi", color: "#1429A6", fontSize: 16 }}>
+          <Text style={{ fontFamily: "ISemi", color: "#1429A6", fontSize: 20 }}>
             Cadastre Aqui
           </Text>
         </TouchableOpacity>

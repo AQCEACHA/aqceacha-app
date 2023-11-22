@@ -8,11 +8,11 @@ import Animated, {
 
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
-import crianca from '../../../assets/carousel/crianca.png';
+import crianca from '../../../assets/carousel/aqceacha.png';
 
-import outubro from '../../../assets/carousel/outubro.png';
+import outubro from '../../../assets/carousel/bf.png';
 
-import halloween from '../../../assets/carousel/halloween.png'
+import halloween from '../../../assets/carousel/novembro.png'
 
 const DATA = [
   {
