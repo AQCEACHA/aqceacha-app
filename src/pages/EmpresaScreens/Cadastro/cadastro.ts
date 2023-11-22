@@ -71,5 +71,8 @@ export const styles = StyleSheet.create({
     color: "#c1c1c1"
   }
 
+
+  // teste
+
 //           exp://10.68.21.126:8081
 });
