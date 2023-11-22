@@ -12,7 +12,7 @@ import { styles } from "./local";
 
 import { BASE_URL } from "@env";
 
-import useCustomFetch from "../../services/hooks/useFetch";
+import useCustomFetch, { useFetch } from "../../services/hooks/useFetch";
 
 import { ListItem } from "@rneui/themed";
 
@@ -77,9 +77,9 @@ export default function Local() {
     false,
   ]);
 
-  const {data}: any = useCustomFetch(BASE_URL + "/cidade?uf=SP");
-  console.log(data)
 
+
+  let {data}: any = useFetch(BASE_URL + `/cidade?uf=SP`);
   return (
     <>
       <View style={styles.search}>
@@ -111,16 +111,17 @@ export default function Local() {
                 aux[index] = !estadosexpanded[index]
                 console.log(aux)
                 setEstadosexpanded([...aux])
-
               }}
             >
-              <FlatList
+              {
+                data && data.content && <FlatList
                 data={data.content}
                 renderItem={({ item }) => (
                   <Text>{item.nomecidade}</Text>
                 )}
                 keyExtractor={(item) => item.id}
               />
+              }
             </ListItem.Accordion>
           </>
         )}

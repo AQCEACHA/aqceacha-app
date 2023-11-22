@@ -44,7 +44,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Vendedor() {
 
-  const { data } = useCustomFetch(BASE_URL + "/vendedor");
+  const { data } = useCustomFetch(BASE_URL + "/vendedor/1");
 
   console.log(data)
 
@@ -52,15 +52,18 @@ export default function Vendedor() {
 
   return (
     <>
+
       <View style={styles.maincontent}>
         <View style={styles.contentven}>
           <Image source={user} style={styles.imgven} />
           <View style={styles.profile}>
-            <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
-              {data.apelidoven}
+          <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
+              {data && data.apelidoven}
             </Text>
-            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>{data.ramoatv}</Text>
-            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#B1AEAE' }}>{data.nomeven}</Text>
+
+
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>{data && data.ramoatv.ramo}</Text>
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#B1AEAE' }}>{data && data.nomeven}</Text>
           </View>
         </View>
         <View style={styles.row}>
@@ -103,6 +106,7 @@ export default function Vendedor() {
               <Image source={item.img} style={styles.imgserv} />
             </View>
           )}
+
           showsHorizontalScrollIndicator={false}
         />
       </View>
