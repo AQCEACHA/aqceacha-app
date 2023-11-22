@@ -81,18 +81,35 @@ const CadastroVen: React.FC = () => {
   const [bairro, setBairro] = useState("");
   const [numero, setNumero] = useState("");
   const [complemento, setComplemento] = useState("");
+
+  const [escolhaCadastro, setEscolhaCadastro] = useState("");
+
   const [etapa, setEtapa] = useState(1);
 
 
-  const avancarEtapa = (numeroEtapas: number) => {
+  const avancarEtapa = (numeroEtapas: number, idEscolha?: number) => {
+
+    if (idEscolha == 1) {
+      setEscolhaCadastro("CPF")
+    }
+    else if (idEscolha == 2) {
+      setEscolhaCadastro("CNPJ")
+    }
+
     if (etapa < 5) {
       setEtapa(etapa + numeroEtapas);
     }
   };
 
   const retrocederEtapa = (numeroEtapasRetroceder: number) => {
+
+
     if (etapa > 1) {
       setEtapa(etapa - numeroEtapasRetroceder);
+    }
+
+    if (etapa < 5) {
+      setEscolhaCadastro("")
     }
   };
 
@@ -111,7 +128,7 @@ const CadastroVen: React.FC = () => {
         </View>
       </View>
 
-      <Text style={styles.titulo}>Cadastro</Text>
+      <Text style={styles.titulo}>Cadastro {escolhaCadastro}</Text>
 
       {etapa === 1 && (
         <>
@@ -170,26 +187,76 @@ const CadastroVen: React.FC = () => {
       {etapa === 2 && (
         <>
           <View>
-            <TouchableOpacity onPress={() => avancarEtapa(1)}><Text>CPF</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => avancarEtapa(1, 1)} style={styles.cpfcnpj}><Text style={styles.cpfcnpj2}>CPF - Pessoa Física</Text></TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity  onPress={() => avancarEtapa(2)}><Text>CNPJ</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => avancarEtapa(2, 2)} style={styles.cpfcnpj}><Text style={styles.cpfcnpj2}>CNPJ - Pessoa Jurídica</Text></TouchableOpacity>
           </View>
         </>
       )}
       {etapa === 3 && (
         <>
           <View>
-            <TouchableOpacity><Text>CPF</Text></TouchableOpacity>
+            <TextInput
+              placeholder="Nome Empresa"
+              value={nomeEmpresa}
+              onChangeText={setNomeEmpresa}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="CPF"
+              keyboardType="numeric"
+              value={cpf}
+              onChangeText={setCpf}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="DD/MM/AAAA"
+              value={cidade}
+              onChangeText={setCidade}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="Telefone"
+              keyboardType="numeric"
+              value={cidade}
+              onChangeText={setCidade}
+              style={styles.input}
+            />
           </View>
-
         </>
+
       )}
       {etapa === 4 && (
         <>
 
           <View>
-            <TouchableOpacity><Text>CNPJ</Text></TouchableOpacity>
+            <TextInput
+              placeholder="Nome Empresa"
+              value={nomeEmpresa}
+              onChangeText={setNomeEmpresa}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="CNPJ"
+              keyboardType="numeric"
+              value={cnpj}
+              onChangeText={setCnpj}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="Comprovante"
+              value={cidade}
+              onChangeText={setCidade}
+              style={styles.input}
+            />
+            <TextInput
+              placeholder="Telefone"
+              keyboardType="numeric"
+              value={cidade}
+              onChangeText={setCidade}
+              style={styles.input}
+            />
           </View>
         </>
       )}
@@ -246,12 +313,12 @@ const CadastroVen: React.FC = () => {
       )}
 
       <View style={styles.botoesContainer}>
-        {etapa > 1 && etapa != 2 &&(
-          <TouchableOpacity onPress={() => retrocederEtapa(etapa == 4 ? 2 : 1)} style={styles.botao}>
+        {etapa > 1 && etapa != 2 && (
+          <TouchableOpacity onPress={() => retrocederEtapa((escolhaCadastro === 'CPF' && etapa == 5) ? 2 : (escolhaCadastro === 'CNPJ' && etapa == 4 ? 2 : 1))} style={styles.botao}>
             <Text style={styles.botaoText}>Voltar</Text>
           </TouchableOpacity>
         )}
-        {etapa != 2 &&(etapa < 5 ? (
+        {etapa != 2 && (etapa < 5 ? (
           <TouchableOpacity onPress={() => avancarEtapa(etapa == 3 ? 2 : 1)} style={styles.botao}>
             <Text style={styles.botaoText}>Avançar</Text>
           </TouchableOpacity>
