@@ -16,7 +16,14 @@ import { useNavigation } from "@react-navigation/native";
 
 import OpenTelefone from "../Telefone";
 
+import { BASE_URL } from "@env";
+
+import useCustomFetch from "../../services/hooks/useFetch";
+
 export default function Toolbar() {
+
+  const { data } = useCustomFetch(BASE_URL + "/cliente");
+
   const { navigate, addListener } = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);

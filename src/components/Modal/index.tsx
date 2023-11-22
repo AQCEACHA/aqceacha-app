@@ -9,14 +9,25 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  FlatList
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/user.png";
 
 import { styles } from "./styles";
 
+import { BASE_URL } from "@env";
+
+import useCustomFetch from "../../services/hooks/useFetch";
+
 export default function OpenModal() {
+
+  const { data } = useCustomFetch(BASE_URL + "/cliente");
+
+
   const [modalVisible, setModalVisible] = useState(false);
+
+
   return (
     <View style={styles.modal}>
       <Modal
@@ -36,7 +47,7 @@ export default function OpenModal() {
               </TouchableOpacity>
               <Text style={styles.modalText}>Favoritos</Text>
             </View>
-            <ScrollView>
+            {/* <ScrollView>
             <View style={styles.conteudo}>
               <View>
                 <Image source={modalimg} style={styles.modalimg} />
@@ -63,8 +74,20 @@ export default function OpenModal() {
                 <Text style={styles.text}>empresa nome</Text>
               </View>
             </View>
-            </ScrollView>
+            </ScrollView> */}
+            <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <View style={styles.conteudo}>
+          <View>
+            <Image source={{uri: item.imgven}} style={styles.modalimg} />
+            <Text style={styles.text}>{item.nomeven}</Text>
           </View>
+          </View>
+        )}
+        showsHorizontalScrollIndicator={false}
+      />
+        </View>
         </View>
         <TouchableOpacity
           onPress={() => setModalVisible(!modalVisible)}
