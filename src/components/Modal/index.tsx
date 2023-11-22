@@ -24,6 +24,8 @@ export default function OpenModal() {
 
   const { data } = useCustomFetch(BASE_URL + "/cliente");
 
+  console.log(data)
+
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -101,7 +103,7 @@ export default function OpenModal() {
           }}
         ></TouchableOpacity>
       </Modal>
-      
+
       <TouchableOpacity
         style={styles.heart}
         onPress={() => setModalVisible(true)}

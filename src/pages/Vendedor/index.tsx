@@ -23,6 +23,10 @@ import { useNavigation } from "@react-navigation/native";
 
 import prop from "../../../assets/teste/prop.png";
 
+import { BASE_URL } from "@env";
+
+import useCustomFetch from "../../services/hooks/useFetch";
+
 const DATA = [
   {
     servico: "Ensaio de Fotos",
@@ -39,6 +43,11 @@ const DATA = [
 const Stack = createNativeStackNavigator();
 
 export default function Vendedor() {
+
+  const { data } = useCustomFetch(BASE_URL + "/vendedor");
+
+  console.log(data)
+
   const { navigate } = useNavigation();
 
   return (
@@ -48,10 +57,10 @@ export default function Vendedor() {
           <Image source={user} style={styles.imgven} />
           <View style={styles.profile}>
             <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
-              Cameraman
+              {data.apelidoven}
             </Text>
-            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>Fotografo</Text>
-            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#B1AEAE' }}>Victor Carbelotti</Text>
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>{data.ramoatv}</Text>
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#B1AEAE' }}>{data.nomeven}</Text>
           </View>
         </View>
         <View style={styles.row}>

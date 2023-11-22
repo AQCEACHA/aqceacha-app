@@ -6,7 +6,7 @@ const fetchData = async <T>(url: string): Promise<T> => {
   return response.data
 }
 
-export default function useCustomFetch<T = unknown>(url: string) {
+export default function useCustomFetch<T = any>(url: string) {
   return useQuery<T>({
     queryKey: ['fetch-data', url],
     queryFn: () => fetchData<T>(url),
