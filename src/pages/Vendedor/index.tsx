@@ -26,6 +26,7 @@ import prop from "../../../assets/teste/prop.png";
 import { BASE_URL } from "@env";
 
 import useCustomFetch from "../../services/hooks/useFetch";
+import { useParams } from "react-router-dom";
 
 const DATA = [
   {
@@ -42,11 +43,11 @@ const DATA = [
 
 const Stack = createNativeStackNavigator();
 
-export default function Vendedor() {
+export default function Vendedor({route, navigation}: any) {
+  const { id } = route.params
 
-  const { data } = useCustomFetch(BASE_URL + "/vendedor/1");
+  const { data } = useCustomFetch(BASE_URL + `/vendedor/${id}`);
 
-  console.log(data)
 
   const { navigate } = useNavigation();
 
@@ -93,22 +94,14 @@ export default function Vendedor() {
         </TouchableOpacity>
       </View>
       <View style={styles.servicos}>
-        <FlatList
-          data={DATA}
-          renderItem={({ item }) => (
-            <View style={styles.item}>
+      <View style={styles.item}>
               <View style={styles.textitem}>
-                <Text style={{ fontFamily: "IRegular" }}>{item.servico}</Text>
+                <Text style={{ fontFamily: "IRegular" }}>{data && data.servico.nomeserv}</Text>
                 <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>
-                  {item.preco}
+                  {data && data.servico.precovenda}
                 </Text>
               </View>
-              <Image source={item.img} style={styles.imgserv} />
             </View>
-          )}
-
-          showsHorizontalScrollIndicator={false}
-        />
       </View>
     </>
   );

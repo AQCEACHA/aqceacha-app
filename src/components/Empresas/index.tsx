@@ -10,10 +10,9 @@ import {BASE_URL} from "@env";
 
 export default function Empresas() {
 
-  const {data} = useCustomFetch(BASE_URL + '/vendedor/todos')
+  const {data} = useCustomFetch(BASE_URL + 'vendedor/todos')
 
   const { navigate } = useNavigation();
-
   console.log(data)
 
   const numColumns = 2;

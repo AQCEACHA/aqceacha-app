@@ -42,7 +42,7 @@ import {BASE_URL} from "@env";
 
 export const Slider = () => {
 
-  const {data} = useCustomFetch(BASE_URL + '/ramoatv/todos')
+  const {data} = useCustomFetch(BASE_URL + 'ramoatv/todos')
 
   console.log(data)
 

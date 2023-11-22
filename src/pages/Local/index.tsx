@@ -79,7 +79,7 @@ export default function Local() {
 
 
 
-  let {data}: any = useFetch(BASE_URL + `/cidade?uf=SP`);
+  let {data}: any = useFetch(BASE_URL + `cidade?uf=SP`);
   return (
     <>
       <View style={styles.search}>
