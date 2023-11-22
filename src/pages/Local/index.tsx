@@ -47,9 +47,37 @@ export default function Local() {
     "DF",
   ];
 
-  const { data } = useCustomFetch(BASE_URL + "/cidade?uf=AC");
+  const [estadosexpanded, setEstadosexpanded] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
-  const [expanded, setExpanded] = useState(false);
+  const { data } = useCustomFetch(BASE_URL + "/cidade?uf=AC");
 
   return (
     <>
@@ -68,7 +96,7 @@ export default function Local() {
 
       <FlatList
         data={estados}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <>
             <ListItem.Accordion
               content={
@@ -76,9 +104,13 @@ export default function Local() {
                   <ListItem.Title>{item}</ListItem.Title>
                 </ListItem.Content>
               }
-              isExpanded={expanded}
+              isExpanded={estadosexpanded[index]}
               onPress={() => {
-                setExpanded(!expanded);
+                const aux = estadosexpanded
+                aux[index] = !estadosexpanded[index]
+                console.log(aux)
+                setEstadosexpanded([...aux])
+
               }}
             >
               <FlatList
