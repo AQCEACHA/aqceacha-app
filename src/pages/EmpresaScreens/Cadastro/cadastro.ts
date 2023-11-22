@@ -1,3 +1,4 @@
+import { color } from "@rneui/base";
 import { StyleSheet } from "react-native";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
@@ -55,5 +56,23 @@ export const styles = StyleSheet.create({
   inputError: {
     borderColor: 'red',
   },
+  cpfcnpj: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 20,
+    height: 60,
+    justifyContent: "center"
+  },
+  cpfcnpj2: {
+    fontFamily: "ISemi",
+    fontSize: vw(4.5),
+    color: "#c1c1c1"
+  }
+
+
+  // teste
+
 //           exp://10.68.21.126:8081
 });
