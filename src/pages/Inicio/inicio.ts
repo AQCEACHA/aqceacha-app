@@ -22,23 +22,23 @@ export const styles = StyleSheet.create({
     botoesContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginTop: vw(16)
+        marginTop: vw(10)
       },
       botao:{
         justifyContent: "center",
         alignItems: "center",
         borderRadius: vw(4),
-        height: vw(10),
-        width: vw(36),
+        height: vw(13),
+        width: vw(38),
         backgroundColor: "#1429A6",
       },
     botaoText:{
         fontFamily: "ISemi",
         color: "white",
-        fontSize: vw(4),
+        fontSize: vw(6),
       },
       negocio: {
         alignItems: 'center',
-        marginTop: vw(16)
+        marginTop: vw(12)
       }
 })

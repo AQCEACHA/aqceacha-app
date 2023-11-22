@@ -13,7 +13,7 @@ import { Carousel } from "../../components/Carousel";
 import { Slider } from "../../components/Slider";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 import Empresas from "../../components/Empresas";
-import negocioimage from "../../../assets/negocioimage.png";
+import negocioimage from "../../../assets/negocioimg.png";
 import Toolbar from "../../components/Toolbar";
 
 import { styles } from "./home";

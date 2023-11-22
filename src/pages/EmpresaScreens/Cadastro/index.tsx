@@ -123,7 +123,7 @@ const CadastroVen: React.FC = () => {
       <View style={styles.progressContainer}>
         <View style={styles.progress}>
           <View
-            style={[styles.progressInner, { width: `${(etapa - 1) * 50}%` }]}
+            style={[styles.progressInner, { width: `${(etapa - 1) * 25}%` }]}
           />
         </View>
       </View>
