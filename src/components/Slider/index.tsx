@@ -15,6 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 
 
 import { BASE_URL } from "@env";
+import { useFetch } from '../../services/hooks/useFetch';
 
 // const DATA = [
 //   {
@@ -48,7 +49,9 @@ export const Slider = () => {
   const { navigate } = useNavigation();
 
 
-  const { data } = useCustomFetch(BASE_URL + "/ramoatv/todos");
+  const { data } = useFetch(BASE_URL + "/ramoatv/todos");
+
+  //caso não passe muda / ou fetch
 
   console.log(data);
 

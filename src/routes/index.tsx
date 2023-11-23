@@ -22,6 +22,10 @@ import Inicio from "../pages/Inicio";
 import LoginCli from "../pages/ClienteScreens/Login";
 import CadastroVen from "../pages/EmpresaScreens/Cadastro/index";
 import Empresas from '../components/Empresas/index';
+import { useFetch } from '../services/hooks/useFetch';
+import { BASE_URL } from "@env";
+import useCustomFetch from '../services/hooks/useFetch';
+import HeaderVendedor from "../components/HeaderVendedor";
 
 
 const Stack = createNativeStackNavigator();
@@ -46,28 +50,14 @@ declare global {
   }
 }
 
-const CustomHeader = ({ navigation }: { navigation: any }) => {
+const CustomHeader = ({ route, navigation }: any) => {
+  
+  const { idven } = route.params
+
   return {
     headerTitle: "",
     headerRight: () => (
-      <View style={styles.icon}>
-        <TouchableOpacity>
-          <Feather name="heart" size={25} color="#E03D3D" />
-        </TouchableOpacity>
-        <View style={styles.star}>
-          <Feather name="star" size={20} color="#FFA500" />
-          <Text
-            style={{
-              fontFamily: "IRegular",
-              color: "#525252",
-              marginLeft: 8,
-              fontSize: 18,
-            }}
-          >
-            5
-          </Text>
-        </View>
-      </View>
+      <HeaderVendedor idven={idven} />
     ),
     headerLeft: () => (
       <Feather
@@ -235,7 +225,7 @@ export const Routes = () => {
       <Stack.Screen
             name="Vendedor"
             component={Vendedor}
-            options={({ navigation }) => CustomHeader({ navigation })}
+            options={({ route, navigation }) => CustomHeader({ route, navigation })}
           />
         <Stack.Screen
           name="Home"
@@ -303,20 +293,3 @@ export const Routes = () => {
   );
 };
 
-export const styles = StyleSheet.create({
-  icon: {
-    alignSelf: "flex-end",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  star: {
-    alignItems: "center",
-    borderColor: "#BBB6B6",
-    borderWidth: 1,
-    paddingHorizontal: vw(2),
-    borderRadius: 10,
-    flexDirection: "row",
-    marginLeft: vw(2),
-    marginRight: vw(2),
-  },
-});

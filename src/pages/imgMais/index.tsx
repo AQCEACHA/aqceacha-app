@@ -15,6 +15,8 @@ import pic4 from '../../../assets/teste/pic4.png';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
+import { useFetch } from '../../services/hooks/useFetch';
+import { BASE_URL } from "@env";
 
 
 const DATA = [
@@ -35,21 +37,23 @@ const DATA = [
 const Stack = createNativeStackNavigator();
 
 
-export default function ImgMais() {
+export default function ImgMais({route}:any) {
+  const { idven } = route.params;
 
+  const { data } = useFetch(BASE_URL + `/vendedor/${idven}`);
   const { navigate } = useNavigation();
 
   const numColumns = 2;
 
-  return (
+  return data && (
     <FlatList
-      data={DATA}
+      data={data.imagens}
       numColumns={numColumns} // Mostrar 2 itens por linha
       renderItem={({ item }) => (
         <View
           style={styles.itemContainer}
         >
-          <Image source={item.image} resizeMode="contain" style={styles.img} />
+          <Image source={{uri:item.img}} style={styles.img} />
         </View>
       )}
       showsHorizontalScrollIndicator={false}

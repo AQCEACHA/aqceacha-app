@@ -6,11 +6,12 @@ import {styles} from './styles';
 import useCustomFetch from '../../services/hooks/useFetch';
 
 import {BASE_URL} from "@env";
+import { useFetch } from '../../services/hooks/useFetch';
 
 
 export default function Empresas({navigation}: any) {
 
-  const {data} = useCustomFetch(BASE_URL + '/vendedor/todos')
+  const {data} = useFetch(BASE_URL + '/vendedor/todos')
 
   const { navigate } = useNavigation();
   console.log(data)

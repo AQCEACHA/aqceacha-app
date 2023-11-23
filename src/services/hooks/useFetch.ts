@@ -16,7 +16,7 @@ export default function useCustomFetch<T = any>(url: string) {
 }
 
 
-export const useFetch = (url: string) => {
+export const useFetch = (url: string): any => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {

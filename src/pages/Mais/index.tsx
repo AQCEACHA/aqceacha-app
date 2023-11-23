@@ -14,12 +14,13 @@ import { useNavigation } from "@react-navigation/native";
 import useCustomFetch from '../../services/hooks/useFetch';
 
 import {BASE_URL} from "@env";
+import { useFetch } from '../../services/hooks/useFetch';
 
 const Stack = createNativeStackNavigator();
 
 export default function Mais() {
 
-  const {data} = useCustomFetch(BASE_URL + '/vendedor/todos')
+  const {data} = useFetch(BASE_URL + '/vendedor/todos')
 
   const { navigate } = useNavigation();
 
