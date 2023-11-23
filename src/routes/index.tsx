@@ -111,6 +111,28 @@ const CustomName = ({ navigation }: { navigation: any }) => {
   };
 };
 
+const CustomCadastro = ({ navigation }: { navigation: any }) => {
+  return {
+    headerLeft: () => (
+      <Feather
+        style={{ marginRight: vw(4) }}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#FAFAFA' // Define a fonte do título da barra de navegação
+    },
+  }
+}
+
 const CustomMain = ({ navigation }: { navigation: any }) => {
   return {
     headerLeft: () => (
@@ -281,12 +303,12 @@ export const Routes = () => {
         <Stack.Screen
           name="CadastroCli"
           component={CadastroCli}
-          options={({ navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomCadastro({ navigation })}
         />
         <Stack.Screen
           name="CadastroVen"
           component={CadastroVen}
-          options={({ navigation }) => CustomMain({ navigation })}
+          options={({ navigation }) => CustomCadastro({ navigation })}
         />
         <Stack.Screen
           name="LoginCli"
