@@ -26,7 +26,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
-export default function Home() {
+export default function Home({navigation}: any) {
   const { navigate } = useNavigation();
 
   return (
@@ -68,7 +68,7 @@ export default function Home() {
         <Text style={styles.empresas}>Empresas</Text>
 
         <View style={styles.images}>
-          <Empresas />
+          <Empresas navigation={navigation} />
         </View>
 
         <TouchableOpacity

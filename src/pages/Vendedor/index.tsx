@@ -44,9 +44,9 @@ const DATA = [
 const Stack = createNativeStackNavigator();
 
 export default function Vendedor({route, navigation}: any) {
-  const { id } = route.params
+  const { idven }  = route.params
 
-  const { data } = useCustomFetch(BASE_URL + `/vendedor/${id}`);
+  const { data } = useCustomFetch(BASE_URL + `/vendedor/${idven}`);
 
 
   const { navigate } = useNavigation();
@@ -56,20 +56,20 @@ export default function Vendedor({route, navigation}: any) {
 
       <View style={styles.maincontent}>
         <View style={styles.contentven}>
-          <Image source={user} style={styles.imgven} />
+            <Image source={{uri: data && data.imgven}} style={styles.imgven} />
           <View style={styles.profile}>
           <Text style={{ fontFamily: "IRegular", fontSize: 20 }}>
               {data && data.apelidoven}
             </Text>
 
 
-            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>{data && data.ramoatv.ramo}</Text>
+            <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#525252' }}>{data && data.ramo}</Text>
             <Text style={{ fontFamily: "IRegular", fontSize: 14, color: '#B1AEAE' }}>{data && data.nomeven}</Text>
           </View>
         </View>
         <View style={styles.row}>
           <Infos />
-          <Contatar />
+          <Contatar email={data && data.emailven} telefone={data && data.telefoneven} nome={data && data.nomeven} />
           {/*
           <TouchableOpacity style={styles.info}>
             <Text style={{ fontFamily: "Inter_600SemiBold" }}>Infos</Text>
@@ -94,14 +94,15 @@ export default function Vendedor({route, navigation}: any) {
         </TouchableOpacity>
       </View>
       <View style={styles.servicos}>
-      <View style={styles.item}>
-              <View style={styles.textitem}>
-                <Text style={{ fontFamily: "IRegular" }}>{data && data.servico.nomeserv}</Text>
-                <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>
-                  {data && data.servico.precovenda}
-                </Text>
-              </View>
-            </View>
+          {data && data.servicos.map((item: any) =>
+           <View style={styles.item}>
+           <View style={styles.textitem}>
+             <Text style={{ fontFamily: "IRegular" }}>{item.nomeserv}</Text>
+             <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>
+               {item.precovenda}
+             </Text>
+           </View>
+         </View>)}
       </View>
     </>
   );

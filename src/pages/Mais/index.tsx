@@ -27,7 +27,7 @@ export default function Mais() {
 
   return (
     <FlatList
-      data={data}
+      data={data && data}
       renderItem={({ item }) => (
         <View style={styles.images}>
             <View style={styles.empresa}>

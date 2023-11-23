@@ -78,7 +78,7 @@ export default function OpenModal() {
             </View>
             </ScrollView> */}
             <FlatList
-        data={data}
+        data={data && data.content && data.content}
         renderItem={({ item }) => (
           <View style={styles.conteudo}>
           <View>

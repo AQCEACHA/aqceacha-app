@@ -21,6 +21,7 @@ import CadastroCli from "../pages/ClienteScreens/Cadastro/index";
 import Inicio from "../pages/Inicio";
 import LoginCli from "../pages/ClienteScreens/Login";
 import CadastroVen from "../pages/EmpresaScreens/Cadastro/index";
+import Empresas from '../components/Empresas/index';
 
 
 const Stack = createNativeStackNavigator();
@@ -231,6 +232,11 @@ export const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Inicio">
+      <Stack.Screen
+            name="Vendedor"
+            component={Vendedor}
+            options={({ navigation }) => CustomHeader({ navigation })}
+          />
         <Stack.Screen
           name="Home"
           component={Home}
@@ -256,11 +262,7 @@ export const Routes = () => {
           component={Mais}
           options={({ navigation }) => CustomMain({ navigation })}
         />
-        <Stack.Screen
-          name="Vendedor"
-          component={Vendedor}
-          options={({ navigation }) => CustomHeader({ navigation })}
-        />
+
         <Stack.Screen
           name="ImgMais"
           component={ImgMais}

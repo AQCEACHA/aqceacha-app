@@ -17,7 +17,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 import { styles } from "./styles";
 
-export default function OpenModal() {
+
+
+export default function OpenModal({email, telefone, nome}: any) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.modal}>
@@ -44,7 +46,7 @@ export default function OpenModal() {
                     color={"#1429A6"}
                     style={{ marginLeft: 20 }}
                   />
-                  <Text style={styles.text}>(14)99804-0306</Text>
+                  <Text style={styles.text}>{telefone}</Text>
                 </View>
                 <View style={styles.item}>
                   <FontAwesome
@@ -53,7 +55,7 @@ export default function OpenModal() {
                     color={"#1429A6"}
                     style={{ marginLeft: 20 }}
                   />
-                  <Text style={styles.text}>mattosv016@gmail.com</Text>
+                  <Text style={styles.text}>{email}</Text>
                 </View>
                 <View style={styles.item}>
                   <FontAwesome
@@ -62,7 +64,7 @@ export default function OpenModal() {
                     color={"#1429A6"}
                     style={{ marginLeft: 20 }}
                   />
-                  <Text style={styles.text}>Victor Carbelotti</Text>
+                  <Text style={styles.text}>{nome}</Text>
                 </View>
               </View>
             </ScrollView>

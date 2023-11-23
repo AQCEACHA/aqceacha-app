@@ -8,9 +8,9 @@ import useCustomFetch from '../../services/hooks/useFetch';
 import {BASE_URL} from "@env";
 
 
-export default function Empresas() {
+export default function Empresas({navigation}: any) {
 
-  const {data} = useCustomFetch(BASE_URL + 'vendedor/todos')
+  const {data} = useCustomFetch(BASE_URL + '/vendedor/todos')
 
   const { navigate } = useNavigation();
   console.log(data)
@@ -20,13 +20,13 @@ export default function Empresas() {
 
   return (
     <FlatList
-      data={data}
+      data={data && data}
       numColumns={numColumns} // Mostrar 2 itens por linha
       renderItem={({ item }) => (
         <TouchableOpacity
           style={styles.itemContainer}
           onPress={() => {
-            navigate("Vendedor");
+            navigation.navigate("Vendedor", {idven: item && item.idven});
           }}
         >
           <Image source={{uri: item.imgven}} style={styles.img} />

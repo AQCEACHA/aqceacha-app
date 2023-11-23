@@ -9,9 +9,12 @@ import {
 import Feather from "@expo/vector-icons/Feather";
 import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
-import useCustomFetch from '../../services/hooks/useFetch';
+import useCustomFetch from "../../services/hooks/useFetch";
 
-import {BASE_URL} from "@env";
+import { useNavigation } from "@react-navigation/native";
+
+
+import { BASE_URL } from "@env";
 
 // const DATA = [
 //   {
@@ -42,9 +45,12 @@ import {BASE_URL} from "@env";
 
 export const Slider = () => {
 
-  const {data} = useCustomFetch(BASE_URL + 'ramoatv/todos')
+  const { navigate } = useNavigation();
 
-  console.log(data)
+
+  const { data } = useCustomFetch(BASE_URL + "/ramoatv/todos");
+
+  console.log(data);
 
   const [activeBanner, setActiveBanner] = useState<number>(0);
   const FlatlistRef = useRef<FlatList>(null);
@@ -68,7 +74,7 @@ export const Slider = () => {
     <View style={{ alignItems: "center" }}>
       <FlatList
         ref={FlatlistRef}
-        data={data}
+        data={data && data}
         renderItem={({ item }) => (
           <View
             style={{
@@ -78,22 +84,23 @@ export const Slider = () => {
               marginHorizontal: vw(2),
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Mais");
+              }}
+            >
               <Feather
                 name={item.iconramo}
                 size={35}
                 color="#10228A"
                 style={{ alignSelf: "center" }}
               />
-              <Text
-                style={{ fontFamily: "IRegular", alignSelf: "center" }}
-              >
+              <Text style={{ fontFamily: "IRegular", alignSelf: "center" }}>
                 {item.ramo}
               </Text>
             </TouchableOpacity>
           </View>
         )}
-
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         horizontal
         keyExtractor={(index) => String(index)}
