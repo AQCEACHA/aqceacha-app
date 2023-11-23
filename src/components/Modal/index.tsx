@@ -14,20 +14,28 @@ import {
 import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/user.png";
 
+import { useNavigation } from "@react-navigation/native";
+
+
 import { styles } from "./styles";
 
 import { BASE_URL } from "@env";
 
 import useCustomFetch from "../../services/hooks/useFetch";
 
-export default function OpenModal() {
+export default function OpenModal({navigation}: any) {
 
-  const { data } = useCustomFetch(BASE_URL + "/cliente");
+  const { navigate } = useNavigation();
+
+
+  const { data } = useCustomFetch(BASE_URL + "/cliente/1");
 
   console.log(data)
 
 
   const [modalVisible, setModalVisible] = useState(false);
+
+    const numColumns = 2;
 
 
   return (
@@ -49,43 +57,16 @@ export default function OpenModal() {
               </TouchableOpacity>
               <Text style={styles.modalText}>Favoritos</Text>
             </View>
-            {/* <ScrollView>
-            <View style={styles.conteudo}>
-              <View>
-                <Image source={modalimg} style={styles.modalimg} />
-                <Text style={styles.text}>empresa nome</Text>
-              </View>
-              <View>
-                <Image source={modalimg} style={styles.modalimg} />
-                <Text style={styles.text}>empresa nome</Text>
-              </View>
-              <View>
-                <Image source={modalimg} style={styles.modalimg} />
-                <Text style={styles.text}>empresa nome</Text>
-              </View>
-              <View>
-                <Image source={modalimg} style={styles.modalimg} />
-                <Text style={styles.text}>empresa nome</Text>
-              </View>
-              <View>
-                <Image source={modalimg} style={styles.modalimg} />
-                <Text style={styles.text}>empresa nome</Text>
-              </View>
-              <View>
-                <Image source={modalimg} style={styles.modalimg} />
-                <Text style={styles.text}>empresa nome</Text>
-              </View>
-            </View>
-            </ScrollView> */}
             <FlatList
-        data={data && data.content && data.content}
+        data={data && data.favorito}
+        numColumns={numColumns} // Mostrar 2 itens por linha
         renderItem={({ item }) => (
-          <View style={styles.conteudo}>
+          <TouchableOpacity style={styles.conteudo}>
           <View>
-            <Image source={{uri: item.imgven}} style={styles.modalimg} />
-            <Text style={styles.text}>{item.nomeven}</Text>
+            <Image source={{uri: item.vendedor.imgven}} style={styles.modalimg} />
+            <Text style={styles.text}>{item.vendedor.nomeven}</Text>
           </View>
-          </View>
+          </TouchableOpacity>
         )}
         showsHorizontalScrollIndicator={false}
       />

@@ -38,16 +38,14 @@ export const styles = StyleSheet.create({
     color: '#1429A6'
   },
   servicos:{
+    alignItems: 'center',
     borderTopWidth: 0.8,
     borderTopColor: '#BBB6B6',
     flexDirection: "row",
-  },
-  item:{
     borderBottomWidth: 0.8,
     borderBottomColor: '#BBB6B6',
-    flexDirection: 'row',
-    paddingVertical: vw(3),
-    },
+    height: vw(25)
+  },
     textitem:{
       alignSelf: 'center',
       marginLeft: vw(4),

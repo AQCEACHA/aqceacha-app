@@ -18,7 +18,7 @@ import { useFetch } from '../../services/hooks/useFetch';
 
 const Stack = createNativeStackNavigator();
 
-export default function Mais() {
+export default function Mais({navigation}: any) {
 
   const {data} = useFetch(BASE_URL + '/vendedor/todos')
 
@@ -34,9 +34,9 @@ export default function Mais() {
             <View style={styles.empresa}>
               <View>
                 <TouchableOpacity
-                  onPress={() => {
-                    navigate("Vendedor");
-                  }}
+          onPress={() => {
+            navigation.navigate("Vendedor", {idven: item && item.idven});
+          }}
                 >
                   <Image source={{uri: item.imgven}} style={styles.img}/>
                 </TouchableOpacity>
