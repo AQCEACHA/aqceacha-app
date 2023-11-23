@@ -93,17 +93,20 @@ export default function Vendedor({route, navigation}: any) {
           <Text style={styles.vermais}>Ver Mais...</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.servicos}>
-          {data && data.servicos.map((item: any) =>
+
+      {data && data.servicos.map((item: any) =>
+            <View style={styles.servicos}>
+              <Image source={{uri: item.imgserv}} style={styles.imgserv}/>
            <View style={styles.item}>
            <View style={styles.textitem}>
              <Text style={{ fontFamily: "IRegular" }}>{item.nomeserv}</Text>
-             <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>
+             <Text style={{ fontFamily: "IRegular", color: "#14A686" }}>R$
                {item.precovenda}
              </Text>
            </View>
+         </View>
          </View>)}
-      </View>
+
     </>
   );
 }

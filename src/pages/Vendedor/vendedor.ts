@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
   servicos:{
     borderTopWidth: 0.8,
     borderTopColor: '#BBB6B6',
+    flexDirection: "row",
   },
   item:{
     borderBottomWidth: 0.8,

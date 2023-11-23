@@ -55,8 +55,9 @@ export const styles = StyleSheet.create({
         borderRadius: 50,
       },
       modalimg: {
+        borderRadius: 100,
         height: 98,
-        width: 150,
+        width: 100,
         alignSelf: 'center'
       },
 });
