@@ -9,13 +9,12 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  FlatList
+  FlatList,
 } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import modalimg from "../../../assets/user.png";
 
 import { useNavigation } from "@react-navigation/native";
-
 
 import { styles } from "./styles";
 
@@ -23,20 +22,16 @@ import { BASE_URL } from "@env";
 
 import useCustomFetch from "../../services/hooks/useFetch";
 
-export default function OpenModal({navigation}: any) {
-
+export default function OpenModal({ navigation }: any) {
   const { navigate } = useNavigation();
-
 
   const { data } = useCustomFetch(BASE_URL + "/cliente/1");
 
-  console.log(data)
-
+  console.log(data);
 
   const [modalVisible, setModalVisible] = useState(false);
 
-    const numColumns = 2;
-
+  const numColumns = 2;
 
   return (
     <View style={styles.modal}>
@@ -58,19 +53,29 @@ export default function OpenModal({navigation}: any) {
               <Text style={styles.modalText}>Favoritos</Text>
             </View>
             <FlatList
-        data={data && data.favorito}
-        numColumns={numColumns} // Mostrar 2 itens por linha
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.conteudo}>
-          <View>
-            <Image source={{uri: item.vendedor.imgven}} style={styles.modalimg} />
-            <Text style={styles.text}>{item.vendedor.nomeven}</Text>
+              data={data && data.favorito}
+              numColumns={numColumns} // Mostrar 2 itens por linha
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.conteudo}
+                  onPress={() => {
+                    navigation.navigate("Vendedor", {
+                      idven: item && item.idven,
+                    });
+                  }}
+                >
+                  <View>
+                    <Image
+                      source={{ uri: item.vendedor.imgven }}
+                      style={styles.modalimg}
+                    />
+                    <Text style={styles.text}>{item.vendedor.nomeven}</Text>
+                  </View>
+                </TouchableOpacity>
+              )}
+              showsHorizontalScrollIndicator={false}
+            />
           </View>
-          </TouchableOpacity>
-        )}
-        showsHorizontalScrollIndicator={false}
-      />
-        </View>
         </View>
         <TouchableOpacity
           onPress={() => setModalVisible(!modalVisible)}
@@ -78,7 +83,7 @@ export default function OpenModal({navigation}: any) {
             backgroundColor: "#000000",
             opacity: 0.5,
             alignSelf: "flex-end",
-            width: '100%',
+            width: "100%",
             height: "100%",
             position: "absolute",
           }}
@@ -94,4 +99,3 @@ export default function OpenModal({navigation}: any) {
     </View>
   );
 }
-

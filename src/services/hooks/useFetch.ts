@@ -28,3 +28,16 @@ export const useFetch = (url: string): any => {
   }, [url]);
   return { data };
 };
+
+export const usePost = (url: string): any => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.post(url);
+      const json = await response.data;
+      setData(json);
+    };
+    fetchData();
+  }, [url]);
+  return { data };
+};
