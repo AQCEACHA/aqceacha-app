@@ -76,6 +76,7 @@ export default function OpenModal({ navigation }: any) {
                   style={styles.conteudo}
                   onPress={async () => {
                     const d: any = await getVendedor(item.idfav)
+                    setModalVisible(false)
                     navigation.navigate("Vendedor", {
                       idven: d && d.data && d.data.idven//
                     });

@@ -18,15 +18,15 @@ export default function useCustomFetch<T = any>(url: string) {
 
 export const useFetch = (url: string): any => {
   const [data, setData] = useState(null);
+  const fetchData = async () => {
+    const response = await axios.get(url);
+    const json = await response.data;
+    setData(json);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(url);
-      const json = await response.data;
-      setData(json);
-    };
     fetchData();
   }, [url]);
-  return { data };
+  return { data, fetchData };
 };
 
 export const usePost = (url: string): any => {

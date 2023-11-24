@@ -29,6 +29,7 @@ export default function HeaderVendedor({ idven }: any) {
     } catch (err) {
       console.log(err);
     }
+    favorito.fetchData()
   };
 
   const removerFavorito = async (id: number) => {
@@ -41,6 +42,7 @@ export default function HeaderVendedor({ idven }: any) {
     } catch (err) {
       console.log(err);
     }
+    favorito.fetchData()
   };
 
   return (
