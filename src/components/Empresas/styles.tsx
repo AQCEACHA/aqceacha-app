@@ -3,6 +3,11 @@ import { vw, vh, vmin, vmax } from "react-native-expo-viewport-units";
 
 
 export const styles = StyleSheet.create({
+  content:{
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginHorizontal: vw(4)
+  },
   itemContainer: {
     width: "50%", // Cada item ocupa metade da largura da tela
     alignItems: "center",

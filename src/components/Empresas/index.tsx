@@ -1,4 +1,4 @@
-import { FlatList, TouchableOpacity, Image, Text} from "react-native";
+import { FlatList, TouchableOpacity, Image, Text, View} from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -20,10 +20,11 @@ export default function Empresas({navigation}: any) {
 
 
   return (
-    <FlatList
-      data={data && data}
-      numColumns={numColumns} // Mostrar 2 itens por linha
-      renderItem={({ item }) => (
+    <>
+
+<View style={styles.content}>
+    {data &&
+      data.map((item: any) => (
         <TouchableOpacity
           style={styles.itemContainer}
           onPress={() => {
@@ -33,9 +34,9 @@ export default function Empresas({navigation}: any) {
           <Image source={{uri: item.imgven}} style={styles.img} />
           <Text style={styles.text}>{item.apelidoven}</Text>
           </TouchableOpacity>
-      )}
-      keyExtractor={(item) => item.idven}
-      showsHorizontalScrollIndicator={false}
-    />
+      ))}
+      </View>
+
+</>
     );
         }
