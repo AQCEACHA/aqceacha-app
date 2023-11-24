@@ -98,7 +98,7 @@ export default function Home({navigation}: any) {
       </ScrollView>
       {/*Fim da scroll home*/}
       <View style={styles.modal}>
-        <OpenModal />
+        <OpenModal navigation={navigation}/>
       </View>
     </>
   );

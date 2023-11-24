@@ -22,16 +22,32 @@ import { BASE_URL } from "@env";
 
 import useCustomFetch from "../../services/hooks/useFetch";
 
+import axios from "axios";
+
 export default function OpenModal({ navigation }: any) {
   const { navigate } = useNavigation();
 
   const { data } = useCustomFetch(BASE_URL + "/cliente/1");
 
-  console.log(data);
+  console.log(data && data.favorito[0].favoritoCliente, "aaaaaaaaaaaaaa");
 
   const [modalVisible, setModalVisible] = useState(false);
 
   const numColumns = 2;
+
+  const axiosInstance = axios.create({
+    baseURL: BASE_URL,
+  });
+
+  const getVendedor = async(idfav: number) => {
+    try {
+      return await axiosInstance.get(BASE_URL + `/vendedor/favorito/get/${idfav}`, {
+        data: {},
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <View style={styles.modal}>
@@ -58,9 +74,10 @@ export default function OpenModal({ navigation }: any) {
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={styles.conteudo}
-                  onPress={() => {
+                  onPress={async () => {
+                    const d: any = await getVendedor(item.idfav)
                     navigation.navigate("Vendedor", {
-                      idven: item && item.idven,
+                      idven: d && d.data && d.data.idven//
                     });
                   }}
                 >

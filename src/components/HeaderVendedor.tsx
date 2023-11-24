@@ -13,15 +13,19 @@ import axios from "axios";
 export default function HeaderVendedor({ idven }: any) {
   const { data } = useFetch(BASE_URL + `/vendedor/${idven}`);
 
-  const favorito = useFetch(BASE_URL + `/favorito/existe/${idven}`);
+  const favorito = useFetch(BASE_URL + `/vendedor/favorito/existe/${idven}`);
 
   const axiosInstance = axios.create({
-    baseURL: BASE_URL
-   }) 
+    baseURL: BASE_URL,
+  });
 
   const adicionarFavorito = async (id: number) => {
     try {
-      await axiosInstance.post(BASE_URL + `/favorito/${idven}`, {}, {data: {}})
+      await axiosInstance.post(
+        BASE_URL + `/vendedor/favorito/${idven}`,
+        {},
+        { data: {} }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -29,7 +33,11 @@ export default function HeaderVendedor({ idven }: any) {
 
   const removerFavorito = async (id: number) => {
     try {
-      await axiosInstance.post(BASE_URL + `/favorito/remover/${idven}`, {}, {data: {}})
+      await axiosInstance.post(
+        BASE_URL + `/vendedor/favorito/remover/${idven}`,
+        {},
+        { data: {} }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -41,7 +49,7 @@ export default function HeaderVendedor({ idven }: any) {
         {favorito && favorito.data && favorito.data ? (
           <TouchableOpacity
             onPress={() => {
-              adicionarFavorito(idven);
+              removerFavorito(idven);
             }}
           >
             <Icon name="heart" type="font-awesome" color="#E03D3D" size={25} />
@@ -49,7 +57,7 @@ export default function HeaderVendedor({ idven }: any) {
         ) : (
           <TouchableOpacity
             onPress={() => {
-              removerFavorito(idven);
+              adicionarFavorito(idven);
             }}
           >
             <Feather name="heart" size={25} color="#E03D3D" />
