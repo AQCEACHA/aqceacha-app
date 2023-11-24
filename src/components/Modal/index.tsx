@@ -47,7 +47,6 @@ export default function OpenModal({ navigation }: any) {
     } catch (err) {
       console.log(err);
     }
-    data.favorito.fetchData()
   };
 
   return (
