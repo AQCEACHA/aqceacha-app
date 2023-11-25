@@ -74,10 +74,10 @@ const CadastroVen: React.FC = () => {
     Alert.alert(data.nome, data.email);
     console.log(data);
     axios
-      .post(BASE_URL + `/vendedor/criar`, data, { data: {} })
+      .post(BASE_URL + `/vendedor/criar`, data, { data: {}, headers: {"Content-Type": "application/json"} })
       .then((response: { data: any }) => {
         console.log(response.data);
-      });
+      }).catch((err) => console.log(err));
     navigate("Home");
   };
 
@@ -100,18 +100,19 @@ const CadastroVen: React.FC = () => {
 
   useEffect(() => {
     register("nomeven");
-    register("emailven");
-    register("senhaven");
-    register("nascimentoven");
-
-    register("apelidoven");
-    register("cnpj");
-    register("telefoneven");
- 
+    register("idramo");
     register("idcidade");
+    register("senhaven");
+    register("apelidoven");
+    register("emailven");
+    register("telefoneven");
+    register("nascimentoven");
     register("enderecoven");
     register("numeroven");
     register("complementoven");
+    register("documentoven")
+    register("cnpj");
+   
   }, [register]);
 
   const retrocederEtapa = (numeroEtapasRetroceder: number) => {
@@ -158,14 +159,6 @@ const CadastroVen: React.FC = () => {
               style={styles.input}
               placeholder={"Digite sua senha"}
               onChangeText={(text) => setValue("senhaven", text)}
-            />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Confirmar Senha
-            </Text>
-            <TextInput
-              style={styles.input}
-              placeholder={"Repita sua senha"}
-              onChangeText={(text) => setValue("senha", text)}
             />
             <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
               Data de Nascimento
@@ -225,6 +218,7 @@ const CadastroVen: React.FC = () => {
               placeholder={"Digite seu telefone"}
               onChangeText={(text) => setValue("telefoneven", text)}
             />
+            
           </View>
         </>
       )}
@@ -252,6 +246,21 @@ const CadastroVen: React.FC = () => {
               style={styles.input}
               placeholder={"Digite seu telefone"}
               onChangeText={(text) => setValue("telefoneven", text)}
+            />
+            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
+              Ramo de Atividade
+            </Text>
+            <TextInput
+              style={styles.input}
+              placeholder={"Digite seu ramo"}
+              onChangeText={(text) => setValue("idramo", text)}
+            />
+            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
+              Documento
+            </Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setValue("documentoven", text)}
             />
           </View>
         </>
