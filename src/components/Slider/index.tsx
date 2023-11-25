@@ -44,12 +44,11 @@ import { useFetch } from '../../services/hooks/useFetch';
 //   },
 // ];
 
-export const Slider = () => {
+export const Slider = ({navigation}: any) => {
 
   const { navigate } = useNavigation();
 
-
-  const { data } = useFetch(BASE_URL + "/ramoatv/todos");
+  const { data } = useCustomFetch(BASE_URL + "/ramoatv/todos");
 
   //caso não passe muda / ou fetch
 
@@ -89,7 +88,7 @@ export const Slider = () => {
           >
             <TouchableOpacity
               onPress={() => {
-                navigate("Mais");
+                navigation.navigate("MaisFilter", {idramo: item && item.idramo});
               }}
             >
               <Feather

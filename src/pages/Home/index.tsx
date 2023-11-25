@@ -31,8 +31,6 @@ const Stack = createNativeStackNavigator();
 
 export default function Home({navigation}: any) {
 
-  const {data} = useFetch(BASE_URL + '/vendedor/todos')
-
   const { navigate } = useNavigation();
 
   return (
@@ -66,7 +64,7 @@ export default function Home({navigation}: any) {
         <Text style={styles.categorias}>Categorias</Text>
 
         <View style={styles.slider}>
-          <Slider />
+          <Slider navigation={navigation}/>
         </View>
 
         {/*Empresas*/}
@@ -80,7 +78,7 @@ export default function Home({navigation}: any) {
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Mais", {idven: data && data.idven});
+            navigation.navigate("Mais");
           }}
         >
           <Text style={styles.vermais}>Ver Mais...</Text>

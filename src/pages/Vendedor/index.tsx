@@ -90,7 +90,7 @@ export default function Vendedor({ route, navigation, }: any) {
           </TouchableOpacity>
           */}
         </View>
-        <Text style={styles.desc}>Alguma das minhas fotografias abaixo</Text>
+        <Text style={styles.desc}>Fotos do meu trabalho abaixo</Text>
 
         <View style={styles.images}>
         {data && data.imagens.map((item: any, index: number) => index < 2 && (

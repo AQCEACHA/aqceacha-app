@@ -22,7 +22,11 @@ const Stack = createNativeStackNavigator();
 
 import axios from "axios";
 
-export default function Mais({ navigation }: any) {
+export default function MaisFilter({ navigation, route }: any) {
+
+  const { idramo } = route.params;
+
+  const {filterData} = useFetch(BASE_URL + `/ramoatv/${idramo}`);
 
   const { data } = useFetch(BASE_URL + "/vendedor/todos");
 

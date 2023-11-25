@@ -27,6 +27,9 @@ import { BASE_URL } from "@env";
 import useCustomFetch from '../services/hooks/useFetch';
 import HeaderVendedor from "../components/HeaderVendedor";
 
+import MaisFilter from "../pages/MaisFilter";
+import HeaderMais from "../components/HeaderMais";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +49,7 @@ declare global {
       CadastroCli: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
       CadastroVen: undefined; //Colocar Cli ou Ven na frente para diferenciar sempre, segue o padrão
       Inicio: undefined;
+      MaisFilter: undefined;
     }
   }
 }
@@ -124,10 +128,10 @@ const CustomMain = ({ navigation }: { navigation: any }) => {
 };
 
 const CustomMais = ({ route, navigation }: any) => {
-    const { idven } = route.params
-
+  const { idramo } = route.params
   return {
     headerLeft: () => (
+      <>
       <Feather
         style={{ marginRight: vw(4) }}
         name="chevron-left"
@@ -137,6 +141,8 @@ const CustomMais = ({ route, navigation }: any) => {
           navigation.goBack(); // Isso volta para a tela anterior
         }}
       />
+      <HeaderMais idramo={idramo} />
+      </>
     ),
     headerStyle: {
       backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
@@ -274,9 +280,13 @@ export const Routes = () => {
         <Stack.Screen
           name="Mais"
           component={Mais}
-          options={({ route, navigation }) => CustomMais({ route, navigation })}
+          options={({ navigation }) => CustomMain({ navigation })}
         />
-
+        <Stack.Screen
+          name="MaisFilter"
+          component={MaisFilter}
+          options={({ route, navigation }) => CustomMais({ navigation, route })}
+        />
         <Stack.Screen
           name="ImgMais"
           component={ImgMais}

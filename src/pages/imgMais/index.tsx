@@ -43,6 +43,8 @@ export default function ImgMais({route}:any) {
   const { data } = useFetch(BASE_URL + `/vendedor/${idven}`);
   const { navigate } = useNavigation();
 
+  console.log(data)
+
   const numColumns = 2;
 
   return data && (

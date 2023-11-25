@@ -27,16 +27,6 @@ export default function Search() {
           onChangeText={setPesquisa}
         />
       </View>
-
-      <View>
-        {data &&
-          data.map((item:any) => (
-            <>
-            <Image source={{uri: item.imgven}}/>
-            <Text key={item.id}>{item.nomeven}</Text>
-            </>
-          ))}
-      </View>
     </>
   );
 }

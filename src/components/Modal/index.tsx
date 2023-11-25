@@ -20,14 +20,14 @@ import { styles } from "./styles";
 
 import { BASE_URL } from "@env";
 
-import useCustomFetch from "../../services/hooks/useFetch";
+import useCustomFetch, { useFetch } from "../../services/hooks/useFetch";
 
 import axios from "axios";
 
 export default function OpenModal({ navigation }: any) {
   const { navigate } = useNavigation();
 
-  const { data } = useCustomFetch(BASE_URL + "/cliente/1");
+  const { data } = useFetch(BASE_URL + "/cliente/1");
 
   console.log(data && data.favorito[0].favoritoCliente, "aaaaaaaaaaaaaa");
 
@@ -39,14 +39,18 @@ export default function OpenModal({ navigation }: any) {
     baseURL: BASE_URL,
   });
 
-  const getVendedor = async(idfav: number) => {
+  const getVendedor = async (idfav: number) => {
     try {
-      return await axiosInstance.get(BASE_URL + `/vendedor/favorito/get/${idfav}`, {
-        data: {},
-      });
+      return await axiosInstance.get(
+        BASE_URL + `/vendedor/favorito/get/${idfav}`,
+        {
+          data: {},
+        }
+      );
     } catch (err) {
       console.log(err);
     }
+    data.favorito.fetchData();
   };
 
   return (
@@ -75,19 +79,19 @@ export default function OpenModal({ navigation }: any) {
                 <TouchableOpacity
                   style={styles.conteudo}
                   onPress={async () => {
-                    const d: any = await getVendedor(item.idfav)
-                    setModalVisible(false)
+                    const d: any = await getVendedor(item.idfav);
+                    setModalVisible(false);
                     navigation.navigate("Vendedor", {
-                      idven: d && d.data && d.data.idven//
+                      idven: d && d.data && d.data.idven, //
                     });
                   }}
                 >
-                  <View>
+                  <View style={{justifyContent: 'center', alignItems: 'center'}}>
                     <Image
                       source={{ uri: item.vendedor.imgven }}
                       style={styles.modalimg}
                     />
-                    <Text style={styles.text}>{item.vendedor.nomeven}</Text>
+                    <Text style={styles.text}>{item.vendedor.apelidoven}</Text>
                   </View>
                 </TouchableOpacity>
               )}
