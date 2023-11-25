@@ -23,10 +23,16 @@ import OpenModal from "../../components/Modal";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
+import { useFetch } from "../../services/hooks/useFetch";
+import { BASE_URL } from "@env";
+
 
 const Stack = createNativeStackNavigator();
 
 export default function Home({navigation}: any) {
+
+  const {data} = useFetch(BASE_URL + '/vendedor/todos')
+
   const { navigate } = useNavigation();
 
   return (
@@ -71,9 +77,10 @@ export default function Home({navigation}: any) {
           <Empresas navigation={navigation} />
         </View>
 
+
         <TouchableOpacity
           onPress={() => {
-            navigate("Mais");
+            navigation.navigate("Mais", {idven: data && data.idven});
           }}
         >
           <Text style={styles.vermais}>Ver Mais...</Text>

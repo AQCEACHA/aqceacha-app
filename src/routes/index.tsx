@@ -123,6 +123,30 @@ const CustomMain = ({ navigation }: { navigation: any }) => {
   };
 };
 
+const CustomMais = ({ route, navigation }: any) => {
+    const { idven } = route.params
+
+  return {
+    headerLeft: () => (
+      <Feather
+        style={{ marginRight: vw(4) }}
+        name="chevron-left"
+        size={34}
+        color="#1429A6"
+        onPress={() => {
+          navigation.goBack(); // Isso volta para a tela anterior
+        }}
+      />
+    ),
+    headerStyle: {
+      backgroundColor: '#FAFAFA', // Define a cor de fundo da barra de navegação
+    },
+    headerTitleStyle: {
+      fontFamily: 'ISemi', color: '#525252' // Define a fonte do título da barra de navegação
+    },
+  };
+};
+
 const CustomLocal = ({ navigation }: { navigation: any }) => {
   return {
     headerTitle: "Localização",
@@ -250,7 +274,7 @@ export const Routes = () => {
         <Stack.Screen
           name="Mais"
           component={Mais}
-          options={({ navigation }) => CustomMain({ navigation })}
+          options={({ route, navigation }) => CustomMais({ route, navigation })}
         />
 
         <Stack.Screen
