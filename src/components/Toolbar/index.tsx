@@ -18,15 +18,16 @@ import OpenTelefone from "../Telefone";
 
 import { BASE_URL } from "@env";
 
-import useCustomFetch from "../../services/hooks/useFetch";
+import useCustomFetch, { useFetch } from "../../services/hooks/useFetch";
 
 export default function Toolbar() {
 
-  const { data } = useCustomFetch(BASE_URL + "/cliente");
+  const { data } = useFetch(BASE_URL + "/cliente/todos");
 
   const { navigate, addListener } = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
+
 
   useEffect(() => {
     const unsubscribe = addListener("focus", () => {
@@ -51,12 +52,16 @@ export default function Toolbar() {
         <View>
           <View style={styles.modalView}>
             <View style={styles.information}>
-              <Image source={modalimg} style={styles.modalimg} />
+              <Image source={{uri: 'https://media.licdn.com/dms/image/D4D03AQFX57XixYWqsg/profile-displayphoto-shrink_800_800/0/1680491887876?e=2147483647&v=beta&t=fotTmaXLrCleHD0jSvOsG0_ew7Mzj_AdCKmiL1rdFWc'}} style={styles.modalimg} />
               <View style={styles.textinfo}>
-                <Text style={{ fontFamily: "ISemi" }}>Nome</Text>
+              {data && data.map((cliente:any) => (
+            <React.Fragment key={cliente.idcli}>
+                <Text style={{ fontFamily: "ISemi" }}>{cliente.nomecli}</Text>
                 <Text style={{ fontFamily: "IRegular" }}>
-                  email@gmail.com
+                {cliente.emailcli}
                 </Text>
+            </React.Fragment>
+          ))}
               </View>
             </View>
             <View>

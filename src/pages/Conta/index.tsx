@@ -7,16 +7,16 @@ import { styles } from "./conta";
 import Feather from "@expo/vector-icons/Feather";
 
 export default function Conta() {
-  const [nome, onChangeName] = React.useState("Victor Augusto");
-  const [data, onChangeData] = React.useState("03/06/2005");
-  const [email, onChangeEmail] = React.useState("email@email.com");
+  const [nome, onChangeName] = React.useState("Mariana Rove");
+  const [data, onChangeData] = React.useState("21/12/2005");
+  const [email, onChangeEmail] = React.useState("mariana@email.com");
   const [cpf, onChangeCpf] = React.useState("110.203.403-00");
   const [senha, onChangeSenha] = React.useState("");
 
   return (
     <>
       <View style={styles.contentuser}>
-        <Image source={user} style={styles.imguser} />
+        <Image source={{uri: 'https://media.licdn.com/dms/image/D4D03AQFX57XixYWqsg/profile-displayphoto-shrink_800_800/0/1680491887876?e=2147483647&v=beta&t=fotTmaXLrCleHD0jSvOsG0_ew7Mzj_AdCKmiL1rdFWc'}} style={styles.imguser} />
       </View>
       <TouchableOpacity style={styles.edit}>
         <Feather name="edit-2" size={30} color="#10228A" />

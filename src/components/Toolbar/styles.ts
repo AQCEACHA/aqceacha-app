@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
       modalText: {
         alignSelf: "center",
         fontSize: 20,
-        marginLeft: 130,
+        marginLeft: 160,
         fontFamily: 'ISemi'
       },
       conteudo: {
@@ -85,18 +85,22 @@ export const styles = StyleSheet.create({
         marginLeft: vw(5),
       },
       modalimg: {
-        height: 90,
+        height: 100,
         width: 100,
+        borderRadius: vw(100)
       },
       textinfo:{
         textAlign: 'left',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginLeft: vw(2)
       },
       information:{
         marginTop: vw(4),
         marginBottom: vw(4),
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginLeft: vw(4)
 
       }
 });
