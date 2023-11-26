@@ -51,6 +51,7 @@ export default function Vendedor({ route, navigation, }: any) {
   const { data } = useFetch(BASE_URL + `/vendedor/${idven}`);
 
   const { navigate } = useNavigation();
+  console.log('bbbb')
 
   return (
     <ScrollView>

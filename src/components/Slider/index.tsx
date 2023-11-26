@@ -47,6 +47,7 @@ import { useFetch } from '../../services/hooks/useFetch';
 export const Slider = ({navigation}: any) => {
 
   const { navigate } = useNavigation();
+  console.log('bbbbb')
 
   const { data } = useCustomFetch(BASE_URL + "/ramoatv/todos");
 

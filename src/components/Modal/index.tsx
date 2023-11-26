@@ -30,6 +30,7 @@ export default function OpenModal({ navigation }: any) {
   const { data } = useFetch(BASE_URL + "/cliente/1");
 
   console.log(data && data.favorito[0].favoritoCliente, "aaaaaaaaaaaaaa");
+  console.log(data && data.favorito[0].favoritoCliente, "");
 
   const [modalVisible, setModalVisible] = useState(false);
 

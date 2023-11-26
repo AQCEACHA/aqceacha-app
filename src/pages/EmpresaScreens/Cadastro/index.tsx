@@ -13,6 +13,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
+import axios from "axios";
+import { BASE_URL } from "@env";
+import { ScrollView } from "react-native-gesture-handler";
+
+const axiosInstance = axios.create({
+  baseURL: BASE_URL,
+});
+
 const Stack = createNativeStackNavigator();
 
 interface MinLengthInputProps {
@@ -65,9 +73,12 @@ const CadastroVen: React.FC = () => {
   const [senha, setSenha] = useState("");
   const [senhaTouched, setSenhaTouched] = useState(false); // mensagem de erro
 
-  const [repetirsenha, setRepetirSenha] = useState("");
-  const [repetirSenhaTouched, setRepetirSenhaTouched] = useState(false); // mensagem de erro
+  const [nascimentoven, setNascimentoven] = useState("");
 
+  const [telefoneven, setTelefoneven] = useState("");
+  const [enderecoven, setEnderecoven] = useState("");
+  // const [documentoven, SetDocumentoven] = useState("");
+  const [ramo, setRamo] = useState(1);
 
   const [cpf, setCpf] = useState("");
   const [cnpj, setCnpj] = useState("");
@@ -86,14 +97,11 @@ const CadastroVen: React.FC = () => {
 
   const [etapa, setEtapa] = useState(1);
 
-
   const avancarEtapa = (numeroEtapas: number, idEscolha?: number) => {
-
     if (idEscolha == 1) {
-      setEscolhaCadastro("CPF")
-    }
-    else if (idEscolha == 2) {
-      setEscolhaCadastro("CNPJ")
+      setEscolhaCadastro("CPF");
+    } else if (idEscolha == 2) {
+      setEscolhaCadastro("CNPJ");
     }
 
     if (etapa < 5) {
@@ -102,21 +110,16 @@ const CadastroVen: React.FC = () => {
   };
 
   const retrocederEtapa = (numeroEtapasRetroceder: number) => {
-
-
     if (etapa > 1) {
       setEtapa(etapa - numeroEtapasRetroceder);
     }
 
     if (etapa < 5) {
-      setEscolhaCadastro("")
+      setEscolhaCadastro("");
     }
   };
 
   const { navigate } = useNavigation();
-
-  const senhasIguais = senha === repetirsenha; // senhas iguais
-
 
   return (
     <View style={styles.container}>
@@ -133,14 +136,14 @@ const CadastroVen: React.FC = () => {
       {etapa === 1 && (
         <>
           <View>
-            <Text style={{ fontFamily: "IRegular" }}>Nome</Text>
+            <Text style={styles.text}>Nome</Text>
             <TextInput
               placeholder="Nome Completo"
               value={nome}
               onChangeText={setNome}
               style={styles.input}
             />
-            <Text style={{ fontFamily: "IRegular" }}>Email</Text>
+            <Text style={styles.text}>Email</Text>
             <TextInput
               placeholder="exemplo@gmail.com"
               value={email}
@@ -156,41 +159,34 @@ const CadastroVen: React.FC = () => {
               showError={senhaTouched}
               onFocus={() => setSenhaTouched(true)} // Adicionado o onFocus aqui
             />
-            <MinLengthInput
-              label="Repita a senha"
-              placeholder="min. 8 caracteres"
-              value={repetirsenha}
-              onChangeText={setRepetirSenha}
-              minLength={8}
-              showError={repetirSenhaTouched}
-              onFocus={() => setRepetirSenhaTouched(true)}
-            />
-            {!senhasIguais && (
-              <Text style={{ color: "red", fontFamily: "IRegular" }}>
-                As senhas não coincidem.
-              </Text>
-            )}
-            <Text style={{ fontFamily: "IRegular" }}>CPF</Text>
+            <Text style={styles.text}>Data de Nascimento</Text>
             <TextInput
-              maxLength={11}
-              placeholder="CPF"
-              keyboardType="numeric"
-              value={cpf}
-              onChangeText={setCpf}
+              placeholder="AAAA-MM-DD"
+              value={nascimentoven}
+              onChangeText={setNascimentoven}
               style={styles.input}
             />
           </View>
         </>
       )}
 
-
       {etapa === 2 && (
         <>
           <View>
-            <TouchableOpacity onPress={() => avancarEtapa(1, 1)} style={styles.cpfcnpj}><Text style={styles.cpfcnpj2}>CPF - Pessoa Física</Text></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => avancarEtapa(1, 1)}
+              style={styles.cpfcnpj}
+            >
+              <Text style={styles.cpfcnpj2}>CPF - Pessoa Física</Text>
+            </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity onPress={() => avancarEtapa(2, 2)} style={styles.cpfcnpj}><Text style={styles.cpfcnpj2}>CNPJ - Pessoa Jurídica</Text></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => avancarEtapa(2, 2)}
+              style={styles.cpfcnpj}
+            >
+              <Text style={styles.cpfcnpj2}>CNPJ - Pessoa Jurídica</Text>
+            </TouchableOpacity>
           </View>
         </>
       )}
@@ -204,39 +200,39 @@ const CadastroVen: React.FC = () => {
               style={styles.input}
             />
             <TextInput
+              maxLength={11}
               placeholder="CPF"
               keyboardType="numeric"
               value={cpf}
               onChangeText={setCpf}
               style={styles.input}
             />
-            <TextInput
-              placeholder="DD/MM/AAAA"
-              value={cidade}
-              onChangeText={setCidade}
+            {/* <TextInput
+              placeholder="Documento"
+              value={documentoven}
+              onChangeText={SetDocumentoven}
               style={styles.input}
-            />
+            /> */}
             <TextInput
               placeholder="Telefone"
-              keyboardType="numeric"
-              value={cidade}
-              onChangeText={setCidade}
+              value={telefoneven}
+              onChangeText={setTelefoneven}
               style={styles.input}
             />
           </View>
         </>
-
       )}
       {etapa === 4 && (
         <>
-
           <View>
+            <Text style={styles.text}>Nome Empresa</Text>
             <TextInput
-              placeholder="Nome Empresa"
+              placeholder="Nome da Empresa"
               value={nomeEmpresa}
               onChangeText={setNomeEmpresa}
               style={styles.input}
             />
+            <Text style={styles.text}>CNPJ</Text>
             <TextInput
               placeholder="CNPJ"
               keyboardType="numeric"
@@ -244,23 +240,25 @@ const CadastroVen: React.FC = () => {
               onChangeText={setCnpj}
               style={styles.input}
             />
-            <TextInput
-              placeholder="Comprovante"
-              value={cidade}
-              onChangeText={setCidade}
-              style={styles.input}
-            />
+            <Text style={styles.text}>Telefone</Text>
             <TextInput
               placeholder="Telefone"
               keyboardType="numeric"
-              value={cidade}
-              onChangeText={setCidade}
+              value={telefoneven}
+              onChangeText={setTelefoneven}
               style={styles.input}
             />
+            <Text style={styles.text}>Ramo de Atividade</Text>
+            <TextInput placeholder="Ramo de Atividade" style={styles.input} />
+            {/* <TextInput
+              placeholder="Documento"
+              value={documentoven}
+              onChangeText={SetDocumentoven}
+              style={styles.input}
+            /> */}
           </View>
         </>
       )}
-
 
       {etapa === 5 && (
         <View>
@@ -314,22 +312,61 @@ const CadastroVen: React.FC = () => {
 
       <View style={styles.botoesContainer}>
         {etapa > 1 && etapa != 2 && (
-          <TouchableOpacity onPress={() => retrocederEtapa((escolhaCadastro === 'CPF' && etapa == 5) ? 2 : (escolhaCadastro === 'CNPJ' && etapa == 4 ? 2 : 1))} style={styles.botao}>
+          <TouchableOpacity
+            onPress={() =>
+              retrocederEtapa(
+                escolhaCadastro === "CPF" && etapa == 5
+                  ? 2
+                  : escolhaCadastro === "CNPJ" && etapa == 4
+                  ? 2
+                  : 1
+              )
+            }
+            style={styles.botao}
+          >
             <Text style={styles.botaoText}>Voltar</Text>
           </TouchableOpacity>
         )}
-        {etapa != 2 && (etapa < 5 ? (
-          <TouchableOpacity onPress={() => avancarEtapa(etapa == 3 ? 2 : 1)} style={styles.botao}>
-            <Text style={styles.botaoText}>Avançar</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={() => navigate("Home")}
-            style={styles.botao}
-          >
-            <Text style={styles.botaoText}>Concluir</Text>
-          </TouchableOpacity>
-        ))}
+        {etapa != 2 &&
+          (etapa < 5 ? (
+            <TouchableOpacity
+              onPress={() => avancarEtapa(etapa == 3 ? 2 : 1)}
+              style={styles.botao}
+            >
+              <Text style={styles.botaoText}>Avançar</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={() => {
+                axiosInstance.post(
+                  BASE_URL + "/vendedor/criar",
+                  {
+                    nomeven: nome,
+                    emailven: email,
+                    senhaven: senha,
+                    apelidoven: nomeEmpresa,
+                    nascimentoven: nascimentoven,
+                    telefoneven: telefoneven,
+                    enderecoven: enderecoven,
+                    numeroven: numero,
+                    complementoven: null,
+                    documentoven: "doc",
+                    cnpj: cnpj,
+                    idcidade: 5010,
+                    idramo: 1,
+                  },
+                  {
+                    headers: { "Content-Type": "application/json" },
+                    data: {},
+                  }
+                );
+                navigate("Home");
+              }}
+              style={styles.botao}
+            >
+              <Text style={styles.botaoText}>Concluir</Text>
+            </TouchableOpacity>
+          ))}
       </View>
     </View>
   );

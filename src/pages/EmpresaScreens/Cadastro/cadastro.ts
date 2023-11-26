@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
     fontFamily: 'ISemi',
     marginBottom: 20,
   },
+  text: {
+    fontFamily: 'IRegular',
+    fontSize: 18
+  },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
