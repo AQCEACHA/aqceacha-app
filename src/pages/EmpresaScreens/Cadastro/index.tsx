@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   Button,
   StyleSheet,
   TouchableOpacity,
-  Alert,
 } from "react-native";
 import { styles } from "./cadastro";
 
@@ -14,12 +13,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { useNavigation } from "@react-navigation/native";
 
-import { BASE_URL } from "@env";
-import useCustomFetch, { usePost } from "../../../services/hooks/useFetch";
-
-import { useForm } from "react-hook-form";
-import { ScrollView } from "react-native";
 import axios from "axios";
+import { BASE_URL } from "@env";
+import { ScrollView } from "react-native-gesture-handler";
+
+const axiosInstance = axios.create({
+  baseURL: BASE_URL,
+});
 
 const Stack = createNativeStackNavigator();
 
@@ -67,21 +67,34 @@ const MinLengthInput: React.FC<MinLengthInputProps> = ({
 };
 
 const CadastroVen: React.FC = () => {
-  const { data } = useCustomFetch(BASE_URL + "/vendedor/todos");
-  const { navigate } = useNavigation();
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
 
-  const onSubmit = (data: any) => {
-    Alert.alert(data.nome, data.email);
-    console.log(data);
-    axios
-      .post(BASE_URL + `/vendedor/criar`, data, { data: {}, headers: {"Content-Type": "application/json"} })
-      .then((response: { data: any }) => {
-        console.log(response.data);
-      }).catch((err) => console.log(err));
-    navigate("Home");
-  };
+  const [senha, setSenha] = useState("");
+  const [senhaTouched, setSenhaTouched] = useState(false); // mensagem de erro
+
+  const [nascimentoven, setNascimentoven] = useState("");
+
+  const [telefoneven, setTelefoneven] = useState("");
+  const [enderecoven, setEnderecoven] = useState("");
+  // const [documentoven, SetDocumentoven] = useState("");
+  const [ramo, setRamo] = useState(1);
+
+  const [cpf, setCpf] = useState("");
+  const [cnpj, setCnpj] = useState("");
+
+  const [nomeEmpresa, setNomeEmpresa] = useState("");
+
+  const [cep, setCep] = useState("");
+  const [estado, setEstado] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [rua, setRua] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [numero, setNumero] = useState("");
+  const [complemento, setComplemento] = useState("");
 
   const [escolhaCadastro, setEscolhaCadastro] = useState("");
+
   const [etapa, setEtapa] = useState(1);
 
   const avancarEtapa = (numeroEtapas: number, idEscolha?: number) => {
@@ -96,25 +109,6 @@ const CadastroVen: React.FC = () => {
     }
   };
 
-  const { register, setValue, handleSubmit } = useForm();
-
-  useEffect(() => {
-    register("nomeven");
-    register("idramo");
-    register("idcidade");
-    register("senhaven");
-    register("apelidoven");
-    register("emailven");
-    register("telefoneven");
-    register("nascimentoven");
-    register("enderecoven");
-    register("numeroven");
-    register("complementoven");
-    register("documentoven")
-    register("cnpj");
-   
-  }, [register]);
-
   const retrocederEtapa = (numeroEtapasRetroceder: number) => {
     if (etapa > 1) {
       setEtapa(etapa - numeroEtapasRetroceder);
@@ -125,10 +119,10 @@ const CadastroVen: React.FC = () => {
     }
   };
 
-  // const senhasIguais = senha === repetirsenha; // senhas iguais
+  const { navigate } = useNavigation();
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.progressContainer}>
         <View style={styles.progress}>
           <View
@@ -142,31 +136,35 @@ const CadastroVen: React.FC = () => {
       {etapa === 1 && (
         <>
           <View>
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Nome</Text>
+            <Text style={styles.text}>Nome</Text>
             <TextInput
+              placeholder="Nome Completo"
+              value={nome}
+              onChangeText={setNome}
               style={styles.input}
-              placeholder={"Digite seu nome"}
-              onChangeText={(text) => setValue("nomeven", text)}
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Email</Text>
+            <Text style={styles.text}>Email</Text>
             <TextInput
+              placeholder="exemplo@gmail.com"
+              value={email}
+              onChangeText={setEmail}
               style={styles.input}
-              placeholder={"Digite seu email"}
-              onChangeText={(text) => setValue("emailven", text)}
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Senha</Text>
-            <TextInput
-              style={styles.input}
-              placeholder={"Digite sua senha"}
-              onChangeText={(text) => setValue("senhaven", text)}
+            <MinLengthInput
+              label="Senha"
+              placeholder="min. 8 caracteres"
+              value={senha}
+              onChangeText={setSenha}
+              minLength={8}
+              showError={senhaTouched}
+              onFocus={() => setSenhaTouched(true)} // Adicionado o onFocus aqui
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Data de Nascimento
-            </Text>
+            <Text style={styles.text}>Data de Nascimento</Text>
             <TextInput
+              placeholder="AAAA-MM-DD"
+              value={nascimentoven}
+              onChangeText={setNascimentoven}
               style={styles.input}
-              placeholder={"AAAA/MM/DD"}
-              onChangeText={(text) => setValue("nascimentoven", text)}
             />
           </View>
         </>
@@ -195,114 +193,119 @@ const CadastroVen: React.FC = () => {
       {etapa === 3 && (
         <>
           <View>
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Nome da Empresa
-            </Text>
             <TextInput
+              placeholder="Nome Empresa"
+              value={nomeEmpresa}
+              onChangeText={setNomeEmpresa}
               style={styles.input}
-              placeholder={"Digite o nome da sua empresa"}
-              onChangeText={(text) => setValue("apelidoven", text)}
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>CPF</Text>
             <TextInput
+              maxLength={11}
+              placeholder="CPF"
+              keyboardType="numeric"
+              value={cpf}
+              onChangeText={setCpf}
               style={styles.input}
-              placeholder={"Digite seu CPF"}
-              onChangeText={(text) => setValue("cpf", text)}
             />
-
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Telefone
-            </Text>
+            {/* <TextInput
+              placeholder="Documento"
+              value={documentoven}
+              onChangeText={SetDocumentoven}
+              style={styles.input}
+            /> */}
             <TextInput
+              placeholder="Telefone"
+              value={telefoneven}
+              onChangeText={setTelefoneven}
               style={styles.input}
-              placeholder={"Digite seu telefone"}
-              onChangeText={(text) => setValue("telefoneven", text)}
             />
-            
           </View>
         </>
       )}
       {etapa === 4 && (
         <>
           <View>
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Nome da Empresa
-            </Text>
+            <Text style={styles.text}>Nome Empresa</Text>
             <TextInput
+              placeholder="Nome da Empresa"
+              value={nomeEmpresa}
+              onChangeText={setNomeEmpresa}
               style={styles.input}
-              placeholder={"Digite o nome da sua empresa"}
-              onChangeText={(text) => setValue("apelidoven", text)}
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>CNPJ</Text>
+            <Text style={styles.text}>CNPJ</Text>
             <TextInput
+              placeholder="CNPJ"
+              keyboardType="numeric"
+              value={cnpj}
+              onChangeText={setCnpj}
               style={styles.input}
-              placeholder={"Digite seu CNPJ"}
-              onChangeText={(text) => setValue("cnpj", text)}
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Telefone
-            </Text>
+            <Text style={styles.text}>Telefone</Text>
             <TextInput
+              placeholder="Telefone"
+              keyboardType="numeric"
+              value={telefoneven}
+              onChangeText={setTelefoneven}
               style={styles.input}
-              placeholder={"Digite seu telefone"}
-              onChangeText={(text) => setValue("telefoneven", text)}
             />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Ramo de Atividade
-            </Text>
-            <TextInput
+            <Text style={styles.text}>Ramo de Atividade</Text>
+            <TextInput placeholder="Ramo de Atividade" style={styles.input} />
+            {/* <TextInput
+              placeholder="Documento"
+              value={documentoven}
+              onChangeText={SetDocumentoven}
               style={styles.input}
-              placeholder={"Digite seu ramo"}
-              onChangeText={(text) => setValue("idramo", text)}
-            />
-            <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-              Documento
-            </Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setValue("documentoven", text)}
-            />
+            /> */}
           </View>
         </>
       )}
 
       {etapa === 5 && (
         <View>
-          <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>CEP</Text>
           <TextInput
+            placeholder="CEP"
+            keyboardType="numeric"
+            value={cep}
+            onChangeText={setCep}
             style={styles.input}
-            placeholder={"Digite o CEP da sua empresa"}
           />
-          <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Estado</Text>
           <TextInput
+            placeholder="Estado"
+            value={estado}
+            onChangeText={setEstado}
             style={styles.input}
-            placeholder={"Digite o estado da sua empresa"}
           />
-          <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Cidade</Text>
           <TextInput
+            placeholder="Cidade"
+            value={cidade}
+            onChangeText={setCidade}
             style={styles.input}
-            placeholder={"Digite a cidade da sua empresa"}
-            onChangeText={(text) => setValue("idcidade", text)}
           />
-          <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Endereço</Text>
           <TextInput
+            placeholder="Rua"
+            value={rua}
+            onChangeText={setRua}
             style={styles.input}
-            placeholder={"Digite a rua da sua empresa"}
-            onChangeText={(text) => setValue("enderecoven", text)}
           />
-          <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>Número</Text>
           <TextInput
+            placeholder="Bairro"
+            value={bairro}
+            onChangeText={setBairro}
             style={styles.input}
-            placeholder={"Digite o numero da sua empresa"}
-            onChangeText={(text) => setValue("numeroven", text)}
           />
-          <Text style={{ fontFamily: "IRegular", fontSize: 18 }}>
-            Complemento
-          </Text>
           <TextInput
+            placeholder="Número"
+            keyboardType="numeric"
+            value={numero}
+            onChangeText={setNumero}
             style={styles.input}
-            placeholder={"Digite o complemento"}
-            onChangeText={(text) => setValue("complementoven", text)}
+          />
+          <TextInput
+            placeholder="Complemento"
+            keyboardType="numeric"
+            value={complemento}
+            onChangeText={setComplemento}
+            style={styles.input}
           />
         </View>
       )}
@@ -324,26 +327,48 @@ const CadastroVen: React.FC = () => {
             <Text style={styles.botaoText}>Voltar</Text>
           </TouchableOpacity>
         )}
-        <View style={{ paddingBottom: 40 }}>
-          {etapa != 2 &&
-            (etapa < 5 ? (
-              <TouchableOpacity
-                onPress={() => avancarEtapa(etapa == 3 ? 2 : 1)}
-                style={styles.botao}
-              >
-                <Text style={styles.botaoText}>Avançar</Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                onPress={handleSubmit(onSubmit)}
-                style={styles.botao}
-              >
-                <Text style={styles.botaoText}>Concluir</Text>
-              </TouchableOpacity>
-            ))}
-        </View>
+        {etapa != 2 &&
+          (etapa < 5 ? (
+            <TouchableOpacity
+              onPress={() => avancarEtapa(etapa == 3 ? 2 : 1)}
+              style={styles.botao}
+            >
+              <Text style={styles.botaoText}>Avançar</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={() => {
+                axiosInstance.post(
+                  BASE_URL + "/vendedor/criar",
+                  {
+                    nomeven: nome,
+                    emailven: email,
+                    senhaven: senha,
+                    apelidoven: nomeEmpresa,
+                    nascimentoven: nascimentoven,
+                    telefoneven: telefoneven,
+                    enderecoven: enderecoven,
+                    numeroven: numero,
+                    complementoven: null,
+                    documentoven: "doc",
+                    cnpj: cnpj,
+                    idcidade: 5010,
+                    idramo: 1,
+                  },
+                  {
+                    headers: { "Content-Type": "application/json" },
+                    data: {},
+                  }
+                );
+                navigate("Home");
+              }}
+              style={styles.botao}
+            >
+              <Text style={styles.botaoText}>Concluir</Text>
+            </TouchableOpacity>
+          ))}
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

@@ -14,7 +14,7 @@ export default function Empresas({navigation}: any) {
   const {data} = useFetch(BASE_URL + '/vendedor/todos')
 
   const { navigate } = useNavigation();
-  console.log(data)
+  console.log(data, "bbbbbbbb")
 
   const numColumns = 2;
 

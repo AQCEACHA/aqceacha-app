@@ -53,7 +53,7 @@ export const Slider = () => {
 
   //caso não passe muda / ou fetch
 
-  console.log(data);
+  console.log(data, "bbbb");
 
   const [activeBanner, setActiveBanner] = useState<number>(0);
   const FlatlistRef = useRef<FlatList>(null);
