@@ -15,27 +15,32 @@ import { styles } from "./config";
 import Feather from "@expo/vector-icons/Feather";
 
 import { useNavigation } from "@react-navigation/native";
+import useCustomFetch, { useFetch } from "../../services/hooks/useFetch";
+import { BASE_URL } from "@env";
 
 export default function Config() {
   const { navigate } = useNavigation();
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const { data } = useFetch(BASE_URL + `/cliente/todos`);
+
+  //const [isEnabled, setIsEnabled] = useState(false);
+  //const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <>
       <View>
         <View style={styles.contentuser}>
-          <Image source={user} style={styles.imguser} />
+          <Image source={{uri: data && data.imgcli}} style={styles.imguser} />
         </View>
 
         <View style={styles.contenttext}>
-          <Text style={styles.nome}>Victor Carbelotti</Text>
-          <Text style={styles.email}>email@email.com</Text>
+          <Text style={styles.nome}>{data && data.content && data.nomecli}</Text>
+          <Text style={styles.email}>{data && data.emailcli}</Text>
         </View>
 
         <View style={styles.contentinfo}>
           <View style={styles.textinfo}>
-            <View style={styles.itens}>
+
+            {/* <View style={styles.itens}>
               <Feather
                 name="moon"
                 size={30}
@@ -50,7 +55,7 @@ export default function Config() {
                 onValueChange={toggleSwitch}
                 value={isEnabled}
               />
-            </View>
+            </View> */}
             <TouchableOpacity
               onPress={() => {
                 navigate("Conta");

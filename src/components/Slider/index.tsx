@@ -88,7 +88,7 @@ export const Slider = ({navigation}: any) => {
           >
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("MaisFilter", {idramo: item && item.idramo});
+                navigation.navigate("MaisFilter", {nomeramo: item && item.ramo, idramo: item && item.idramo});
               }}
             >
               <Feather
