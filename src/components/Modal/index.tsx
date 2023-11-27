@@ -30,7 +30,6 @@ export default function OpenModal({ navigation }: any) {
   const { data } = useFetch(BASE_URL + "/cliente/1");
 
   console.log(data && data.favorito[0].favoritoCliente, "aaaaaaaaaaaaaa");
-  console.log(data && data.favorito[0].favoritoCliente, "");
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -77,6 +76,7 @@ export default function OpenModal({ navigation }: any) {
               data={data && data.favorito}
               numColumns={numColumns} // Mostrar 2 itens por linha
               renderItem={({ item }) => (
+                console.log(item),
                 <TouchableOpacity
                   style={styles.conteudo}
                   onPress={async () => {

@@ -102,9 +102,9 @@ export default function Home({navigation}: any) {
         </TouchableOpacity>
       </ScrollView>
       {/*Fim da scroll home*/}
-      <View style={styles.modal}>
+      {/* <View style={styles.modal}>
         <OpenModal navigation={navigation}/>
-      </View>
+      </View> */}
     </>
   );
 }

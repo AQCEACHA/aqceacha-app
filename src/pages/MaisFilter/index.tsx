@@ -23,19 +23,26 @@ export default function MaisFilter({ navigation, route }: any) {
 
   const { data } = useFetch(BASE_URL + `/vendedor?ramo=${nomeramo}`);
 
+  console.log(data)
+
   const { navigate } = useNavigation();
 
   // Set to keep track of unique idven values
   const uniqueIdvens = new Set<number>();
+  
+  // Use a map to store the first occurrence of each idven
+  const uniqueDataMap = new Map<number, any>();
 
-  // Filter the data to keep only the first occurrence of each idven
-  const uniqueData = data?.content.filter((item: any) => {
+  // Iterate through the data and populate the map with the first occurrence of each idven
+  data?.content.forEach((item: any) => {
     if (!uniqueIdvens.has(item.idven)) {
       uniqueIdvens.add(item.idven);
-      return true;
+      uniqueDataMap.set(item.idven, item);
     }
-    return false;
   });
+
+  // Convert the map values back to an array
+  const uniqueData = Array.from(uniqueDataMap.values());
 
   return (
     <FlatList

@@ -48,7 +48,7 @@ export default function HeaderVendedor({ idven }: any) {
   return (
     <>
       <View style={styles.icon}>
-        {favorito && favorito.data && favorito.data ? (
+        {/* {favorito && favorito.data && favorito.data ? (
           <TouchableOpacity
             onPress={() => {
               removerFavorito(idven);
@@ -64,7 +64,7 @@ export default function HeaderVendedor({ idven }: any) {
           >
             <Feather name="heart" size={25} color="#E03D3D" />
           </TouchableOpacity>
-        )}
+        )} */}
         <View style={styles.star}>
           <Feather name="star" size={20} color="#FFA500" />
           <Text

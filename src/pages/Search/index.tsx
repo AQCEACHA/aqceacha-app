@@ -7,7 +7,7 @@ import { useFetch } from "../../services/hooks/useFetch";
 
 export default function Search() {
   const [pesquisa, setPesquisa] = useState("");
-  const { data } = useFetch(BASE_URL + "/vendedor/todos?nomeven=" + pesquisa);
+  const { data } = useFetch(BASE_URL + "/vendedor?nomeven=" + pesquisa);
 
   console.log(data)
 

@@ -17,6 +17,8 @@ import axios from "axios";
 import { BASE_URL } from "@env";
 import { ScrollView } from "react-native-gesture-handler";
 
+import user from "../../../../assets/user.png"
+
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
@@ -342,6 +344,7 @@ const CadastroVen: React.FC = () => {
                   BASE_URL + "/vendedor/criar",
                   {
                     nomeven: nome,
+                    imgven: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
                     emailven: email,
                     senhaven: senha,
                     apelidoven: nomeEmpresa,

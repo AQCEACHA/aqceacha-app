@@ -107,6 +107,7 @@ const CustomName = ({ navigation }: { navigation: any }) => {
 
 const CustomMain = ({ navigation }: { navigation: any }) => {
   return {
+    headerTitle: '',
     headerLeft: () => (
       <Feather
         style={{ marginRight: vw(4) }}
@@ -130,6 +131,7 @@ const CustomMain = ({ navigation }: { navigation: any }) => {
 const CustomMais = ({ route, navigation }: any) => {
   const { idramo } = route.params
   return {
+    headerTitle: '',
     headerLeft: () => (
       <>
       <Feather
