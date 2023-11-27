@@ -47,6 +47,7 @@ export default function LoginCli() {
           </Text>
           <TextInput
             placeholder="min. 8 caraceteres"
+            secureTextEntry={true}
             value={senha}
             onChangeText={setSenha}
             style={styles.input}

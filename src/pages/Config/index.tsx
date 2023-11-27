@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Switch,
+  Alert
 } from "react-native";
 
 import user from "../../../assets/userimg.jpg";
@@ -25,6 +26,26 @@ export default function Config() {
   const { data } = useFetch(BASE_URL + `/cliente/todos`);
 
   console.log(data);
+
+  const handleLogout = () => {
+    Alert.alert(
+      "Tem certeza que quer sair?",
+      "Ao sair, você será redirecionado para a página inicial.",
+      [
+        {
+          text: "Não",
+          style: "cancel", // Estilo de botão padrão para "Cancelar"
+        },
+        {
+          text: "Sim",
+          onPress: () => {
+            // Se o usuário clicar em "Sim", redirecione para a página de login
+            navigate("Inicio");
+          },
+        },
+      ]
+    );
+  };
 
   return (
     <>
@@ -68,7 +89,7 @@ export default function Config() {
           </View>
         </View>
       </View>
-      <TouchableOpacity style={styles.sairconta}>
+      <TouchableOpacity style={styles.sairconta} onPress={handleLogout}>
         <Feather
           name="trash-2"
           size={30}
